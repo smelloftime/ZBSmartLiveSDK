@@ -4,6 +4,7 @@ ZBSmartLiveSDK 是一个适用于 iOS 平台快速集成直播功能的 SDK.配�
 同时 ZBSDK 提供高度可定制化和自由调整的 UI.
 ZBSmartLiveSDK 的特色是使用 IOS Camera 画面捕获并进行 H.264 硬编码,以及支持 IOS 麦克风音频采样进行 AAC 编码;同时,还能适应移动网络的多变性,实现智能切换最佳的视频采集,编码配置.
 借助 ZBSmartLiveSDK 和智播云后台,用户可以在几小时内集成智播聊天核心功能至已有应用中.
+(备注:该SDK只支持在真机环境下调试发布,仅支持ARC环境和object-c工程)
 
 ## 功能特性
 
