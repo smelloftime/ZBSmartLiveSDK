@@ -1,0 +1,16 @@
+PODS:
+  - ZBSmartLiveSDK (0.1.0)
+
+DEPENDENCIES:
+  - ZBSmartLiveSDK (from `../`)
+
+EXTERNAL SOURCES:
+  ZBSmartLiveSDK:
+    :path: ../
+
+SPEC CHECKSUMS:
+  ZBSmartLiveSDK: c6dc9eb0546b75edc924a102f189acfb11196f25
+
+PODFILE CHECKSUM: c5b62f179611cc8601feef06bee661a731a5bb87
+
+COCOAPODS: 1.0.1

@@ -1,0 +1,685 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		028B6F88CB7EFECA05E8BDC65F58182F /* Pods-ZBSmartLiveSDK_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A18C29CA7AD157ADA1C2632971B743A2 /* Pods-ZBSmartLiveSDK_Tests-dummy.m */; };
+		1E86EE08451C2CB983020F1624FD509F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		272DF7A9493035CE35928C8801CB94C2 /* Pods-ZBSmartLiveSDK_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E3BFBF9891357CAD1B3E5ED101DCC3 /* Pods-ZBSmartLiveSDK_Example-dummy.m */; };
+		2772370D9021855ED94957C86F56BBDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		3AA11398513E44E042F607A72C6BF589 /* ZBSmartLiveSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F5F0CAA0ECF8805BCDC9755A5941EEE8 /* ZBSmartLiveSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F475442225FEC55A9A11E951B11C24B /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0ED6224BD11E33B97CB7ACB4C4764A /* ReplaceMe.m */; };
+		BA1BBEB341D7E68157095C6D6E4A2ED8 /* ZBSmartLiveSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE36E63C8595407E2A46EEB8C007606 /* ZBSmartLiveSDK-dummy.m */; };
+		BD3592015C6F33BCC0E0CD44A230A857 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		BF6F404186DABF51BA12370EA63BB841 /* Pods-ZBSmartLiveSDK_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EE921715D67B128500EA041CC4DDEED3 /* Pods-ZBSmartLiveSDK_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6DFE6FE5C3A4D5C82F15A8916AE3150 /* Pods-ZBSmartLiveSDK_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 70805C85D9C60D009B9D9A9578E9FEB7 /* Pods-ZBSmartLiveSDK_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF00165E900698F23BF954D737D1A5B4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02AB585A96CA4A4B452320E300FE0189;
+			remoteInfo = ZBSmartLiveSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04BA856273B710544764D04DE290D43B /* Pods_ZBSmartLiveSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZBSmartLiveSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05CC51DAD12CD4EDBAD242FDC9C34A44 /* Pods-ZBSmartLiveSDK_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ZBSmartLiveSDK_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		19B2A472F0BC13A2F048B17E825BB6C0 /* ZBSmartLiveSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZBSmartLiveSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		253AE7C0DC1585EBD5B5C75E61DAD2C9 /* ZBSmartLiveSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZBSmartLiveSDK-prefix.pch"; sourceTree = "<group>"; };
+		271916D9F917D35D334CC740709EEEAD /* Pods-ZBSmartLiveSDK_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ZBSmartLiveSDK_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		35704E7D170EE50E460D3D0E3F3BF53D /* Pods-ZBSmartLiveSDK_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ZBSmartLiveSDK_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		536BE2923AA53B3A9BD959E512228428 /* Pods-ZBSmartLiveSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZBSmartLiveSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		594E16E88C8A0C3541C54848AAFAB86C /* Pods-ZBSmartLiveSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZBSmartLiveSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		5A2A7D5F1A886BF243E22AAEC00AA118 /* Pods-ZBSmartLiveSDK_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ZBSmartLiveSDK_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6EE36E63C8595407E2A46EEB8C007606 /* ZBSmartLiveSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZBSmartLiveSDK-dummy.m"; sourceTree = "<group>"; };
+		70805C85D9C60D009B9D9A9578E9FEB7 /* Pods-ZBSmartLiveSDK_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ZBSmartLiveSDK_Tests-umbrella.h"; sourceTree = "<group>"; };
+		71E3BFBF9891357CAD1B3E5ED101DCC3 /* Pods-ZBSmartLiveSDK_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ZBSmartLiveSDK_Example-dummy.m"; sourceTree = "<group>"; };
+		7588FEB186F43F8E468D8CA0123D586F /* Pods-ZBSmartLiveSDK_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZBSmartLiveSDK_Example-resources.sh"; sourceTree = "<group>"; };
+		7DCE162610D4DFF2BD66CB6CDFE71167 /* Pods-ZBSmartLiveSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZBSmartLiveSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		8149456DEA9DA640514CADEA86027315 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88F7E8D82C25BA2E7E71B81F4B55850A /* Pods-ZBSmartLiveSDK_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZBSmartLiveSDK_Example-frameworks.sh"; sourceTree = "<group>"; };
+		8A0ED6224BD11E33B97CB7ACB4C4764A /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ReplaceMe.m; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		96DC314F3DF77D1DC749A7B0256B34AE /* Pods_ZBSmartLiveSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZBSmartLiveSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CFE2D22201075DE1F96311A3458011C /* Pods-ZBSmartLiveSDK_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZBSmartLiveSDK_Tests-resources.sh"; sourceTree = "<group>"; };
+		A18C29CA7AD157ADA1C2632971B743A2 /* Pods-ZBSmartLiveSDK_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ZBSmartLiveSDK_Tests-dummy.m"; sourceTree = "<group>"; };
+		A81E546E2F0854F86594CA1289EDB7DF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B24F16CBE02668FF66E39F6B68409536 /* Pods-ZBSmartLiveSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZBSmartLiveSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
+		C290D07B52A9052B69358F8F1686BA17 /* Pods-ZBSmartLiveSDK_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ZBSmartLiveSDK_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		C6042F4A67C77BE975635148761D7369 /* ZBSmartLiveSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ZBSmartLiveSDK.modulemap; sourceTree = "<group>"; };
+		CA3602106ED96F1A71EBDA073ABEC739 /* Pods-ZBSmartLiveSDK_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ZBSmartLiveSDK_Example.modulemap"; sourceTree = "<group>"; };
+		CE0BF8A8F6B6EF70F88229015524CD23 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		EDC9E00C1A44DF47419C5784FC37B156 /* ZBSmartLiveSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZBSmartLiveSDK.xcconfig; sourceTree = "<group>"; };
+		EE921715D67B128500EA041CC4DDEED3 /* Pods-ZBSmartLiveSDK_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ZBSmartLiveSDK_Example-umbrella.h"; sourceTree = "<group>"; };
+		F487645B0BFE28B6AFBE2A9CC848B6FE /* Pods-ZBSmartLiveSDK_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ZBSmartLiveSDK_Tests.modulemap"; sourceTree = "<group>"; };
+		F5F0CAA0ECF8805BCDC9755A5941EEE8 /* ZBSmartLiveSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZBSmartLiveSDK-umbrella.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		292F5F4230A57AA62C918165320D6FA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E86EE08451C2CB983020F1624FD509F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C87DD160D3A8279A102FF1AFA08932D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD3592015C6F33BCC0E0CD44A230A857 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD99B68DC5F78506A665A0AB86E88F58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2772370D9021855ED94957C86F56BBDF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2563A24424D8B915EAB6054EC33F27AD /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6E15426C7270FBF57885C1EBB35B1A0F /* Pods-ZBSmartLiveSDK_Example */,
+				EE2ADA82D125C6392E0E2AA28B8891F8 /* Pods-ZBSmartLiveSDK_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		38DF590AD5613678D5BBA8AD9BAE8AD5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04BA856273B710544764D04DE290D43B /* Pods_ZBSmartLiveSDK_Example.framework */,
+				96DC314F3DF77D1DC749A7B0256B34AE /* Pods_ZBSmartLiveSDK_Tests.framework */,
+				19B2A472F0BC13A2F048B17E825BB6C0 /* ZBSmartLiveSDK.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		6AF5EDDCCDD4F5121FE150960D06699D /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A26F14093752D4C2C58EC8B8B715196A /* ZBSmartLiveSDK */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		6E15426C7270FBF57885C1EBB35B1A0F /* Pods-ZBSmartLiveSDK_Example */ = {
+			isa = PBXGroup;
+			children = (
+				A81E546E2F0854F86594CA1289EDB7DF /* Info.plist */,
+				CA3602106ED96F1A71EBDA073ABEC739 /* Pods-ZBSmartLiveSDK_Example.modulemap */,
+				05CC51DAD12CD4EDBAD242FDC9C34A44 /* Pods-ZBSmartLiveSDK_Example-acknowledgements.markdown */,
+				35704E7D170EE50E460D3D0E3F3BF53D /* Pods-ZBSmartLiveSDK_Example-acknowledgements.plist */,
+				71E3BFBF9891357CAD1B3E5ED101DCC3 /* Pods-ZBSmartLiveSDK_Example-dummy.m */,
+				88F7E8D82C25BA2E7E71B81F4B55850A /* Pods-ZBSmartLiveSDK_Example-frameworks.sh */,
+				7588FEB186F43F8E468D8CA0123D586F /* Pods-ZBSmartLiveSDK_Example-resources.sh */,
+				EE921715D67B128500EA041CC4DDEED3 /* Pods-ZBSmartLiveSDK_Example-umbrella.h */,
+				7DCE162610D4DFF2BD66CB6CDFE71167 /* Pods-ZBSmartLiveSDK_Example.debug.xcconfig */,
+				B24F16CBE02668FF66E39F6B68409536 /* Pods-ZBSmartLiveSDK_Example.release.xcconfig */,
+			);
+			name = "Pods-ZBSmartLiveSDK_Example";
+			path = "Target Support Files/Pods-ZBSmartLiveSDK_Example";
+			sourceTree = "<group>";
+		};
+		77A3A7D1417182E4D533E72C169B64F0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE0BF8A8F6B6EF70F88229015524CD23 /* Info.plist */,
+				C6042F4A67C77BE975635148761D7369 /* ZBSmartLiveSDK.modulemap */,
+				EDC9E00C1A44DF47419C5784FC37B156 /* ZBSmartLiveSDK.xcconfig */,
+				6EE36E63C8595407E2A46EEB8C007606 /* ZBSmartLiveSDK-dummy.m */,
+				253AE7C0DC1585EBD5B5C75E61DAD2C9 /* ZBSmartLiveSDK-prefix.pch */,
+				F5F0CAA0ECF8805BCDC9755A5941EEE8 /* ZBSmartLiveSDK-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/ZBSmartLiveSDK";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				6AF5EDDCCDD4F5121FE150960D06699D /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				38DF590AD5613678D5BBA8AD9BAE8AD5 /* Products */,
+				2563A24424D8B915EAB6054EC33F27AD /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A26F14093752D4C2C58EC8B8B715196A /* ZBSmartLiveSDK */ = {
+			isa = PBXGroup;
+			children = (
+				77A3A7D1417182E4D533E72C169B64F0 /* Support Files */,
+				D345622826B0E590E44D5AD4D2AC084A /* ZBSmartLiveSDK */,
+			);
+			name = ZBSmartLiveSDK;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D345622826B0E590E44D5AD4D2AC084A /* ZBSmartLiveSDK */ = {
+			isa = PBXGroup;
+			children = (
+				E2E4F70990B547F68E4FB8AC78D85CC8 /* Classes */,
+			);
+			path = ZBSmartLiveSDK;
+			sourceTree = "<group>";
+		};
+		E2E4F70990B547F68E4FB8AC78D85CC8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8A0ED6224BD11E33B97CB7ACB4C4764A /* ReplaceMe.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		EE2ADA82D125C6392E0E2AA28B8891F8 /* Pods-ZBSmartLiveSDK_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8149456DEA9DA640514CADEA86027315 /* Info.plist */,
+				F487645B0BFE28B6AFBE2A9CC848B6FE /* Pods-ZBSmartLiveSDK_Tests.modulemap */,
+				5A2A7D5F1A886BF243E22AAEC00AA118 /* Pods-ZBSmartLiveSDK_Tests-acknowledgements.markdown */,
+				271916D9F917D35D334CC740709EEEAD /* Pods-ZBSmartLiveSDK_Tests-acknowledgements.plist */,
+				A18C29CA7AD157ADA1C2632971B743A2 /* Pods-ZBSmartLiveSDK_Tests-dummy.m */,
+				C290D07B52A9052B69358F8F1686BA17 /* Pods-ZBSmartLiveSDK_Tests-frameworks.sh */,
+				9CFE2D22201075DE1F96311A3458011C /* Pods-ZBSmartLiveSDK_Tests-resources.sh */,
+				70805C85D9C60D009B9D9A9578E9FEB7 /* Pods-ZBSmartLiveSDK_Tests-umbrella.h */,
+				536BE2923AA53B3A9BD959E512228428 /* Pods-ZBSmartLiveSDK_Tests.debug.xcconfig */,
+				594E16E88C8A0C3541C54848AAFAB86C /* Pods-ZBSmartLiveSDK_Tests.release.xcconfig */,
+			);
+			name = "Pods-ZBSmartLiveSDK_Tests";
+			path = "Target Support Files/Pods-ZBSmartLiveSDK_Tests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		27CE24AECD9DB609E67E72D8DFE5BC0C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF6F404186DABF51BA12370EA63BB841 /* Pods-ZBSmartLiveSDK_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3173189514908B3E0082250DACCE1DDF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6DFE6FE5C3A4D5C82F15A8916AE3150 /* Pods-ZBSmartLiveSDK_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2B2DB55F267B932D12AADD5F0E4BCA2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AA11398513E44E042F607A72C6BF589 /* ZBSmartLiveSDK-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		02AB585A96CA4A4B452320E300FE0189 /* ZBSmartLiveSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B5970A487CFFA7871040147AE232420 /* Build configuration list for PBXNativeTarget "ZBSmartLiveSDK" */;
+			buildPhases = (
+				37CFE5AD6BF2116F679C437A4DAAC23D /* Sources */,
+				C87DD160D3A8279A102FF1AFA08932D8 /* Frameworks */,
+				E2B2DB55F267B932D12AADD5F0E4BCA2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZBSmartLiveSDK;
+			productName = ZBSmartLiveSDK;
+			productReference = 19B2A472F0BC13A2F048B17E825BB6C0 /* ZBSmartLiveSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		458FED2813AD1389EBD92C2E132B4DF9 /* Pods-ZBSmartLiveSDK_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4229364CF5865A20AFC215C7E3D40E0 /* Build configuration list for PBXNativeTarget "Pods-ZBSmartLiveSDK_Tests" */;
+			buildPhases = (
+				D805FAC3C6C321DC7D78DF430C7BAC78 /* Sources */,
+				292F5F4230A57AA62C918165320D6FA1 /* Frameworks */,
+				3173189514908B3E0082250DACCE1DDF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ZBSmartLiveSDK_Tests";
+			productName = "Pods-ZBSmartLiveSDK_Tests";
+			productReference = 96DC314F3DF77D1DC749A7B0256B34AE /* Pods_ZBSmartLiveSDK_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A6EA9C07D3622D219DF298CF7EF2D069 /* Pods-ZBSmartLiveSDK_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39F4CAFDF1CDA78E218D3E360250780A /* Build configuration list for PBXNativeTarget "Pods-ZBSmartLiveSDK_Example" */;
+			buildPhases = (
+				8E1F4C233197757BC84293680324C87F /* Sources */,
+				CD99B68DC5F78506A665A0AB86E88F58 /* Frameworks */,
+				27CE24AECD9DB609E67E72D8DFE5BC0C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E6C088637BBCFE8CBFBE2F15364045EC /* PBXTargetDependency */,
+			);
+			name = "Pods-ZBSmartLiveSDK_Example";
+			productName = "Pods-ZBSmartLiveSDK_Example";
+			productReference = 04BA856273B710544764D04DE290D43B /* Pods_ZBSmartLiveSDK_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 38DF590AD5613678D5BBA8AD9BAE8AD5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A6EA9C07D3622D219DF298CF7EF2D069 /* Pods-ZBSmartLiveSDK_Example */,
+				458FED2813AD1389EBD92C2E132B4DF9 /* Pods-ZBSmartLiveSDK_Tests */,
+				02AB585A96CA4A4B452320E300FE0189 /* ZBSmartLiveSDK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		37CFE5AD6BF2116F679C437A4DAAC23D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F475442225FEC55A9A11E951B11C24B /* ReplaceMe.m in Sources */,
+				BA1BBEB341D7E68157095C6D6E4A2ED8 /* ZBSmartLiveSDK-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E1F4C233197757BC84293680324C87F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				272DF7A9493035CE35928C8801CB94C2 /* Pods-ZBSmartLiveSDK_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D805FAC3C6C321DC7D78DF430C7BAC78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				028B6F88CB7EFECA05E8BDC65F58182F /* Pods-ZBSmartLiveSDK_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E6C088637BBCFE8CBFBE2F15364045EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ZBSmartLiveSDK;
+			target = 02AB585A96CA4A4B452320E300FE0189 /* ZBSmartLiveSDK */;
+			targetProxy = EF00165E900698F23BF954D737D1A5B4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0EB49DDA87BFFC89868F781A006B1EA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DCE162610D4DFF2BD66CB6CDFE71167 /* Pods-ZBSmartLiveSDK_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ZBSmartLiveSDK_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ZBSmartLiveSDK_Example/Pods-ZBSmartLiveSDK_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ZBSmartLiveSDK_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		117D9F71B77560D087C407D3FBEAD52F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDC9E00C1A44DF47419C5784FC37B156 /* ZBSmartLiveSDK.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ZBSmartLiveSDK/ZBSmartLiveSDK-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ZBSmartLiveSDK/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ZBSmartLiveSDK/ZBSmartLiveSDK.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = ZBSmartLiveSDK;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		48D3555A69B038D272A9112FE37DBB86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B24F16CBE02668FF66E39F6B68409536 /* Pods-ZBSmartLiveSDK_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ZBSmartLiveSDK_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ZBSmartLiveSDK_Example/Pods-ZBSmartLiveSDK_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ZBSmartLiveSDK_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		993649A0F4FA88BD592550FC97A24573 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDC9E00C1A44DF47419C5784FC37B156 /* ZBSmartLiveSDK.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/ZBSmartLiveSDK/ZBSmartLiveSDK-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ZBSmartLiveSDK/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ZBSmartLiveSDK/ZBSmartLiveSDK.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = ZBSmartLiveSDK;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C70FA89CFBCD141A231A8A457C2BBAE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 594E16E88C8A0C3541C54848AAFAB86C /* Pods-ZBSmartLiveSDK_Tests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ZBSmartLiveSDK_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ZBSmartLiveSDK_Tests/Pods-ZBSmartLiveSDK_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ZBSmartLiveSDK_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		EA0253D1CDE7C22CB6E608BEC146909F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 536BE2923AA53B3A9BD959E512228428 /* Pods-ZBSmartLiveSDK_Tests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ZBSmartLiveSDK_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ZBSmartLiveSDK_Tests/Pods-ZBSmartLiveSDK_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ZBSmartLiveSDK_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B5970A487CFFA7871040147AE232420 /* Build configuration list for PBXNativeTarget "ZBSmartLiveSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				993649A0F4FA88BD592550FC97A24573 /* Debug */,
+				117D9F71B77560D087C407D3FBEAD52F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3E3D092A3FF7311A98E44BBA36FFD12 /* Debug */,
+				0ACDCBCB0B6796575F46FFA2F5410C6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39F4CAFDF1CDA78E218D3E360250780A /* Build configuration list for PBXNativeTarget "Pods-ZBSmartLiveSDK_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EB49DDA87BFFC89868F781A006B1EA6 /* Debug */,
+				48D3555A69B038D272A9112FE37DBB86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4229364CF5865A20AFC215C7E3D40E0 /* Build configuration list for PBXNativeTarget "Pods-ZBSmartLiveSDK_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA0253D1CDE7C22CB6E608BEC146909F /* Debug */,
+				C70FA89CFBCD141A231A8A457C2BBAE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

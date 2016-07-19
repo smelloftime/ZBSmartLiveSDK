@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ZBSmartLiveSDK_Example' do
+  pod 'ZBSmartLiveSDK', :path => '../'
+
+  target 'ZBSmartLiveSDK_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
