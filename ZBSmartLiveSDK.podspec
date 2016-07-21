@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZBSmartLiveSDK'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'ZBSmartLiveSDK for iOS,simple create live app.'
 
 # This description is used to generate tags and improve search results.
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'LipYoung' => 'mainbundle@gmail.com' }
-  s.source           = { :git => 'https://github.com/LipYoung/ZBSmartLiveSDK.git' }
+  s.source           = { :git => 'https://github.com/LipYoung/ZBSmartLiveSDK.git' , :tag => s.version }
 #  s.source           = { :git => 'https://github.com/LipYoung/ZBSmartLiveSDK.git', :tag => s.version }
 
   s.platform     = :ios
@@ -41,7 +41,7 @@ Pod::Spec.new do |s|
   # }
 
   s.frameworks = ['UIKit', 'AVFoundation', 'CoreGraphics', 'CFNetwork', 'AudioToolbox', 'CoreMedia', 'VideoToolbox']
-  s.dependency 'PLCameraStreamingKit', '~> 1.8.0'
+  s.dependency 'PLCameraStreamingKit', '~> 1.8.1'
   s.dependency 'AFNetworking', '~> 3.0.4'
   s.libraries = 'z', 'c++'
 
