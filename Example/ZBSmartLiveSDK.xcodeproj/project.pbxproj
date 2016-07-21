@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		080B2071DC446F8A76CC8F57 /* Pods_ZBSmartLiveSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5E28E13C63C8AF724F7A51 /* Pods_ZBSmartLiveSDK_Example.framework */; };
+		483557A018ADDAACF24D1936 /* libPods-ZBSmartLiveSDK_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 056338D0A307C5BD50E2C364 /* libPods-ZBSmartLiveSDK_Example.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -22,7 +22,6 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		C85C7DA11DA6E8238FC42CB8 /* Pods_ZBSmartLiveSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5D5313A8164815B7141555 /* Pods_ZBSmartLiveSDK_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		056338D0A307C5BD50E2C364 /* libPods-ZBSmartLiveSDK_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZBSmartLiveSDK_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5D5313A8164815B7141555 /* Pods_ZBSmartLiveSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZBSmartLiveSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D7F3B52B7FB24A78B3B0B7C /* ZBSmartLiveSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ZBSmartLiveSDK.podspec; path = ../ZBSmartLiveSDK.podspec; sourceTree = "<group>"; };
-		2C5E28E13C63C8AF724F7A51 /* Pods_ZBSmartLiveSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZBSmartLiveSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B04F10E5A3D2EE1EB4388E5 /* Pods-ZBSmartLiveSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZBSmartLiveSDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZBSmartLiveSDK_Example/Pods-ZBSmartLiveSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* ZBSmartLiveSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZBSmartLiveSDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,10 +59,8 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		ADCD3F2D2683DBE72D1DC72C /* Pods-ZBSmartLiveSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZBSmartLiveSDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZBSmartLiveSDK_Tests/Pods-ZBSmartLiveSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B08324DAC11C9C0A39372F9D /* Pods-ZBSmartLiveSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZBSmartLiveSDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZBSmartLiveSDK_Example/Pods-ZBSmartLiveSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B437F8CC24DAFA085409C1D1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		C75E2D284D3EF9B222773CB5 /* Pods-ZBSmartLiveSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZBSmartLiveSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZBSmartLiveSDK_Tests/Pods-ZBSmartLiveSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC6467283558A4A3B7E26BCC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,7 +72,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				080B2071DC446F8A76CC8F57 /* Pods_ZBSmartLiveSDK_Example.framework in Frameworks */,
+				483557A018ADDAACF24D1936 /* libPods-ZBSmartLiveSDK_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +83,6 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				C85C7DA11DA6E8238FC42CB8 /* Pods_ZBSmartLiveSDK_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,8 +117,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				2C5E28E13C63C8AF724F7A51 /* Pods_ZBSmartLiveSDK_Example.framework */,
 				1C5D5313A8164815B7141555 /* Pods_ZBSmartLiveSDK_Tests.framework */,
+				056338D0A307C5BD50E2C364 /* libPods-ZBSmartLiveSDK_Example.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -187,8 +183,6 @@
 			children = (
 				5B04F10E5A3D2EE1EB4388E5 /* Pods-ZBSmartLiveSDK_Example.debug.xcconfig */,
 				B08324DAC11C9C0A39372F9D /* Pods-ZBSmartLiveSDK_Example.release.xcconfig */,
-				C75E2D284D3EF9B222773CB5 /* Pods-ZBSmartLiveSDK_Tests.debug.xcconfig */,
-				ADCD3F2D2683DBE72D1DC72C /* Pods-ZBSmartLiveSDK_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -541,7 +535,6 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C75E2D284D3EF9B222773CB5 /* Pods-ZBSmartLiveSDK_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -565,7 +558,6 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ADCD3F2D2683DBE72D1DC72C /* Pods-ZBSmartLiveSDK_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

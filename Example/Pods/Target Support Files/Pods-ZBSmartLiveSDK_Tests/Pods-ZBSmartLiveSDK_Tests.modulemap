@@ -1,6 +1,0 @@
-framework module Pods_ZBSmartLiveSDK_Tests {
-  umbrella header "Pods-ZBSmartLiveSDK_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}

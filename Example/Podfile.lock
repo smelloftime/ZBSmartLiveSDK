@@ -1,5 +1,43 @@
 PODS:
-  - ZBSmartLiveSDK (0.1.0)
+  - AFNetworking (3.0.4):
+    - AFNetworking/NSURLSession (= 3.0.4)
+    - AFNetworking/Reachability (= 3.0.4)
+    - AFNetworking/Security (= 3.0.4)
+    - AFNetworking/Serialization (= 3.0.4)
+    - AFNetworking/UIKit (= 3.0.4)
+  - AFNetworking/NSURLSession (3.0.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.0.4)
+  - AFNetworking/Security (3.0.4)
+  - AFNetworking/Serialization (3.0.4)
+  - AFNetworking/UIKit (3.0.4):
+    - AFNetworking/NSURLSession
+  - GPUImage (0.1.7)
+  - HappyDNS (0.3.7)
+  - pili-librtmp (1.0.3)
+  - PLCameraStreamingKit (1.8.0):
+    - GPUImage (= 0.1.7)
+    - PLCameraStreamingKit/precompiled (= 1.8.0)
+    - PLStreamingKit (~> 1.2.0)
+  - PLCameraStreamingKit/precompiled (1.8.0):
+    - GPUImage (= 0.1.7)
+    - PLStreamingKit (~> 1.2.0)
+  - PLStreamingKit (1.2.4):
+    - HappyDNS
+    - pili-librtmp
+    - PLStreamingKit/precompiled (= 1.2.4)
+  - PLStreamingKit/precompiled (1.2.4):
+    - HappyDNS
+    - pili-librtmp
+  - ZBSmartLiveSDK (0.1.1):
+    - AFNetworking (~> 3.0.4)
+    - PLCameraStreamingKit (~> 1.8.0)
+    - ZBSmartLiveSDK/precompiled (= 0.1.1)
+  - ZBSmartLiveSDK/precompiled (0.1.1):
+    - AFNetworking (~> 3.0.4)
+    - PLCameraStreamingKit (~> 1.8.0)
 
 DEPENDENCIES:
   - ZBSmartLiveSDK (from `../`)
@@ -9,8 +47,14 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  ZBSmartLiveSDK: c6dc9eb0546b75edc924a102f189acfb11196f25
+  AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
+  HappyDNS: ec476226e119bf4766b74975ec4873f6fa078cf2
+  pili-librtmp: 50faa17413c635cca5ceccb1a8f9f6acc6587a45
+  PLCameraStreamingKit: 03b4bce4218edeb18a0060d8849eb5d7b2af4a5d
+  PLStreamingKit: c8574decbacb981e36e5b95314c991a3b5d02125
+  ZBSmartLiveSDK: f194108b78252d48bd120f828a731d7f2475791f
 
-PODFILE CHECKSUM: c5b62f179611cc8601feef06bee661a731a5bb87
+PODFILE CHECKSUM: b32e3ffa718ababc2b9d262e7356c9b5e150b7b4
 
 COCOAPODS: 1.0.1

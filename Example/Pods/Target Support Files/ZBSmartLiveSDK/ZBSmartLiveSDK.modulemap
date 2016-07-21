@@ -1,6 +1,0 @@
-framework module ZBSmartLiveSDK {
-  umbrella header "ZBSmartLiveSDK-umbrella.h"
-
-  export *
-  module * { export * }
-}

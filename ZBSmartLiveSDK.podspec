@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.public_header_files = 'Pod/Library/include/ZBSmartLiveSDK/*.h'
-  s.source_files = 'Pod/Library/include/*.h'
+  s.source_files = 'Pod/Library/include/ZBSmartLiveSDK/*.h'
 
   # s.resource_bundles = {
   #   'ZBSmartLiveSDK' => ['ZBSmartLiveSDK/Assets/*.png']

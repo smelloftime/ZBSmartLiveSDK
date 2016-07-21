@@ -7,6 +7,7 @@
 //
 
 #import "ZBViewController.h"
+#import <ZBSmartLiveSDK/ZBSDK.h>
 
 @interface ZBViewController ()
 
@@ -17,7 +18,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+//    [ZBSDK update];
+    [ZBSDK test];
 }
 
 - (void)didReceiveMemoryWarning
