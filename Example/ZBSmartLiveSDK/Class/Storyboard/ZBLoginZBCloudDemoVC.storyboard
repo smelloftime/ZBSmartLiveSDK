@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--LoginZB Cloud DemoVC-->
+        <scene sceneID="hGr-2A-Nwe">
+            <objects>
+                <viewController storyboardIdentifier="ZBLoginZBCloudDemoVC" id="DxA-F2-pag" customClass="ZBLoginZBCloudDemoVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F3P-58-XdS"/>
+                        <viewControllerLayoutGuide type="bottom" id="9UB-Xx-1EM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b8A-5J-9A1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZTy-JG-i72">
+                                <rect key="frame" x="290" y="86" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDj-JJ-S2w">
+                                <rect key="frame" x="0.0" y="150" width="600" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1AO-Th-gdf">
+                                <rect key="frame" x="0.0" y="214.5" width="600" height="385.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1AO-Th-gdf" firstAttribute="leading" secondItem="b8A-5J-9A1" secondAttribute="leading" id="4hX-tN-ypm"/>
+                            <constraint firstItem="ZTy-JG-i72" firstAttribute="centerX" secondItem="b8A-5J-9A1" secondAttribute="centerX" id="9L9-M3-bal"/>
+                            <constraint firstItem="RDj-JJ-S2w" firstAttribute="leading" secondItem="b8A-5J-9A1" secondAttribute="leading" id="B1l-qa-HF9"/>
+                            <constraint firstItem="ZTy-JG-i72" firstAttribute="top" secondItem="F3P-58-XdS" secondAttribute="bottom" constant="66" id="BnU-1M-c8e"/>
+                            <constraint firstItem="RDj-JJ-S2w" firstAttribute="top" secondItem="ZTy-JG-i72" secondAttribute="bottom" constant="44" id="Kny-iT-P2i"/>
+                            <constraint firstAttribute="trailing" secondItem="1AO-Th-gdf" secondAttribute="trailing" id="aQz-47-seV"/>
+                            <constraint firstItem="RDj-JJ-S2w" firstAttribute="centerX" secondItem="b8A-5J-9A1" secondAttribute="centerX" id="bza-11-vUH"/>
+                            <constraint firstItem="1AO-Th-gdf" firstAttribute="top" secondItem="RDj-JJ-S2w" secondAttribute="bottom" constant="44" id="gwr-fE-aD7"/>
+                            <constraint firstItem="9UB-Xx-1EM" firstAttribute="top" secondItem="1AO-Th-gdf" secondAttribute="bottom" id="tre-sz-LiT"/>
+                            <constraint firstAttribute="trailing" secondItem="RDj-JJ-S2w" secondAttribute="trailing" id="zFr-fF-piO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="act" destination="ZTy-JG-i72" id="Oy9-jz-xvD"/>
+                        <outlet property="resuleLabel" destination="RDj-JJ-S2w" id="CJx-9e-CPW"/>
+                        <outlet property="resuleTextView" destination="1AO-Th-gdf" id="Kzw-e5-NqV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XG2-sj-wUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="282" y="177"/>
+        </scene>
+    </scenes>
+</document>

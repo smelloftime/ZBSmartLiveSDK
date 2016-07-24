@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--GetZB Cloud Data Demo-->
+        <scene sceneID="9CE-Fj-4jo">
+            <objects>
+                <viewController storyboardIdentifier="ZBGetZBCloudDataDemo" id="Mb4-AJ-zzv" customClass="ZBGetZBCloudDataDemo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2fq-OC-9Uj"/>
+                        <viewControllerLayoutGuide type="bottom" id="niN-b0-b1R"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VeI-un-anD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="参数1(通过源码修改)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9El-dA-lut">
+                                <rect key="frame" x="20" y="108" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="参数2(通过源码修改)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ze4-4e-thv">
+                                <rect key="frame" x="20" y="182" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="请求结果" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dsG-TG-E7h">
+                                <rect key="frame" x="20" y="330" width="560" height="270"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APO-4H-2np">
+                                <rect key="frame" x="270" y="256" width="60" height="30"/>
+                                <state key="normal" title="获取数据"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9El-dA-lut" firstAttribute="leading" secondItem="VeI-un-anD" secondAttribute="leadingMargin" id="0Uf-Lc-ULX"/>
+                            <constraint firstItem="9El-dA-lut" firstAttribute="top" secondItem="2fq-OC-9Uj" secondAttribute="bottom" constant="88" id="2Lw-Ei-xa0"/>
+                            <constraint firstItem="niN-b0-b1R" firstAttribute="top" secondItem="dsG-TG-E7h" secondAttribute="bottom" id="4Jn-XX-hWn"/>
+                            <constraint firstItem="dsG-TG-E7h" firstAttribute="leading" secondItem="VeI-un-anD" secondAttribute="leadingMargin" id="796-7P-1J1"/>
+                            <constraint firstItem="Ze4-4e-thv" firstAttribute="top" secondItem="9El-dA-lut" secondAttribute="bottom" constant="44" id="NHZ-zz-I9V"/>
+                            <constraint firstItem="APO-4H-2np" firstAttribute="top" secondItem="Ze4-4e-thv" secondAttribute="bottom" constant="44" id="PXR-7l-UZF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9El-dA-lut" secondAttribute="trailing" id="U5B-Lh-3sj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ze4-4e-thv" secondAttribute="trailing" id="Wkz-7r-Yy3"/>
+                            <constraint firstItem="APO-4H-2np" firstAttribute="centerX" secondItem="VeI-un-anD" secondAttribute="centerX" id="Za9-cv-TfG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dsG-TG-E7h" secondAttribute="trailing" id="dkk-Hb-Ha5"/>
+                            <constraint firstItem="dsG-TG-E7h" firstAttribute="top" secondItem="APO-4H-2np" secondAttribute="bottom" constant="44" id="exQ-Qi-rpk"/>
+                            <constraint firstItem="Ze4-4e-thv" firstAttribute="leading" secondItem="VeI-un-anD" secondAttribute="leadingMargin" id="kn6-iK-80S"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resultTextView" destination="dsG-TG-E7h" id="ELj-Ed-bCC"/>
+                        <outlet property="sendRequestButton" destination="APO-4H-2np" id="Sl9-6d-rV8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mpl-Yn-Afd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="529" y="381"/>
+        </scene>
+    </scenes>
+</document>

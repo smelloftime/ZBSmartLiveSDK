@@ -7,21 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		364AC1A61D435A1900D66542 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 364AC1971D435A1900D66542 /* Launch Screen.storyboard */; };
+		364AC1A71D435A1900D66542 /* ZBLoginZBCloudDemoVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 364AC1981D435A1900D66542 /* ZBLoginZBCloudDemoVC.storyboard */; };
+		364AC1A81D435A1900D66542 /* ZBLoginZBCloudDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 364AC1A01D435A1900D66542 /* ZBLoginZBCloudDemoVC.m */; };
+		364AC1A91D435A1900D66542 /* ZBRootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 364AC1A31D435A1900D66542 /* ZBRootTableViewController.m */; };
+		364AC1AA1D435A1900D66542 /* ZBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 364AC1A51D435A1900D66542 /* ZBAppDelegate.m */; };
+		3682A7F91D44B0DD005A500B /* ZBGetZBCloudDataDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3682A7F81D44B0DD005A500B /* ZBGetZBCloudDataDemo.m */; };
+		369EE28A1D44AEC100256B6A /* ZBGetZBCloudDataDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 369EE2891D44AEC100256B6A /* ZBGetZBCloudDataDemo.storyboard */; };
 		483557A018ADDAACF24D1936 /* libPods-ZBSmartLiveSDK_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 056338D0A307C5BD50E2C364 /* libPods-ZBSmartLiveSDK_Example.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
-		6003F59E195388D20070C39A /* ZBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* ZBAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* ZBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* ZBViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,17 @@
 		056338D0A307C5BD50E2C364 /* libPods-ZBSmartLiveSDK_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZBSmartLiveSDK_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5D5313A8164815B7141555 /* Pods_ZBSmartLiveSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZBSmartLiveSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D7F3B52B7FB24A78B3B0B7C /* ZBSmartLiveSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ZBSmartLiveSDK.podspec; path = ../ZBSmartLiveSDK.podspec; sourceTree = "<group>"; };
+		364AC1971D435A1900D66542 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		364AC1981D435A1900D66542 /* ZBLoginZBCloudDemoVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZBLoginZBCloudDemoVC.storyboard; sourceTree = "<group>"; };
+		364AC19F1D435A1900D66542 /* ZBLoginZBCloudDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBLoginZBCloudDemoVC.h; sourceTree = "<group>"; };
+		364AC1A01D435A1900D66542 /* ZBLoginZBCloudDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBLoginZBCloudDemoVC.m; sourceTree = "<group>"; };
+		364AC1A21D435A1900D66542 /* ZBRootTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRootTableViewController.h; sourceTree = "<group>"; };
+		364AC1A31D435A1900D66542 /* ZBRootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRootTableViewController.m; sourceTree = "<group>"; };
+		364AC1A41D435A1900D66542 /* ZBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBAppDelegate.h; sourceTree = "<group>"; };
+		364AC1A51D435A1900D66542 /* ZBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBAppDelegate.m; sourceTree = "<group>"; };
+		3682A7F71D44B0DD005A500B /* ZBGetZBCloudDataDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBGetZBCloudDataDemo.h; sourceTree = "<group>"; };
+		3682A7F81D44B0DD005A500B /* ZBGetZBCloudDataDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBGetZBCloudDataDemo.m; sourceTree = "<group>"; };
+		369EE2891D44AEC100256B6A /* ZBGetZBCloudDataDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZBGetZBCloudDataDemo.storyboard; sourceTree = "<group>"; };
 		5B04F10E5A3D2EE1EB4388E5 /* Pods-ZBSmartLiveSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZBSmartLiveSDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZBSmartLiveSDK_Example/Pods-ZBSmartLiveSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* ZBSmartLiveSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZBSmartLiveSDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -47,18 +62,13 @@
 		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6003F59B195388D20070C39A /* ZBSmartLiveSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZBSmartLiveSDK-Prefix.pch"; sourceTree = "<group>"; };
-		6003F59C195388D20070C39A /* ZBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBAppDelegate.h; sourceTree = "<group>"; };
-		6003F59D195388D20070C39A /* ZBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* ZBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* ZBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBViewController.m; sourceTree = "<group>"; };
-		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* ZBSmartLiveSDK_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZBSmartLiveSDK_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B08324DAC11C9C0A39372F9D /* Pods-ZBSmartLiveSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZBSmartLiveSDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZBSmartLiveSDK_Example/Pods-ZBSmartLiveSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B437F8CC24DAFA085409C1D1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		DC6467283558A4A3B7E26BCC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -89,6 +99,97 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		364AC1951D435A1900D66542 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				364AC1961D435A1900D66542 /* Storyboard */,
+				364AC1991D435A1900D66542 /* ViewController */,
+				364AC1A41D435A1900D66542 /* ZBAppDelegate.h */,
+				364AC1A51D435A1900D66542 /* ZBAppDelegate.m */,
+				6003F5A8195388D20070C39A /* Images.xcassets */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		364AC1961D435A1900D66542 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				364AC1971D435A1900D66542 /* Launch Screen.storyboard */,
+				369EE2891D44AEC100256B6A /* ZBGetZBCloudDataDemo.storyboard */,
+				364AC1981D435A1900D66542 /* ZBLoginZBCloudDemoVC.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		364AC1991D435A1900D66542 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3682A7F31D44B0C0005A500B /* GetZBCloudDataDemo */,
+				364AC19A1D435A1900D66542 /* InstantMessageDemo */,
+				364AC19B1D435A1900D66542 /* LiveDataRespond */,
+				364AC19C1D435A1900D66542 /* LivePlayDemo */,
+				364AC19D1D435A1900D66542 /* LiveRecordDemo */,
+				364AC19E1D435A1900D66542 /* LoginZBCloud */,
+				364AC1A11D435A1900D66542 /* ReplayDemo */,
+				364AC1A21D435A1900D66542 /* ZBRootTableViewController.h */,
+				364AC1A31D435A1900D66542 /* ZBRootTableViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		364AC19A1D435A1900D66542 /* InstantMessageDemo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = InstantMessageDemo;
+			sourceTree = "<group>";
+		};
+		364AC19B1D435A1900D66542 /* LiveDataRespond */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LiveDataRespond;
+			sourceTree = "<group>";
+		};
+		364AC19C1D435A1900D66542 /* LivePlayDemo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LivePlayDemo;
+			sourceTree = "<group>";
+		};
+		364AC19D1D435A1900D66542 /* LiveRecordDemo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LiveRecordDemo;
+			sourceTree = "<group>";
+		};
+		364AC19E1D435A1900D66542 /* LoginZBCloud */ = {
+			isa = PBXGroup;
+			children = (
+				364AC19F1D435A1900D66542 /* ZBLoginZBCloudDemoVC.h */,
+				364AC1A01D435A1900D66542 /* ZBLoginZBCloudDemoVC.m */,
+			);
+			path = LoginZBCloud;
+			sourceTree = "<group>";
+		};
+		364AC1A11D435A1900D66542 /* ReplayDemo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ReplayDemo;
+			sourceTree = "<group>";
+		};
+		3682A7F31D44B0C0005A500B /* GetZBCloudDataDemo */ = {
+			isa = PBXGroup;
+			children = (
+				3682A7F71D44B0DD005A500B /* ZBGetZBCloudDataDemo.h */,
+				3682A7F81D44B0DD005A500B /* ZBGetZBCloudDataDemo.m */,
+			);
+			path = GetZBCloudDataDemo;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -126,12 +227,7 @@
 		6003F593195388D20070C39A /* Example for ZBSmartLiveSDK */ = {
 			isa = PBXGroup;
 			children = (
-				6003F59C195388D20070C39A /* ZBAppDelegate.h */,
-				6003F59D195388D20070C39A /* ZBAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* ZBViewController.h */,
-				6003F5A6195388D20070C39A /* ZBViewController.m */,
-				6003F5A8195388D20070C39A /* Images.xcassets */,
+				364AC1951D435A1900D66542 /* Class */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			name = "Example for ZBSmartLiveSDK";
@@ -270,7 +366,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				364AC1A71D435A1900D66542 /* ZBLoginZBCloudDemoVC.storyboard in Resources */,
+				369EE28A1D44AEC100256B6A /* ZBGetZBCloudDataDemo.storyboard in Resources */,
+				364AC1A61D435A1900D66542 /* Launch Screen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -384,9 +482,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F59E195388D20070C39A /* ZBAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* ZBViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				364AC1A81D435A1900D66542 /* ZBLoginZBCloudDemoVC.m in Sources */,
+				364AC1AA1D435A1900D66542 /* ZBAppDelegate.m in Sources */,
+				364AC1A91D435A1900D66542 /* ZBRootTableViewController.m in Sources */,
+				3682A7F91D44B0DD005A500B /* ZBGetZBCloudDataDemo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
