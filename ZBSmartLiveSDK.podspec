@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZBSmartLiveSDK'
-  s.version          = '0.1.7'
+  s.version          = '0.1.8'
   s.summary          = 'ZBSmartLiveSDK for iOS,simple create live app.'
 
 # This description is used to generate tags and improve search results.
@@ -34,6 +34,7 @@ Pod::Spec.new do |s|
 
   s.public_header_files = 'Pod/Library/include/ZBSmartLiveSDK/*.h'
   s.source_files = 'Pod/Library/include/ZBSmartLiveSDK/*.h'
+  s.prefix_header_contents = '#import "ZBPrefix.h"'
 
   # s.resource_bundles = {
   #   'ZBSmartLiveSDK' => ['ZBSmartLiveSDK/Assets/*.png']
@@ -43,6 +44,8 @@ Pod::Spec.new do |s|
   s.dependency 'PLCameraStreamingKit', '~> 1.8.1'
   s.dependency 'AFNetworking', '~> 3.0.4'
   s.dependency 'MJExtension', '~> 3.0.11'
+  s.dependency 'SocketRocket', '~> 0.5.1'
+  s.dependency 'MPMessagePack', '~> 1.3.5'
   s.libraries = 'z', 'c++'
 
   s.default_subspec = "precompiled"

@@ -14,9 +14,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[ZBSmartLiveSDK shareSDK] registerWithAppID:@"zb602251775577514102" appToken:@"ynPtm355S27HwnElEWshpX"];
 #warning Note 初始化必须成功 才能正常使用 ZBSmartLiveSDK 相关的所有功能,以免出现其余异常 bug 建议:如果此处显示初始化失败的信息后,重新调用初始化方法
-    [[ZBSmartLiveSDK shareSDK] initializeConfigCompletion:^(NSError *error) {
+    
+    [[ZBSmartLiveSDK shareSDK] registerWithAppID:@"zb602251775577514102" appToken:@"ynPtm355S27HwnElEWshpX" completion:^(NSError *error) {
         if (error == nil) {
             NSLog(@"初始化成功");
         } else {

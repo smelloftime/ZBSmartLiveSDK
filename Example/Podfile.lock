@@ -14,8 +14,11 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
+  - GHODictionary (1.0.9)
   - HappyDNS (0.3.9)
   - MJExtension (3.0.11)
+  - MPMessagePack (1.3.5):
+    - GHODictionary
   - pili-librtmp (1.0.3.1)
   - PLCameraStreamingKit (1.8.1):
     - PLCameraStreamingKit/precompiled (= 1.8.1)
@@ -29,15 +32,20 @@ PODS:
   - PLStreamingKit/precompiled (1.2.5):
     - HappyDNS
     - pili-librtmp (= 1.0.3.1)
-  - ZBSmartLiveSDK (0.1.7):
+  - SocketRocket (0.5.1)
+  - ZBSmartLiveSDK (0.1.8):
     - AFNetworking (~> 3.0.4)
     - MJExtension (~> 3.0.11)
+    - MPMessagePack (~> 1.3.5)
     - PLCameraStreamingKit (~> 1.8.1)
-    - ZBSmartLiveSDK/precompiled (= 0.1.7)
-  - ZBSmartLiveSDK/precompiled (0.1.7):
+    - SocketRocket (~> 0.5.1)
+    - ZBSmartLiveSDK/precompiled (= 0.1.8)
+  - ZBSmartLiveSDK/precompiled (0.1.8):
     - AFNetworking (~> 3.0.4)
     - MJExtension (~> 3.0.11)
+    - MPMessagePack (~> 1.3.5)
     - PLCameraStreamingKit (~> 1.8.1)
+    - SocketRocket (~> 0.5.1)
 
 DEPENDENCIES:
   - ZBSmartLiveSDK (from `../`)
@@ -48,12 +56,15 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  GHODictionary: 1f7873492445e0f33ac19575a358c3c91926b564
   HappyDNS: 17be04178df2dd09f0ee6ac33628589b7f9910e8
   MJExtension: f9ae6ddc0f1c482c3c9af750280ccebd14381958
+  MPMessagePack: 7c9c9cdee049b62e3578ee423ba451fa406bbd08
   pili-librtmp: 0adf2516f4b5958b3cb079a4c3d4f6a4a9f49ce9
   PLCameraStreamingKit: 12b672cbef9ba15bbb28ec543fb77f7d4cea66dc
   PLStreamingKit: 4b46739689d020b8e2eb755827ec86447c0291b7
-  ZBSmartLiveSDK: 996df4476d705eb18278f7c9f10c961fbb6a7fe1
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  ZBSmartLiveSDK: 79371e09a40da7cc837170b87d898f5a871fb26b
 
 PODFILE CHECKSUM: b32e3ffa718ababc2b9d262e7356c9b5e150b7b4
 
