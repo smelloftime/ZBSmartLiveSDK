@@ -45,7 +45,6 @@ Pod::Spec.new do |s|
   s.dependency 'AFNetworking', '~> 3.0.4'
   s.dependency 'MJExtension', '~> 3.0.11'
   s.dependency 'SocketRocket', '~> 0.5.1'
-  s.dependency 'MPMessagePack', '~> 1.3.5'
   s.libraries = 'z', 'c++'
 
   s.default_subspec = "precompiled"
