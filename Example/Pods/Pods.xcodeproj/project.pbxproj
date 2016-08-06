@@ -178,6 +178,7 @@
 		01B38BACEBAC73603000E0E8A0243D52 /* NSObject+MJClass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MJClass.h"; path = "MJExtension/NSObject+MJClass.h"; sourceTree = "<group>"; };
 		022C799BF59A2DBCEB25AFFFF65C1E69 /* QNResolver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNResolver.h; path = HappyDNS/Local/QNResolver.h; sourceTree = "<group>"; };
 		08456BCBCDA0384210E84544278AC8E6 /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFAutoPurgingImageCache.h; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.h"; sourceTree = "<group>"; };
+		0AB076CFCCBFC9106000EC8F6DF4AD4B /* ZBVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZBVersion.h; sourceTree = "<group>"; };
 		0B204C3F7E82B9F44E2F4996510BE9B1 /* PLStreamingEnv.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLStreamingEnv.h; path = Pod/Library/include/PLStreamingKit/PLStreamingEnv.h; sourceTree = "<group>"; };
 		0B8A647ED56E4E9932D01432B0A732AD /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
 		0BFE3DED608E04B4C61F5507C67F97BC /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MJKeyValue.h"; path = "MJExtension/NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
@@ -228,8 +229,6 @@
 		53366FAF703EC1C5D73F8CE64842D454 /* MJFoundation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJFoundation.h; path = MJExtension/MJFoundation.h; sourceTree = "<group>"; };
 		5358FAB7F103E5CE51D6F3F9F891DDE8 /* AFURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
 		587B26FDBA53803ACAD4BC19FC77538E /* MJExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MJExtension-dummy.m"; sourceTree = "<group>"; };
-		5894C1C3BF17B207EB8A0E8DEE7B2AE8 /* ZBSmartLiveSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZBSmartLiveSDK.h; sourceTree = "<group>"; };
-		596220533B33E9AA6662444102E4B461 /* ZBVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZBVersion.h; sourceTree = "<group>"; };
 		5B29F48E3B5A4CEC8042542E927228D9 /* PLCameraStreamingKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLCameraStreamingKit.h; path = Pod/Library/include/PLCameraStreamingKit/PLCameraStreamingKit.h; sourceTree = "<group>"; };
 		5EBDC762A8845D2E960D46CCF5F9A152 /* PLStreamingSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLStreamingSession.h; path = Pod/Library/include/PLStreamingKit/PLStreamingSession.h; sourceTree = "<group>"; };
 		609DF7E62D2A891C0A4F83770453AE7E /* Pods-ZBSmartLiveSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZBSmartLiveSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -255,10 +254,10 @@
 		7E602E918DA44775BC2C15430E677A62 /* PLStreamingKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLStreamingKit.h; path = Pod/Library/include/PLStreamingKit/PLStreamingKit.h; sourceTree = "<group>"; };
 		826C7A41F268364321EBAB5A23A4DD32 /* QNTxtResolver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNTxtResolver.h; path = HappyDNS/Local/QNTxtResolver.h; sourceTree = "<group>"; };
 		829AC2BA994A47FD62392A86260F5C50 /* MJFoundation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJFoundation.m; path = MJExtension/MJFoundation.m; sourceTree = "<group>"; };
-		82B7412DC63F509CB1F235832D475DBD /* ZBPrefix.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZBPrefix.h; sourceTree = "<group>"; };
 		868376FED92834B50F09AD30F7237BBB /* QNResolverDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNResolverDelegate.h; path = HappyDNS/Common/QNResolverDelegate.h; sourceTree = "<group>"; };
 		872081204CBA7F2C3C472C7C9CE0B2A1 /* parseurl.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = parseurl.c; path = "Pod/Classes/pili-librtmp/parseurl.c"; sourceTree = "<group>"; };
 		874794CD82AE4445E3D3E98EFBA7E69D /* log.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = log.h; path = "Pod/Classes/pili-librtmp/log.h"; sourceTree = "<group>"; };
+		87D485D9F3A7E9E93C355D1CF23CAD23 /* ZBCloudData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZBCloudData.h; sourceTree = "<group>"; };
 		8851DA4D5CB31F0C2B6A7F2917ADF587 /* AFImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFImageDownloader.m; path = "UIKit+AFNetworking/AFImageDownloader.m"; sourceTree = "<group>"; };
 		89FA7FD70E9ABE2B2580B2306196BBA6 /* QNIP.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNIP.m; path = HappyDNS/Util/QNIP.m; sourceTree = "<group>"; };
 		8DBA5BD959D3CD92A488636748C235FB /* MJProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJProperty.h; path = MJExtension/MJProperty.h; sourceTree = "<group>"; };
@@ -310,7 +309,6 @@
 		D1526198AA9D07E5B56AA6E7D06C24DB /* QNRecord.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNRecord.h; path = HappyDNS/Common/QNRecord.h; sourceTree = "<group>"; };
 		D1FF9F5281AC2B2E818E7E8202352450 /* AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AFNetworking-dummy.m"; sourceTree = "<group>"; };
 		D5505F41FD62A493ADF91440389768F3 /* PLSourceAccessProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLSourceAccessProtocol.h; path = Pod/Library/include/PLCameraStreamingKit/PLSourceAccessProtocol.h; sourceTree = "<group>"; };
-		D60F7E309473F48D7C037F04FA7E2C07 /* ZBCloudData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZBCloudData.h; sourceTree = "<group>"; };
 		D6309279CB35AB69C5483DDCB6F43D67 /* PLVideoStreamingConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLVideoStreamingConfiguration.h; path = Pod/Library/include/PLStreamingKit/PLVideoStreamingConfiguration.h; sourceTree = "<group>"; };
 		D9665CEB040F4436EE4FDF6F3B838D75 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		DA590E6DDEB93F18A58CFA15DE41D5C8 /* NSObject+MJClass.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MJClass.m"; path = "MJExtension/NSObject+MJClass.m"; sourceTree = "<group>"; };
@@ -321,6 +319,7 @@
 		E34D3C8107B42ECE1865A72B18C629F2 /* SRWebSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SRWebSocket.h; path = SocketRocket/SRWebSocket.h; sourceTree = "<group>"; };
 		E3A0D9A5DB44215B617862A64C09F23E /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		E43E788620E7F7DDC613F5C793A9508A /* QNDnsManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNDnsManager.h; path = HappyDNS/Common/QNDnsManager.h; sourceTree = "<group>"; };
+		E63375239EB86C8D4EF1671F9F9DFDAF /* ZBSmartLiveSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZBSmartLiveSDK.h; sourceTree = "<group>"; };
 		E6FF62FC1811117E4DDD437DE68C49F1 /* QNHijackingDetectWrapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNHijackingDetectWrapper.m; path = HappyDNS/Local/QNHijackingDetectWrapper.m; sourceTree = "<group>"; };
 		E74C5543BB297A401E3FE700D0680EEC /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
 		E78A0A6509B54571F4C858F42E9A9F70 /* PLStreamStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLStreamStatus.h; path = Pod/Library/include/PLStreamingKit/PLStreamStatus.h; sourceTree = "<group>"; };
@@ -403,6 +402,14 @@
 				4C4A679E98BBE606971353EFB0828A55 /* Frameworks */,
 			);
 			name = precompiled;
+			sourceTree = "<group>";
+		};
+		0B1BB7FBB0E2147297D17E318C1000E6 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				8FE953A4018FBEBA1B15FAF3D189690C /* ZBSmartLiveSDK */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 		0F75DF6C7C5F002280EC53F48E80B587 /* Frameworks */ = {
@@ -543,29 +550,10 @@
 			name = UIKit;
 			sourceTree = "<group>";
 		};
-		5EA1133903085344DB0270A8BEC3CCA6 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				5EB9BAFE28FA28552FD7AA5F12207E61 /* ZBSmartLiveSDK */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		5EB9BAFE28FA28552FD7AA5F12207E61 /* ZBSmartLiveSDK */ = {
-			isa = PBXGroup;
-			children = (
-				D60F7E309473F48D7C037F04FA7E2C07 /* ZBCloudData.h */,
-				82B7412DC63F509CB1F235832D475DBD /* ZBPrefix.h */,
-				5894C1C3BF17B207EB8A0E8DEE7B2AE8 /* ZBSmartLiveSDK.h */,
-				596220533B33E9AA6662444102E4B461 /* ZBVersion.h */,
-			);
-			path = ZBSmartLiveSDK;
-			sourceTree = "<group>";
-		};
 		6A9942D078653B2315026CFFEE184CC4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				5EA1133903085344DB0270A8BEC3CCA6 /* include */,
+				0B1BB7FBB0E2147297D17E318C1000E6 /* include */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -669,6 +657,16 @@
 				BBFFFE2F6A2E7F9C21308FBAA61A3E0D /* precompiled */,
 			);
 			path = PLStreamingKit;
+			sourceTree = "<group>";
+		};
+		8FE953A4018FBEBA1B15FAF3D189690C /* ZBSmartLiveSDK */ = {
+			isa = PBXGroup;
+			children = (
+				87D485D9F3A7E9E93C355D1CF23CAD23 /* ZBCloudData.h */,
+				E63375239EB86C8D4EF1671F9F9DFDAF /* ZBSmartLiveSDK.h */,
+				0AB076CFCCBFC9106000EC8F6DF4AD4B /* ZBVersion.h */,
+			);
+			path = ZBSmartLiveSDK;
 			sourceTree = "<group>";
 		};
 		9472B760F8CFF8FBA86E710907782243 /* Support Files */ = {

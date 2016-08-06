@@ -1,6 +1,6 @@
 {
   "name": "ZBSmartLiveSDK",
-  "version": "0.1.8",
+  "version": "0.1.10",
   "summary": "ZBSmartLiveSDK for iOS,simple create live app.",
   "description": "* Markdown format.\n* Don't worry about the indent, we strip it!",
   "homepage": "https://github.com/LipYoung/ZBSmartLiveSDK",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/LipYoung/ZBSmartLiveSDK.git",
-    "tag": "0.1.8"
+    "tag": "0.1.10"
   },
   "platforms": {
     "ios": "8.0"
@@ -21,7 +21,6 @@
   "requires_arc": true,
   "public_header_files": "Pod/Library/include/ZBSmartLiveSDK/*.h",
   "source_files": "Pod/Library/include/ZBSmartLiveSDK/*.h",
-  "prefix_header_contents": "#import \"ZBPrefix.h\"",
   "frameworks": [
     "UIKit",
     "AVFoundation",

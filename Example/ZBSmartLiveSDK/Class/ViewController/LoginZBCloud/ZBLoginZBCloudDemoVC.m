@@ -31,7 +31,7 @@
         3. 该方法建议在 应用正常注册 获取配置信息 成功后 再调用
      */
     [self.act startAnimating];
-    [[ZBSmartLiveSDK shareSDK] loginWithZBTicket:@"y-4aDnvfhDoxiGtuCdhv7b9w2IU" completion:^(NSError *error) {
+    [[ZBSmartLiveSDK shareSDK] loginWithZBTicket:@"y-WwboXtpT6LECntgW5" completion:^(NSError *error) {
         [self.act stopAnimating];
         if (error == nil) {
             self.resuleLabel.text = @"登录成功";

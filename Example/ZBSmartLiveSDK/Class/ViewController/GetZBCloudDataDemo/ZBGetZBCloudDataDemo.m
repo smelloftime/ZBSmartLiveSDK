@@ -25,7 +25,7 @@
 
 - (void)sendRequest {
     // 此处请求的所有参数请查阅说明 文档 https://github.com/LipYoung/ZBSmartLiveSDK/wiki
-    [ZBCloudData getZBCloudDataWithApi:@"ZBCloud_getLiveList"
+    [ZBCloudData getZBCloudDataWithApi:@"ZBCloud_Get_Live_List"
                              parameter:@{
                                          @"order": @"airtime",
                                          @"p": @(1),
