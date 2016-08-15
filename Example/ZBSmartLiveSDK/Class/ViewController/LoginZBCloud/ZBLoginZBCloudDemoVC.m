@@ -35,6 +35,9 @@
         [self.act stopAnimating];
         if (error == nil) {
             self.resuleLabel.text = @"登录成功";
+            NSDictionary *imDic = [[ZBSmartLiveSDK shareSDK] returnIMUserInfo];
+            NSString *instantMessageInfo = [NSString stringWithFormat:@"IM账号 %@\nIM密码 %@", imDic[@"IMID"], imDic[@"IMPWD"]];
+            self.resuleTextView.text = instantMessageInfo;
         } else {
             self.resuleLabel.text = @"登录失败";
             self.resuleTextView.text = [NSString stringWithFormat:@"errorcode => %d ;\nerror info => %@ ;\nerror localized description => %@", (int)error.code, error.domain, [error localizedDescription]];
