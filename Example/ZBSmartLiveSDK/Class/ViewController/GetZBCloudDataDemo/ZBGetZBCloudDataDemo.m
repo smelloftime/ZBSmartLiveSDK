@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.sendRequestButton addTarget:self action:@selector(sendRequest) forControlEvents:UIControlEventTouchUpInside];
+    [self.sendRequestButton addTarget:self action:@selector(sendGift) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)sendRequest {
@@ -37,6 +37,15 @@
                                   fail:^(NSError *fail) {
                                       self.resultTextView.text = [NSString stringWithFormat:@"errorcode => %d ;\nerror info => %@ ;\nerror localized description => %@", (int)fail.code, fail.domain, [fail localizedDescription]];
                                   }];
+}
+
+- (void)sendGift {
+    NSDictionary *dic = [ZBCloudData giftConfigInfo][0];
+    [ZBCloudData sendGift:dic[@"gift_code"] toUser:@"11" andGiftCount:1 success:^(id data) {
+        self.resultTextView.text = [NSString stringWithFormat:@"%@", data];
+    } fail:^(NSError *fail) {
+        self.resultTextView.text = [NSString stringWithFormat:@"errorcode => %d ;\nerror info => %@ ;\nerror localized description => %@", (int)fail.code, fail.domain, [fail localizedDescription]];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

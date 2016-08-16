@@ -29,12 +29,12 @@ PODS:
   - PLStreamingKit/precompiled (1.2.5):
     - HappyDNS
     - pili-librtmp (= 1.0.3.1)
-  - ZBSmartLiveSDK (0.2.2):
+  - ZBSmartLiveSDK (0.2.4):
     - AFNetworking (~> 3.0.4)
     - MJExtension (~> 3.0.11)
     - PLCameraStreamingKit (~> 1.8.1)
-    - ZBSmartLiveSDK/precompiled (= 0.2.2)
-  - ZBSmartLiveSDK/precompiled (0.2.2):
+    - ZBSmartLiveSDK/precompiled (= 0.2.4)
+  - ZBSmartLiveSDK/precompiled (0.2.4):
     - AFNetworking (~> 3.0.4)
     - MJExtension (~> 3.0.11)
     - PLCameraStreamingKit (~> 1.8.1)
@@ -53,7 +53,7 @@ SPEC CHECKSUMS:
   pili-librtmp: 0adf2516f4b5958b3cb079a4c3d4f6a4a9f49ce9
   PLCameraStreamingKit: 12b672cbef9ba15bbb28ec543fb77f7d4cea66dc
   PLStreamingKit: 4b46739689d020b8e2eb755827ec86447c0291b7
-  ZBSmartLiveSDK: 01b0d8816db9a7bf159aeab3ae787d6b80e6bcda
+  ZBSmartLiveSDK: c5096324028f54958c55e299ee3076e04431cb7c
 
 PODFILE CHECKSUM: b32e3ffa718ababc2b9d262e7356c9b5e150b7b4
 
