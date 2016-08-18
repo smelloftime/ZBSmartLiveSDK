@@ -14,39 +14,14 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
-  - HappyDNS (0.3.9)
   - MJExtension (3.0.11)
-  - pili-librtmp (1.0.3.1)
-  - PLCameraStreamingKit (1.8.1):
-    - PLCameraStreamingKit/precompiled (= 1.8.1)
-    - PLStreamingKit (= 1.2.5)
-  - PLCameraStreamingKit/precompiled (1.8.1):
-    - PLStreamingKit (= 1.2.5)
-  - PLPlayerKit (2.2.2):
-    - HappyDNS
-    - pili-librtmp (= 1.0.3.1)
-    - PLPlayerKit/precompiled (= 2.2.2)
-  - PLPlayerKit/precompiled (2.2.2):
-    - HappyDNS
-    - pili-librtmp (= 1.0.3.1)
-  - PLStreamingKit (1.2.5):
-    - HappyDNS
-    - pili-librtmp (= 1.0.3.1)
-    - PLStreamingKit/precompiled (= 1.2.5)
-  - PLStreamingKit/precompiled (1.2.5):
-    - HappyDNS
-    - pili-librtmp (= 1.0.3.1)
-  - ZBSmartLiveSDK (0.2.5):
+  - ZBSmartLiveSDK (0.2.6):
     - AFNetworking (~> 3.0.4)
     - MJExtension (~> 3.0.11)
-    - PLCameraStreamingKit (~> 1.8.1)
-    - PLPlayerKit (~> 2.2.2)
-    - ZBSmartLiveSDK/precompiled (= 0.2.5)
-  - ZBSmartLiveSDK/precompiled (0.2.5):
+    - ZBSmartLiveSDK/precompiled (= 0.2.6)
+  - ZBSmartLiveSDK/precompiled (0.2.6):
     - AFNetworking (~> 3.0.4)
     - MJExtension (~> 3.0.11)
-    - PLCameraStreamingKit (~> 1.8.1)
-    - PLPlayerKit (~> 2.2.2)
 
 DEPENDENCIES:
   - ZBSmartLiveSDK (from `../`)
@@ -57,13 +32,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
-  HappyDNS: 17be04178df2dd09f0ee6ac33628589b7f9910e8
   MJExtension: f9ae6ddc0f1c482c3c9af750280ccebd14381958
-  pili-librtmp: 0adf2516f4b5958b3cb079a4c3d4f6a4a9f49ce9
-  PLCameraStreamingKit: 12b672cbef9ba15bbb28ec543fb77f7d4cea66dc
-  PLPlayerKit: b5182ef942dce71678c9db07c2e1959df91e81cc
-  PLStreamingKit: 4b46739689d020b8e2eb755827ec86447c0291b7
-  ZBSmartLiveSDK: 4e0a4727281b2f0aa7e7c66aa7e8dd0041cc4dab
+  ZBSmartLiveSDK: d275415ee515272b6a517d7d2cb22333e24208e6
 
 PODFILE CHECKSUM: b32e3ffa718ababc2b9d262e7356c9b5e150b7b4
 
