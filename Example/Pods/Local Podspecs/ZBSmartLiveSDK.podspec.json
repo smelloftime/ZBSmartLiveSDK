@@ -39,7 +39,8 @@
   },
   "libraries": [
     "z",
-    "c++"
+    "c++",
+    "resolv"
   ],
   "default_subspecs": "precompiled",
   "subspecs": [
