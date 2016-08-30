@@ -27,17 +27,14 @@
     
     /**
         1. 该处票据会不定期更新改变
-        2. 所以 ZBSDK 不会持久化用户登录信息
+        2. 根据该票据的信息可以实现自动登录逻辑
         3. 该方法建议在 应用正常注册 获取配置信息 成功后 再调用
      */
     [self.act startAnimating];
-    [[ZBSmartLiveSDK shareSDK] loginWithZBTicket:@"y-WwboXtpT6LECntgW5" completion:^(NSError *error) {
+    [[ZBSmartLiveSDK shareSDK] loginWithZBTicket:@"y-WMcKj5vb2hGSckYWx" completion:^(NSError *error) {
         [self.act stopAnimating];
         if (error == nil) {
-            self.resuleLabel.text = @"登录成功";
-            NSDictionary *imDic = [[ZBSmartLiveSDK shareSDK] returnIMUserInfo];
-            NSString *instantMessageInfo = [NSString stringWithFormat:@"IM账号 %@\nIM密码 %@", imDic[@"IMID"], imDic[@"IMPWD"]];
-            self.resuleTextView.text = instantMessageInfo;
+            self.resuleLabel.text = @"登录成功A";
         } else {
             self.resuleLabel.text = @"登录失败";
             self.resuleTextView.text = [NSString stringWithFormat:@"errorcode => %d ;\nerror info => %@ ;\nerror localized description => %@", (int)error.code, error.domain, [error localizedDescription]];

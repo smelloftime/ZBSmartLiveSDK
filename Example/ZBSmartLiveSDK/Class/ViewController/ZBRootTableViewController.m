@@ -23,8 +23,8 @@
         _demoNameArray = [[NSArray alloc] initWithObjects:
                           @"登录智播云",
                           @"获取直播数据",
+                          @"收发直播间消息",
 //                          @"直播功能(进入,开启,结束)",
-//                          @"收发直播间消息",
 //                          @"观看直播",
 //                          @"回放直播",
                           nil];
@@ -37,6 +37,7 @@
         _demoViewControllerArray = [[NSArray alloc] initWithObjects:
                                     @"ZBLoginZBCloudDemoVC",
                                     @"ZBGetZBCloudDataDemo",
+                                    @"ZBInstantMessageTabBarController",
                                     nil];
     }
     return _demoViewControllerArray;

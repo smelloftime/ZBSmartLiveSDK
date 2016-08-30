@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.frameworks = ['UIKit', 'AVFoundation', 'CoreGraphics', 'CFNetwork', 'AudioToolbox', 'CoreMedia', 'VideoToolbox']
   s.dependency 'AFNetworking', '~> 3.0.4'
   s.dependency 'MJExtension', '~> 3.0.11'
-  s.libraries = 'z', 'c++', 'resolv'
+  s.libraries = 'z', 'c++', 'resolv', 'icucore', 'sqlite3'
 
   s.default_subspec = "precompiled"
 

@@ -1,6 +1,6 @@
 {
   "name": "ZBSmartLiveSDK",
-  "version": "0.2.6",
+  "version": "0.3.0",
   "summary": "ZBSmartLiveSDK for iOS,simple create live app.",
   "homepage": "https://github.com/LipYoung/ZBSmartLiveSDK",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/LipYoung/ZBSmartLiveSDK.git",
-    "tag": "0.2.6"
+    "tag": "0.3.0"
   },
   "platforms": {
     "ios": "8.0"
@@ -40,7 +40,9 @@
   "libraries": [
     "z",
     "c++",
-    "resolv"
+    "resolv",
+    "icucore",
+    "sqlite3"
   ],
   "default_subspecs": "precompiled",
   "subspecs": [

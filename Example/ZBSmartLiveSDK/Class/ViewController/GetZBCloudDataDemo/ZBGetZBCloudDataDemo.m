@@ -7,20 +7,23 @@
 //
 
 #import "ZBGetZBCloudDataDemo.h"
+
 #import <ZBSmartLiveSDK/ZBCloudData.h>
 
 @interface ZBGetZBCloudDataDemo ()
 @property (weak, nonatomic) IBOutlet UIButton *sendRequestButton;
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
+@property (weak, nonatomic) IBOutlet UIButton *uploadImage;
 
 @end
 
 @implementation ZBGetZBCloudDataDemo
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.sendRequestButton addTarget:self action:@selector(sendGift) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationController.navigationBar.translucent = NO;
+    [self.sendRequestButton addTarget:self action:@selector(sendRequest) forControlEvents:UIControlEventTouchUpInside];
+    [self.uploadImage addTarget:self action:@selector(uploadImageRequest) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)sendRequest {
@@ -39,7 +42,13 @@
                                   }];
 }
 
-- (void)sendGift {
+- (void)uploadImageRequest {
+//    [ZBCloudData uploadImage:[UIImage imageNamed:@"image"] parameter:nil success:^(id data) {
+//        NSLog(@"%@", data);
+//    } fail:^(NSError *fail) {
+//        NSLog(@"%@", fail);
+//    }];
+//    self.resultTextView.text = [NSString stringWithFormat:@"%@", [ZBCloudData giftConfigInfo]];
     NSDictionary *dic = [ZBCloudData giftConfigInfo][0];
     [ZBCloudData sendGift:dic[@"gift_code"] toUser:@"11" andGiftCount:1 success:^(id data) {
         self.resultTextView.text = [NSString stringWithFormat:@"%@", data];
