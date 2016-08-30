@@ -41,14 +41,5 @@
  *  @param error  登录结果的回调,如果正常的话 error 就为 nil
  */
 - (void)loginWithZBTicket:(NSString *)ticket completion:(void(^)(NSError *))error;
-/**
- *  获取聊天相关的数据,需要依次成果调用了 应用注册和 票据登录接口才能获取到结果
- *
- *  @see registerWithAppID: appToken: completion:
- *  @see loginWithZBTicket: completion:
- *
- *  @return 聊天的账号对应的KEY是IMID,聊天的密码对应的KEY是IMPWD
- */
-- (NSDictionary *)returnIMUserInfo;
 
 @end
