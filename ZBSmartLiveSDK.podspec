@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZBSmartLiveSDK'
-  s.version          = '0.3.0'
+  s.version          = '0.3.1'
   s.summary          = 'ZBSmartLiveSDK for iOS,simple create live app.'
 
   s.homepage         = 'https://github.com/LipYoung/ZBSmartLiveSDK'
@@ -15,17 +15,17 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.ios.deployment_target = '8.0'
 
-  s.public_header_files = 'Pod/Library/include/ZBSmartLiveSDK/*.h'
-  s.source_files = 'Pod/Library/include/ZBSmartLiveSDK/*.h'
+#  s.public_header_files = 'Pod/Library/include/ZBSmartLiveSDK//**/*.{c, h, m}'
+  s.source_files = 'Pod/Library/include/ZBSmartLiveSDK/**/*','Pod/Library/include/ZBSmartLiveSDK/**/*.{c, h, m}'
 
   s.frameworks = ['UIKit', 'AVFoundation', 'CoreGraphics', 'CFNetwork', 'AudioToolbox', 'CoreMedia', 'VideoToolbox']
   s.dependency 'AFNetworking', '~> 3.0.4'
   s.dependency 'MJExtension', '~> 3.0.11'
   s.libraries = 'z', 'c++', 'resolv', 'icucore', 'sqlite3'
 
-  s.default_subspec = "precompiled"
+#  s.default_subspec = "precompiled"
 
-  s.subspec "precompiled" do |ss|
-    ss.vendored_libraries   = 'Pod/Library/lib/*.a'
-  end
+#  s.subspec "precompiled" do |ss|
+#    ss.vendored_libraries   = 'Pod/Library/lib/*.a'
+#  end
 end

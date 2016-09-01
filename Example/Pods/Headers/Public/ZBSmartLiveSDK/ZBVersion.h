@@ -1,1 +1,1 @@
-../../../../../Pod/Library/include/ZBSmartLiveSDK/ZBVersion.h
+../../../../../Pod/Library/include/ZBSmartLiveSDK/Other/ZBVersion.h

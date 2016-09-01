@@ -18,8 +18,10 @@
     "ios": "8.0"
   },
   "requires_arc": true,
-  "public_header_files": "Pod/Library/include/ZBSmartLiveSDK/*.h",
-  "source_files": "Pod/Library/include/ZBSmartLiveSDK/*.h",
+  "source_files": [
+    "Pod/Library/include/ZBSmartLiveSDK/**/*",
+    "Pod/Library/include/ZBSmartLiveSDK/**/*.{c, h, m}"
+  ],
   "frameworks": [
     "UIKit",
     "AVFoundation",
@@ -43,12 +45,5 @@
     "resolv",
     "icucore",
     "sqlite3"
-  ],
-  "default_subspecs": "precompiled",
-  "subspecs": [
-    {
-      "name": "precompiled",
-      "vendored_libraries": "Pod/Library/lib/*.a"
-    }
   ]
 }
