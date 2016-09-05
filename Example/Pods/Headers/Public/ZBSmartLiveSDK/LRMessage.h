@@ -1,1 +1,0 @@
-../../../../../Pod/Library/include/ZBSmartLiveSDK/LiRival/LRMessage.h

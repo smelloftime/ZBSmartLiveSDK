@@ -10,4 +10,7 @@
 
 @interface ZBInstantMessageTabBarController : UITabBarController
 
+/** 聊天室唯一标识 */
+@property (strong, nonatomic) NSString *chatroomId;
+
 @end

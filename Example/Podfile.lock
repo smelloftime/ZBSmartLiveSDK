@@ -15,7 +15,11 @@ PODS:
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - MJExtension (3.0.11)
-  - ZBSmartLiveSDK (0.3.0):
+  - ZBSmartLiveSDK (0.3.2):
+    - AFNetworking (~> 3.0.4)
+    - MJExtension (~> 3.0.11)
+    - ZBSmartLiveSDK/precompiled (= 0.3.2)
+  - ZBSmartLiveSDK/precompiled (0.3.2):
     - AFNetworking (~> 3.0.4)
     - MJExtension (~> 3.0.11)
 
@@ -29,7 +33,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   MJExtension: f9ae6ddc0f1c482c3c9af750280ccebd14381958
-  ZBSmartLiveSDK: 4c290c1e8f68d0968cf5e918506f53e2740739f7
+  ZBSmartLiveSDK: be03c3bcaafefe644f5de76f9bbcf46752758ea9
 
 PODFILE CHECKSUM: b32e3ffa718ababc2b9d262e7356c9b5e150b7b4
 

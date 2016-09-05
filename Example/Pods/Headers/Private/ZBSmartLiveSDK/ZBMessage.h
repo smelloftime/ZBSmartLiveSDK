@@ -1,1 +1,1 @@
-../../../../../Pod/Library/include/ZBSmartLiveSDK/Chat/ZBMessage.h
+../../../../../Pod/Library/include/ZBSmartLiveSDK/ZBMessage.h

@@ -9,6 +9,7 @@
 #import "ZBSendIMVC.h"
 #import <ZBChat.h>
 #import <ZBMessage.h>
+#import "ZBInstantMessageTabBarController.h"
 
 @interface ZBSendIMVC () <
     ZBChatDelegate
@@ -48,11 +49,16 @@
         NSLog(@"发送聊天信息时,消息不能为空");
         return;
     }
+    
+    ZBInstantMessageTabBarController *controller = (ZBInstantMessageTabBarController *)self.tabBarController;
+    
     ZBMessage *message = [[ZBMessage alloc] init];
     message.messageContent = self.sendMessageTextField.text;
     message.messageType = ZBMessageTypeText;
-    message.fromUserIdentity = @"zbusid_9"; // 该数值来自三方用户服务器
-    [self.chat sendMessage:message toConversation:@(4) completion:^(id respondData, NSError *error) {
+    message.fromUserIdentity = @"zbuser_9"; // 该数值来自三方用户服务器
+    message.extendCode = 50200;
+    message.extend = @{@"giftType": @"g_0001", @"giftCount": @(2)};
+    [self.chat sendMessage:message toConversation:@([controller.chatroomId intValue]) completion:^(id respondData, NSError *error) {
         if (error == nil) {
             self.messageTextView.text = [NSString stringWithFormat:@"%@\n发送消息:\n%@", self.messageTextView.text, message.messageContent];
             NSLog(@"%@", respondData);

@@ -1,6 +1,6 @@
 {
   "name": "ZBSmartLiveSDK",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "summary": "ZBSmartLiveSDK for iOS,simple create live app.",
   "homepage": "https://github.com/LipYoung/ZBSmartLiveSDK",
   "license": {
@@ -12,16 +12,14 @@
   },
   "source": {
     "git": "https://github.com/LipYoung/ZBSmartLiveSDK.git",
-    "tag": "0.3.0"
+    "tag": "0.3.2"
   },
   "platforms": {
     "ios": "8.0"
   },
   "requires_arc": true,
-  "source_files": [
-    "Pod/Library/include/ZBSmartLiveSDK/**/*",
-    "Pod/Library/include/ZBSmartLiveSDK/**/*.{c, h, m}"
-  ],
+  "public_header_files": "Pod/Library/include/ZBSmartLiveSDK/*.h",
+  "source_files": "Pod/Library/include/ZBSmartLiveSDK/*.h",
   "frameworks": [
     "UIKit",
     "AVFoundation",
@@ -45,5 +43,12 @@
     "resolv",
     "icucore",
     "sqlite3"
+  ],
+  "default_subspecs": "precompiled",
+  "subspecs": [
+    {
+      "name": "precompiled",
+      "vendored_libraries": "Pod/Library/lib/*.a"
+    }
   ]
 }

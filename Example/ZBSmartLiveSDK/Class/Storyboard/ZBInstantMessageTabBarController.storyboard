@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--收消息-->
+        <!--操作-->
         <scene sceneID="uCx-7p-MAb">
             <objects>
                 <viewController id="oF6-nt-98j" customClass="ZBReceiveIMVC" sceneMemberID="viewController">
@@ -19,56 +19,77 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbQ-5F-i9z">
-                                <rect key="frame" x="16" y="122" width="105" height="30"/>
-                                <state key="normal" title="获取聊天室人数"/>
+                                <rect key="frame" x="118" y="66" width="96" height="30"/>
+                                <state key="normal" title="获取人数"/>
                                 <connections>
                                     <action selector="getChatrromCount:" destination="oF6-nt-98j" eventType="touchUpInside" id="dhy-5y-Lth"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7h9-XQ-uVZ">
-                                <rect key="frame" x="244" y="122" width="60" height="30"/>
-                                <state key="normal" title="禁言用户"/>
-                                <connections>
-                                    <action selector="shoutDown:" destination="oF6-nt-98j" eventType="touchUpInside" id="fMY-S1-IFB"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="接收到的消息" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="H8P-sg-5hf">
-                                <rect key="frame" x="20" y="160" width="280" height="199"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="zbuser_6" borderStyle="roundedRect" placeholder="禁言用户的账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xtS-3E-rOo">
-                                <rect key="frame" x="20" y="84" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="zbuser_6" borderStyle="roundedRect" placeholder="用户商户服务器的唯一标识" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xtS-3E-rOo">
+                                <rect key="frame" x="16" y="299" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="WDB-6d-FbE"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FF-HM-4UF">
-                                <rect key="frame" x="244" y="46" width="60" height="30"/>
+                                <rect key="frame" x="135" y="299" width="60" height="30"/>
                                 <state key="normal" title="解禁用户"/>
                                 <connections>
                                     <action selector="unShoutDown:" destination="oF6-nt-98j" eventType="touchUpInside" id="5xi-lv-sYb"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="4" borderStyle="roundedRect" placeholder="聊天室ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ha-9s-2Nf">
+                                <rect key="frame" x="22" y="28" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pls-hD-lJD">
+                                <rect key="frame" x="22" y="66" width="96" height="30"/>
+                                <state key="normal" title="加入聊天室"/>
+                                <connections>
+                                    <action selector="join:" destination="oF6-nt-98j" eventType="touchUpInside" id="Dtw-Kb-dMc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CW5-3h-tLq">
+                                <rect key="frame" x="214" y="66" width="96" height="30"/>
+                                <state key="normal" title="离开聊天室"/>
+                                <connections>
+                                    <action selector="leav:" destination="oF6-nt-98j" eventType="touchUpInside" id="Abf-ja-FSt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7h9-XQ-uVZ">
+                                <rect key="frame" x="227" y="299" width="60" height="30"/>
+                                <state key="normal" title="禁言用户"/>
+                                <connections>
+                                    <action selector="shoutDown:" destination="oF6-nt-98j" eventType="touchUpInside" id="fMY-S1-IFB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="4FF-HM-4UF" firstAttribute="top" secondItem="YbQ-5F-i9z" secondAttribute="bottom" constant="203" id="18n-fr-xPH"/>
+                            <constraint firstItem="YbQ-5F-i9z" firstAttribute="height" secondItem="Pls-hD-lJD" secondAttribute="height" id="2yi-FU-pax"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CW5-3h-tLq" secondAttribute="trailing" constant="-6" id="64M-Cu-HXd"/>
                             <constraint firstItem="YbQ-5F-i9z" firstAttribute="centerX" secondItem="xtS-3E-rOo" secondAttribute="centerX" id="6J6-cU-1fz"/>
-                            <constraint firstItem="YbQ-5F-i9z" firstAttribute="top" secondItem="xtS-3E-rOo" secondAttribute="bottom" constant="8" symbolic="YES" id="CDq-s4-YKc"/>
-                            <constraint firstItem="xtS-3E-rOo" firstAttribute="trailing" secondItem="H8P-sg-5hf" secondAttribute="trailing" id="CI3-Ir-iOQ"/>
-                            <constraint firstItem="YbQ-5F-i9z" firstAttribute="leading" secondItem="i5s-89-V2j" secondAttribute="leadingMargin" id="G73-p4-hW6"/>
-                            <constraint firstItem="xtS-3E-rOo" firstAttribute="top" secondItem="4FF-HM-4UF" secondAttribute="bottom" constant="8" id="JxJ-PM-aUy"/>
-                            <constraint firstItem="xtS-3E-rOo" firstAttribute="leading" secondItem="i5s-89-V2j" secondAttribute="leadingMargin" constant="4" id="MEf-XQ-p0a"/>
-                            <constraint firstItem="H8P-sg-5hf" firstAttribute="centerX" secondItem="i5s-89-V2j" secondAttribute="centerX" id="N0K-QD-s2S"/>
-                            <constraint firstItem="H8P-sg-5hf" firstAttribute="top" secondItem="7h9-XQ-uVZ" secondAttribute="bottom" constant="8" id="R1k-iD-7Uv"/>
-                            <constraint firstItem="4FF-HM-4UF" firstAttribute="trailing" secondItem="i5s-89-V2j" secondAttribute="trailingMargin" id="UB2-9j-lnA"/>
-                            <constraint firstItem="xtS-3E-rOo" firstAttribute="top" secondItem="izL-Qg-TfR" secondAttribute="bottom" constant="64" id="YfP-hS-uRd"/>
-                            <constraint firstItem="7h9-XQ-uVZ" firstAttribute="top" secondItem="xtS-3E-rOo" secondAttribute="bottom" constant="8" id="evQ-9a-GW6"/>
-                            <constraint firstItem="xtS-3E-rOo" firstAttribute="leading" secondItem="H8P-sg-5hf" secondAttribute="leading" id="iWj-OH-Z0h"/>
-                            <constraint firstItem="H8P-sg-5hf" firstAttribute="top" secondItem="YbQ-5F-i9z" secondAttribute="bottom" constant="8" symbolic="YES" id="iqh-rz-rJr"/>
-                            <constraint firstItem="5sg-rm-kWL" firstAttribute="top" secondItem="H8P-sg-5hf" secondAttribute="bottom" constant="160" id="oIR-oc-DXj"/>
-                            <constraint firstItem="4FF-HM-4UF" firstAttribute="top" secondItem="izL-Qg-TfR" secondAttribute="bottom" constant="26" id="xl0-h9-Scz"/>
-                            <constraint firstItem="7h9-XQ-uVZ" firstAttribute="trailing" secondItem="i5s-89-V2j" secondAttribute="trailingMargin" id="z9I-9R-XpO"/>
+                            <constraint firstItem="YbQ-5F-i9z" firstAttribute="width" secondItem="Pls-hD-lJD" secondAttribute="width" id="6Zf-fP-1om"/>
+                            <constraint firstItem="7h9-XQ-uVZ" firstAttribute="leading" secondItem="4FF-HM-4UF" secondAttribute="trailing" constant="32" id="8bX-rD-58z"/>
+                            <constraint firstItem="Pls-hD-lJD" firstAttribute="leading" secondItem="i5s-89-V2j" secondAttribute="leadingMargin" constant="6" id="Dyy-Cg-Y9i"/>
+                            <constraint firstItem="xtS-3E-rOo" firstAttribute="leading" secondItem="i5s-89-V2j" secondAttribute="leadingMargin" id="JWg-Uw-qJg"/>
+                            <constraint firstItem="5Ha-9s-2Nf" firstAttribute="top" secondItem="izL-Qg-TfR" secondAttribute="bottom" constant="8" id="K4K-b8-zhl"/>
+                            <constraint firstItem="4FF-HM-4UF" firstAttribute="top" secondItem="xtS-3E-rOo" secondAttribute="top" id="Lmi-h0-HAF"/>
+                            <constraint firstItem="5Ha-9s-2Nf" firstAttribute="leading" secondItem="i5s-89-V2j" secondAttribute="leadingMargin" constant="6" id="Nhx-Bo-tAJ"/>
+                            <constraint firstItem="YbQ-5F-i9z" firstAttribute="top" secondItem="5Ha-9s-2Nf" secondAttribute="bottom" constant="8" id="OLe-WK-OhI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Ha-9s-2Nf" secondAttribute="trailing" constant="-6" id="SvS-UA-bcy"/>
+                            <constraint firstItem="CW5-3h-tLq" firstAttribute="height" secondItem="Pls-hD-lJD" secondAttribute="height" id="Wb5-Jt-GuK"/>
+                            <constraint firstItem="CW5-3h-tLq" firstAttribute="leading" secondItem="YbQ-5F-i9z" secondAttribute="trailing" id="WhP-gJ-Bm4"/>
+                            <constraint firstItem="YbQ-5F-i9z" firstAttribute="leading" secondItem="Pls-hD-lJD" secondAttribute="trailing" id="aVy-24-jrq"/>
+                            <constraint firstItem="4FF-HM-4UF" firstAttribute="leading" secondItem="xtS-3E-rOo" secondAttribute="trailing" constant="19" id="izB-A0-6Dk"/>
+                            <constraint firstItem="7h9-XQ-uVZ" firstAttribute="top" secondItem="xtS-3E-rOo" secondAttribute="top" id="k77-Af-8fN"/>
+                            <constraint firstItem="YbQ-5F-i9z" firstAttribute="top" secondItem="Pls-hD-lJD" secondAttribute="top" id="owm-6M-lCV"/>
+                            <constraint firstItem="CW5-3h-tLq" firstAttribute="top" secondItem="Pls-hD-lJD" secondAttribute="top" id="qm7-jC-YOo"/>
+                            <constraint firstItem="CW5-3h-tLq" firstAttribute="width" secondItem="Pls-hD-lJD" secondAttribute="width" id="scV-dV-Myy"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -76,17 +97,17 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="收消息" id="Hz0-Ez-ojN"/>
+                    <tabBarItem key="tabBarItem" title="操作" id="Hz0-Ez-ojN"/>
                     <connections>
-                        <outlet property="receiveTextView" destination="H8P-sg-5hf" id="HBk-ys-LhN"/>
+                        <outlet property="chatroomIDTextField" destination="5Ha-9s-2Nf" id="rka-Es-wOc"/>
                         <outlet property="textField" destination="xtS-3E-rOo" id="bVS-Sx-3xe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TGV-VF-CcE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="739" y="839"/>
+            <point key="canvasLocation" x="736" y="-46"/>
         </scene>
-        <!--发消息-->
+        <!--收发消息-->
         <scene sceneID="Xdo-h2-UgK">
             <objects>
                 <viewController id="Aw2-Ca-Q4f" customClass="ZBSendIMVC" sceneMemberID="viewController">
@@ -110,12 +131,6 @@
                                     <action selector="sendMessage:" destination="Aw2-Ca-Q4f" eventType="touchUpInside" id="uhN-kV-5OZ"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="消息发送结果" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4oC-ws-VAl">
-                                <rect key="frame" x="20" y="160" width="280" height="195"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UvN-Ek-ZBG">
                                 <rect key="frame" x="-4" y="28" width="328" height="56"/>
                                 <items>
@@ -127,6 +142,12 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="消息发送结果" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4oC-ws-VAl">
+                                <rect key="frame" x="20" y="160" width="280" height="195"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -145,7 +166,7 @@
                             <constraint firstItem="QKv-RP-x32" firstAttribute="top" secondItem="UvN-Ek-ZBG" secondAttribute="bottom" id="xt2-yI-JXh"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="发消息" id="0kF-eq-iS8"/>
+                    <tabBarItem key="tabBarItem" title="收发消息" id="0kF-eq-iS8"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -155,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5wy-8F-5vP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="739" y="99"/>
+            <point key="canvasLocation" x="736" y="695"/>
         </scene>
         <!--Instant Message Tab Bar Controller-->
         <scene sceneID="U00-ac-aHk">
@@ -168,8 +189,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Aw2-Ca-Q4f" kind="relationship" relationship="viewControllers" id="xMs-8D-LCT"/>
                         <segue destination="oF6-nt-98j" kind="relationship" relationship="viewControllers" id="OGK-Yy-wST"/>
+                        <segue destination="Aw2-Ca-Q4f" kind="relationship" relationship="viewControllers" id="xMs-8D-LCT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4gI-Fc-A68" userLabel="First Responder" sceneMemberID="firstResponder"/>
