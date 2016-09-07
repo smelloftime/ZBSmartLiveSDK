@@ -1,0 +1,1 @@
+../../../../../Pod/Library/include/ZBSmartLiveSDK/Chat/ZBConversationEvent.h
