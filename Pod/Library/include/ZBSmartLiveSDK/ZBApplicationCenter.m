@@ -16,10 +16,12 @@
 #define kConfigVersionSaveKey   @"kConfigVersionSaveKey"
 #define kUserAuthSaveKey        @"kUserAuthSaveKey"
 #define kTicketSaveKey          @"kTicketSaveKey"
+#define kFilterSaveKey          @"kFilterSaveKey"
 
 @interface ZBApplicationCenter ()
 @property (strong, nonatomic) ZBConfigInfoModel *configInfoModel;
 @property (strong, nonatomic) ZBUserAuthenticityModel *userAuthenticityModel;
+@property (strong, nonatomic) NSArray *filterArray;
 
 @end
 
@@ -116,6 +118,13 @@
     return _userAuthenticityModel;
 }
 
+- (NSArray *)filterArray {
+    if (_filterArray == nil) {
+        _filterArray = [[NSUserDefaults standardUserDefaults] objectForKey:kFilterSaveKey];
+    }
+    return _filterArray;
+}
+
 - (NSString *)rootURL {
     return @"http://test.zhibocloud.cn/api/getconfig/getApi";
 }
@@ -148,6 +157,13 @@
     
     NSData *configJsonData = [NSJSONSerialization dataWithJSONObject:authenticity options:NSJSONWritingPrettyPrinted error:nil];
     [[NSUserDefaults standardUserDefaults] setValue:configJsonData forKey:kUserAuthSaveKey];
+}
+
+- (void)updateFilterWord:(NSArray *)filterArray {
+    NSParameterAssert(filterArray);
+    self.filterArray = filterArray;
+    [[NSUserDefaults standardUserDefaults] setObject:filterArray forKey:kFilterSaveKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark - other

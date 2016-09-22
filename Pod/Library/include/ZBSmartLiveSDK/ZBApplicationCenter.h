@@ -47,6 +47,8 @@
  *  @see updataAuthenticityData
  */
 @property (strong, nonatomic, readonly) ZBUserAuthenticityModel *userAuthenticityModel;
+/** 敏感词数据 */
+@property (strong, nonatomic,readonly) NSArray *filterArray;
 /** 是否安装了分享平台  未完成 */
 @property (assign, nonatomic) BOOL isInstallShare;
 /** 聊天室的唯一标识 */
@@ -67,5 +69,10 @@
  *  @param authenticity 服务器返回的 json 格式的授权信息
  */
 - (void)updataAuthenticityData:(NSData *)authenticity;
+
+/**
+ *  更新并且持久化敏感词库
+ */
+- (void)updateFilterWord:(NSArray *)filterArray;
 
 @end
