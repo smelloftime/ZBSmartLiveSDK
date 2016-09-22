@@ -1,8 +1,11 @@
 # `ZBSmartLiveSDK` 概述
 
 `ZBSmartLiveSDK`是一个适用于 iOS 平台快速集成直播功能的 SDK.配合智播云后台可轻松同步迁移用户数据.
+
 `ZBSmartLiveSDK` 的特色是基于[PLMediaStreamingKit](https://github.com/pili-engineering/PLMediaStreamingKit),[PLPlayerKit](https://github.com/pili-engineering/PLPlayerKit)完成**快速构建**类似[映客](http://www.inke.cn/)的APP.
+
 借助`ZBSmartLiveSDK`和智播云后台,用户可以在几小时内集成直播,聊天核心功能至已有应用中.
+
 (备注:该SDK仅支持ARC环境和object-c工程,以及iOS 8.0以上运行环境)
 
 ## 功能特性
@@ -16,13 +19,13 @@
 
 ## 内容摘要
 
-- [快速集成](##快速集成)
-- [初始化SDK](##初始化SDK)
-- [用户登录](##用户登录)
-- [获取直播列表](##获取直播列表)
-- [开启直播功能](##开启直播功能)
-- [收发即时通讯文本消息](##收发即时通讯文本消息)
-- [基础播放器功能](##基础播放器功能)
+- [快速集成](#快速集成)
+- [初始化SDK](#初始化SDK)
+- [用户登录](#用户登录)
+- [获取直播列表](#获取直播列表)
+- [开启直播功能](#开启直播功能)
+- [收发即时通讯文本消息](#收发即时通讯文本消息)
+- [基础播放器功能](#基础播放器功能)
 
 ## SDK说明
 
