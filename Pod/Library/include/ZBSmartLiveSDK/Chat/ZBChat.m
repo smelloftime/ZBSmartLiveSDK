@@ -54,6 +54,15 @@
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
 }
 
++ (instancetype)share {
+    static dispatch_once_t once;
+    static ZBChat *coreKit;
+    dispatch_once(&once, ^{
+        coreKit = [[self alloc] init];
+    });
+    return coreKit;
+}
+
 - (instancetype)init {
     if (self = [super init]) {
         self.liRivalKit = [LiRivalKit coreKit];
@@ -68,6 +77,9 @@
 - (void)reconnectLiRivalKit {
     if (self.isConnection == NO) { // 如果在重连中 就不要继续开始重连了
         self.isConnection = YES;
+        if ([self.delegate respondsToSelector:@selector(chat:connectionStateDidChange:)]) {
+            [self.delegate chat:self connectionStateDidChange:ZBChatStateReconnection];
+        }
         self.reconnectTimer = [NSTimer timerWithTimeInterval:kReconnectAtFirstDistance target:self selector:@selector(celerityReconnect) userInfo:nil repeats:YES];
         [[NSRunLoop mainRunLoop] addTimer:self.reconnectTimer forMode:NSRunLoopCommonModes];
     }
@@ -77,6 +89,7 @@
 - (void)celerityReconnect {
     self.reconnectTimes = self.reconnectTimes + 1;
     if (self.reconnectTimes == 5) { // 计算,如果调用了5次这个方法,就切换到另一种重连方式中
+        self.reconnectTimes = 0;
         [self longReconnect];
         return;
     }
@@ -133,7 +146,13 @@
     }
     NSDictionary *messageBody = [NSDictionary dictionaryWithDictionary:[messageModel mj_keyValues]];
     if (message.isRealTime ==  YES) {
-        [self.liRivalKit sendMessageWithMessageEvent:ZBConversationEventMessage messageBody:messageBody messageIdentity:nil completion:nil];
+        [self.liRivalKit sendMessageWithMessageEvent:ZBConversationEventMessage messageBody:messageBody messageIdentity:nil completion:^(NSArray *respondData, NSError *error) {
+            if (error) {
+                if (completion) {
+                    completion(nil,error);
+                }
+            }
+        }];
     } else {
         [self.liRivalKit sendMessageWithMessageEvent:ZBConversationEventMessage messageBody:messageBody messageIdentity:@(self.liRivalKit.sendMessageIdentity) completion:^(NSArray *respondData, NSError *error) {
             if (completion) {
@@ -193,8 +212,10 @@
     if (connectionState == LiRivalKitStateFail && ((networkStatys == AFNetworkReachabilityStatusReachableViaWWAN) || (networkStatys == AFNetworkReachabilityStatusReachableViaWiFi))) {
         [self reconnectLiRivalKit];
     }
-    if (connectionState == LiRivalKitStateSuccess) {
-        [self stopReconnectLiRivalKit];
+    if (self.isConnection == YES) { // 如果目前在重连中,就抛出成功的信息
+        if (connectionState == LiRivalKitStateSuccess) {
+            [self stopReconnectLiRivalKit];
+        }
     }
     if (connectionState == LiRivalKitStateFail && (networkStatys == AFNetworkReachabilityStatusNotReachable)) {
         if ([self.delegate respondsToSelector:@selector(chat:connectionStateDidChange:)]) {

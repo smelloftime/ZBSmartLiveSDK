@@ -43,9 +43,13 @@ typedef NS_ENUM(NSUInteger, ZBChatState) {
 @interface ZBChat : NSObject
 /** 聊天信息接收代理 */
 @property (weak, nonatomic) id<ZBChatDelegate> delegate;
+/// 消息管理核心
++ (instancetype)share;
 // 发送文本消息到会话中
 - (void)sendMessage:(ZBMessage *)message toConversation:(NSNumber *)conversationIdentity completion:(void(^)(id respondData, NSError *error))completion;
 /// 手动重连聊天服务器
 - (void)reconnectionSuccess:(void (^)(NSString *))success fail:(void (^)(NSError *))fail;
+/// 手动启动重连逻辑
+- (void)reconnectLiRivalKit;
 
 @end
