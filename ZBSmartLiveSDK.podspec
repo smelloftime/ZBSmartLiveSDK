@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZBSmartLiveSDK'
-  s.version          = '0.3.4'
+  s.version          = '0.3.5'
   s.summary          = 'ZBSmartLiveSDK for iOS,simple create live app.'
 
   s.homepage         = 'https://github.com/LipYoung/ZBSmartLiveSDK'
@@ -20,6 +20,7 @@ Pod::Spec.new do |s|
   s.frameworks = ['UIKit', 'AVFoundation', 'CoreGraphics', 'CFNetwork', 'AudioToolbox', 'CoreMedia', 'VideoToolbox']
   s.dependency 'AFNetworking', '~> 3.0.4'
   s.dependency 'MJExtension', '~> 3.0.11'
+  s.dependency 'SSZipArchive', '~> 1.5'
   s.libraries = 'z', 'c++', 'resolv', 'icucore', 'sqlite3'
 
 #  s.default_subspec = "precompiled"
