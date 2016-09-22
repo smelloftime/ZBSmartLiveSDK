@@ -43,18 +43,7 @@
 }
 
 - (void)uploadImageRequest {
-//    [ZBCloudData uploadImage:[UIImage imageNamed:@"image"] parameter:nil success:^(id data) {
-//        NSLog(@"%@", data);
-//    } fail:^(NSError *fail) {
-//        NSLog(@"%@", fail);
-//    }];
-//    self.resultTextView.text = [NSString stringWithFormat:@"%@", [ZBCloudData giftConfigInfo]];
-    NSDictionary *dic = [ZBCloudData giftConfigInfo][0];
-    [ZBCloudData sendGift:dic[@"gift_code"] toUser:@"11" andGiftCount:1 success:^(id data) {
-        self.resultTextView.text = [NSString stringWithFormat:@"%@", data];
-    } fail:^(NSError *fail) {
-        self.resultTextView.text = [NSString stringWithFormat:@"errorcode => %d ;\nerror info => %@ ;\nerror localized description => %@", (int)fail.code, fail.domain, [fail localizedDescription]];
-    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
