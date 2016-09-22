@@ -32,4 +32,27 @@
     [ZBHttpRequestManager sendHttpRequestWithAPI:[ZBURLPath pathFromUserAuthenticity] arguments:arguments header:nil successCallback:success failCallback:fail];
 }
 
++ (void)downloadFilterWordRequestCompletion:(void (^)(NSError *))error {
+    [ZBTools transformDate:[NSDate date] intoLockedWord:^(NSString *hextime, NSString *lockedToken) {
+        NSString * encodingString = [@"filter_word_list" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSData *nsdata = [encodingString dataUsingEncoding:NSUTF8StringEncoding];
+        NSString *base64Encoded = [nsdata base64EncodedStringWithOptions:0];
+        
+        NSDictionary *dic = @{@"hextime": hextime, @"token": lockedToken, @"name": base64Encoded};
+        
+        NSMutableDictionary *arguments = [NSMutableDictionary dictionaryWithDictionary:@{@"api": [ZBURLPath pathFromApplicationConfig]}];
+        [arguments addEntriesFromDictionary:dic];
+        
+        [ZBHttpRequestManager downloadFileWithAPI:[ZBURLPath pathFromApplicationConfig] arguments:arguments header:nil successCallback:^(id data) {
+            if (error) {
+                error(nil);
+            }
+        } failCallback:^(NSError *fail) {
+            if (error) {
+                error(fail);
+            }
+        }];
+    }];
+}
+
 @end

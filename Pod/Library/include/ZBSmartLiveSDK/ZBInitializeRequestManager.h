@@ -19,4 +19,6 @@ typedef void(^RequestFailCallBack)(NSError *fail);
 
 + (void)sendGetAndUpdataUserAuthenticityRequestWithTicket:(NSString *)ticket success:(RequestSuccessCallBack)success fail:(RequestFailCallBack)fail;
 
++ (void)downloadFilterWordRequestCompletion:(void (^)(NSError *))error;
+
 @end
