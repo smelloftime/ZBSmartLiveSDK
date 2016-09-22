@@ -15,9 +15,11 @@ PODS:
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - MJExtension (3.0.11)
+  - SSZipArchive (1.5)
   - ZBSmartLiveSDK (0.3.4):
     - AFNetworking (~> 3.0.4)
     - MJExtension (~> 3.0.11)
+    - SSZipArchive (~> 1.5)
 
 DEPENDENCIES:
   - ZBSmartLiveSDK (from `../`)
@@ -29,7 +31,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   MJExtension: f9ae6ddc0f1c482c3c9af750280ccebd14381958
-  ZBSmartLiveSDK: dac8ad525a5b9db7cbc25d58b9e47d13feb67eb9
+  SSZipArchive: 29daace2bccb90a47de2837744da397728ff9207
+  ZBSmartLiveSDK: 83b2bf939015d45effbdf819714c330232fce205
 
 PODFILE CHECKSUM: b32e3ffa718ababc2b9d262e7356c9b5e150b7b4
 
