@@ -16,9 +16,7 @@
 #import "ZBCloudData.h"
 #import "MJExtension/MJExtension.h"
 
-@interface ZBChatroom () <
-    LiRivalKitDelegate
->
+@interface ZBChatroom ()
 /** 聊天核心 */
 @property (weak, nonatomic) LiRivalKit *liRivalKit;
 
@@ -29,7 +27,6 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.liRivalKit = [LiRivalKit coreKit];
-        self.liRivalKit.delegate = self;
     }
     return self;
 }
