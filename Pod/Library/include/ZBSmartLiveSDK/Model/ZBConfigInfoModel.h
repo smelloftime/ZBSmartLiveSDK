@@ -16,6 +16,8 @@
 @property (assign, nonatomic) NSInteger snsTimespan;
 /** 推流校验口令 */
 @property (copy, nonatomic) NSString *validLock;
+/** 直播间公告信息 */
+@property (strong, nonatomic) NSArray *streamNoticeList;
 /** 直播列表请求口令 */
 @property (copy, nonatomic) NSString *varPage;
 /** 过滤列表 直播清单 */
@@ -28,9 +30,11 @@
 @property (strong, nonatomic) NSArray *goldPayExchangeList;
 /** 金币提现兑换比例清单 */
 @property (strong, nonatomic) NSArray *goldCashExchangeList;
-/** 礼物列表配置 */
-@property (strong, nonatomic) NSArray *giftList;
 /** 聊天服务器地址列表 */
 @property (strong, nonatomic) NSArray *webSocketServerList;
+/** 过滤词替换符号 */
+@property (copy, nonatomic) NSString *filterReplaceWord;
+/** 敏感词版本号 */
+@property (copy, nonatomic) NSString *filterWordVersion;
 
 @end
