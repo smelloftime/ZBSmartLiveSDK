@@ -26,6 +26,9 @@
  */
 + (void)transformDate:(NSDate *)date intoLockedWord:(void(^)(NSString *hextime, NSString *lockedToken))lockedWord;
 
+/// 通过参数字典生成请求体
++ (NSData *)httpBodyForParamsDictionary:(NSDictionary *)paramDictionary;
+
 /**
  *  压缩图片,将图片压缩至 500 kb 以下
  *

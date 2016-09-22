@@ -28,6 +28,26 @@
     lockedWord(hexTimeString, lockString);
 }
 
+
+
++ (NSData *)httpBodyForParamsDictionary:(NSDictionary *)paramDictionary {
+    NSMutableArray *parameterArray = [NSMutableArray array];
+    
+    [paramDictionary enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL *stop) {
+        NSString *param = [NSString stringWithFormat:@"%@=%@", key, [self percentEscapeString:obj]];
+        [parameterArray addObject:param];
+    }];
+    
+    NSString *string = [parameterArray componentsJoinedByString:@"&"];
+    
+    return [string dataUsingEncoding:NSUTF8StringEncoding];
+}
+
++ (NSString *)percentEscapeString:(NSString *)string {
+    NSString *result = CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,(CFStringRef)string,(CFStringRef)@" ",(CFStringRef)@":/?@!$&'()*+,;=",kCFStringEncodingUTF8));
+    return [result stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+}
+
 // 压缩图片至500k以下
 + (NSData *)imageData:(UIImage *)myimage {
     NSData *data = UIImageJPEGRepresentation(myimage,1);
