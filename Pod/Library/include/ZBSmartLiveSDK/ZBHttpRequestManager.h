@@ -16,4 +16,6 @@
 
 + (void)uploadImageRequestWithAPI:(NSString *)api arguments:(NSDictionary *)arguments imageName:(NSString *)imageName imageData:(NSData *)imageData  header:(NSDictionary *)header sucessCallback:(void(^)(id))success failCallback:(void(^)(NSError *error))fail;
 
++ (void)downloadFileWithAPI:(NSString *)api arguments:(NSDictionary *)arguments header:(NSDictionary *)header successCallback:(void(^)(id))success failCallback:(void(^)(NSError *error))fail;
+
 @end

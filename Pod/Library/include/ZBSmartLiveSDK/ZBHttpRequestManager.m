@@ -13,8 +13,6 @@
 #import "AFNetworking.h"
 #import "ZBPrefix.h"
 
-#define Get_Root_Api @"http://test.zhibocloud.cn/api/getconfig/getApi"
-
 typedef enum {
     HttpRequestStatusNormal     = 0,        ///< 正常状态
     HttpRequestStatusError      = 500,      ///< 非法请求
@@ -117,7 +115,7 @@ void(^processImageResponseData)(id,void(^)(id),void(^)(NSError *)) = ^(id data,v
         [httpSessionManager.requestSerializer setValue:appID forHTTPHeaderField:@"Auth-Appid"];
         [httpSessionManager.requestSerializer setValue:lockedToken forHTTPHeaderField:@"Auth-Token"];
         [httpSessionManager.requestSerializer setValue:hextime forHTTPHeaderField:@"Auth-Basetime"];
-        [httpSessionManager POST:Get_Root_Api parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [httpSessionManager POST:[ZBApplicationCenter defaultCenter].rootURL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             processResponseData(responseObject, success, fail);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             if (fail) {
@@ -197,9 +195,49 @@ void(^processImageResponseData)(id,void(^)(id),void(^)(NSError *)) = ^(id data,v
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if(fail){
             ZBLog(@"%@", [error localizedDescription]);
+            fail(error);
         }
     }];
 }
 
++ (void)downloadFileWithAPI:(NSString *)api arguments:(NSDictionary *)arguments header:(NSDictionary *)header successCallback:(void (^)(id))success failCallback:(void (^)(NSError *))fail {
+    NSParameterAssert(api);
+    NSParameterAssert(arguments);
+    NSString *baseURL = [ZBApplicationCenter defaultCenter].baseURL;
+    if (baseURL == nil) {
+        NSError *error = [ZBErrorCode errorCreateWithErrorCode:ZBErrorCodeStatusUnInitialize];
+        if (fail) {
+            fail(error);
+        }
+        return;
+    }
+    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:@{@"api": api}];
+    [dic addEntriesFromDictionary:arguments];
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:baseURL]];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[ZBTools httpBodyForParamsDictionary:dic]];
+    
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        if (error) {
+            if (fail) {
+                fail(error);
+            }
+        } else {
+            if (success) {
+                success(nil);
+            }
+        }
+    }];
+    [downloadTask resume];
+}
 
 @end
