@@ -17,7 +17,7 @@
 
 const static NSTimeInterval kTimeByDefaultHeart = 200;
 const static NSTimeInterval kTimeBySendPingRespond = 1; ///< 发送 PING 响应超时时长
-const static NSTimeInterval ktimeByLoginRespond = 1; ///< 登录聊天服务器的响应超时时长
+const static NSTimeInterval ktimeByLoginRespond = 5; ///< 登录聊天服务器的响应超时时长
 const static NSUInteger kSendMessageIdentity = 10000;
 
 typedef void(^WebSocketErrorBlock)(NSError *error);
@@ -102,7 +102,6 @@ LRTimerArrayLifecycleProtocol
     }
     self.loginAgreement = [[NSString alloc] initWithFormat:@"%@?token=%@&serial=1&comprs=2",serverAddress, token];
     
-    
     LRLog(@"聊天服务器登录协议信息:\n%@", self.loginAgreement);
     
     self.webSocket = [[LRWebSocket alloc] initWithURL:[NSURL URLWithString:self.loginAgreement]];
@@ -145,7 +144,8 @@ LRTimerArrayLifecycleProtocol
 - (void)sendMessageWithMessageEvent:(NSString *)messageEvent messageBody:(id)messageBody messageIdentity:(NSNumber *)messageIdentity completion:(void (^)(NSArray *respondData, NSError *))completion {
     NSParameterAssert(messageEvent);
     NSParameterAssert(messageBody);
-
+    NSParameterAssert(completion);
+    
     if ([[LRReachability reachabilityForInternetConnection] currentReachabilityStatus] == NO) {
         completion(nil, [LRErrorCode errorCreateWithErrorCode:LRErrorCodeStatusLostNetWork]);
         return;
@@ -154,24 +154,29 @@ LRTimerArrayLifecycleProtocol
         completion(nil, [LRErrorCode errorCreateWithErrorCode:LRErrorCodeStatusLostWebSocket]);
         return;
     }
-    
-    if (messageIdentity) { // 验证是否超时
-        [self.timerArrayManager createTimerWithIdentity:messageIdentity];
-        [self.sendMessageBlockDic setObject:completion forKey:messageIdentity];
-        [self.webSocket send:[self addRequestHead:@[messageEvent, messageBody, messageIdentity]]];
-        LRLog(@"send message\n%d%@", (int)self.requestType, [self conversionStringFromArray:@[messageEvent, messageBody, messageIdentity]]);
-    } else { // 不验证是否超时
-        [self.webSocket send:[self addRequestHead:@[messageEvent, messageBody]]];
-        LRLog(@"send message\n%d%@", (int)self.requestType, [self conversionStringFromArray:@[messageEvent, messageBody]]);
-    }
-
-    if (_keepHeartbeatTimer) { // 每次发送消息 都重置一次心跳计时器
-        [_keepHeartbeatTimer invalidate];
-        _keepHeartbeatTimer = nil;
-        [self fireTimer:self.keepHeartbeatTimer];
+    if (self.webSocket.readyState == SR_OPEN) {
+        if (messageIdentity) { // 验证是否超时
+            [self.timerArrayManager createTimerWithIdentity:messageIdentity];
+            [self.sendMessageBlockDic setObject:completion forKey:messageIdentity];
+            [self.webSocket send:[self addRequestHead:@[messageEvent, messageBody, messageIdentity]]];
+            LRLog(@"send message\n%d%@", (int)self.requestType, [self conversionStringFromArray:@[messageEvent, messageBody, messageIdentity]]);
+        } else { // 不验证是否超时
+            [self.webSocket send:[self addRequestHead:@[messageEvent, messageBody]]];
+            LRLog(@"send message\n%d%@", (int)self.requestType, [self conversionStringFromArray:@[messageEvent, messageBody]]);
+        }
+        
+        if (_keepHeartbeatTimer) { // 每次发送消息 都重置一次心跳计时器
+            [_keepHeartbeatTimer invalidate];
+            _keepHeartbeatTimer = nil;
+            [self fireTimer:self.keepHeartbeatTimer];
+        } else {
+            [LRException raise:@"消息核心相关错误" format:@"发送消息时,计时器没有正常工作"];
+        }
     } else {
-        [LRException raise:@"消息核心相关错误" format:@"发送消息时,计时器没有正常工作"];
+        completion(nil, [LRErrorCode errorCreateWithErrorCode:LRErrorCodeStatusLostWebSocket]);
+        return;
     }
+    
 }
 
 - (void)sendPing {
@@ -205,47 +210,73 @@ LRTimerArrayLifecycleProtocol
         return;
     }
     NSArray *messageArray = [self respondBodyFromReadRespondData:respondData];
-    if ([messageArray[0] isKindOfClass:[NSString class]] == NO) {
-        LRException *exception = [LRException raiseWithLRExceptionCode:LRExceptionInvalidClass];
-        [exception raise];
+#if DEBUG
+    @try {
+#else
+#endif
+        if ([messageArray[0] isKindOfClass:[NSString class]] == NO) {
+            LRException *exception = [LRException raiseWithLRExceptionCode:LRExceptionInvalidClass];
+            [exception raise];
+        }
+        NSString *messageEvent = messageArray[0];
+        if (respondType == LRRequestTypeData) { // 消息包 直接走代理
+            if ([self.delegate respondsToSelector:@selector(liRivalKit:didReceiveMessageEvent:messageBody:)]) {
+                [self.delegate liRivalKit:self didReceiveMessageEvent:messageEvent messageBody:messageArray[1]];
+            }
+        }
+        if (respondType == LRRequestTypeDataACK) {
+            if (messageArray.count == 3) {
+                NSAssert(messageArray.count == 3, @"响应数据必须含有事件,数据包和标识");
+                if ([messageArray[0] isKindOfClass:[NSString class]] == NO || [messageArray[2] isKindOfClass:[NSNumber class]] == NO) {
+                    LRException *exception = [LRException raiseWithLRExceptionCode:LRExceptionInvalidClass];
+                    [exception raise];
+                }
+                WebSocketRespondDataBlock block = [self.sendMessageBlockDic objectForKey:messageArray[2]];
+                if (block) { // 如果查收到的消息编号不存在与消息字典中,就不处理
+                    block(messageArray,nil);
+                    [self.timerArrayManager invaliTimerWithIdentity:messageArray[2]];
+                    [self.sendMessageBlockDic removeObjectForKey:messageArray[2]];
+                } else {
+                    LRException *exception = [LRException raiseWithLRExceptionCode:LRExceptionInvalidArgument];
+                    [exception raise];
+                }
+            }
+        }
+        if (respondType == LRRequestTypeErrorACK) {
+            if (messageArray.count == 3) {
+                NSAssert(messageArray.count == 3, @"响应数据必须含有事件,数据包和标识");
+                if ([messageArray[0] isKindOfClass:[NSString class]] == NO || [messageArray[1] isKindOfClass:[NSDictionary class]] == NO || [messageArray[2] isKindOfClass:[NSNumber class]] == NO) {
+                    LRException *exception = [LRException raiseWithLRExceptionCode:LRExceptionInvalidClass];
+                    [exception raise];
+                }
+                [self.timerArrayManager invaliTimerWithIdentity:messageArray[2]];
+                NSDictionary *messageErrorBody = messageArray[1];
+                NSArray *valus = [messageErrorBody allValues];
+                WebSocketRespondDataBlock block = [self.sendMessageBlockDic objectForKey:messageArray[2]];
+                if (block) { // 如果查收到的消息编号不存在与消息字典中,就不处理
+                    if (valus.count == 1) { // 数据包 不一定含有 错误信息("msg")字段
+                        block(nil, [LRErrorCode errorCreateWithCoustomDomain:@"WebSocketErorDomain" errorCode:[messageErrorBody[@"code"] unsignedIntegerValue] description:@"server don't have error info"]);
+                    } else {
+                        NSError *error = [NSError errorWithDomain:@"WebSocketErorDomain" code:[messageErrorBody[@"code"] unsignedIntegerValue] userInfo:messageErrorBody];
+                        block(nil, error);
+                    }
+                    [self.sendMessageBlockDic removeObjectForKey:messageArray[2]];
+                } else {
+                    LRException *exception = [LRException raiseWithLRExceptionCode:LRExceptionInvalidArgument];
+                    [exception raise];
+                }
+            }
+        }
+#if DEBUG
     }
-    NSString *messageEvent = messageArray[0];
-    if (respondType == LRRequestTypeData) { // 消息包 直接走代理
-        if ([self.delegate respondsToSelector:@selector(liRivalKit:didReceiveMessageEvent:messageBody:)]) {
-            [self.delegate liRivalKit:self didReceiveMessageEvent:messageEvent messageBody:messageArray[1]];
-        }
-    } else if (respondType == LRRequestTypeDataACK) {
-        if (messageArray.count == 3) {
-            NSAssert(messageArray.count == 3, @"响应数据必须含有事件,数据包和标识");
-            if ([messageArray[0] isKindOfClass:[NSString class]] == NO || [messageArray[2] isKindOfClass:[NSNumber class]] == NO) {
-                LRException *exception = [LRException raiseWithLRExceptionCode:LRExceptionInvalidClass];
-                [exception raise];
-            }
-            WebSocketRespondDataBlock block = [self.sendMessageBlockDic objectForKey:messageArray[2]];
-            [self.timerArrayManager invaliTimerWithIdentity:messageArray[2]];
-            block(messageArray,nil);
-            [self.sendMessageBlockDic removeObjectForKey:messageArray[2]];
-        }
-    } else if (respondType == LRRequestTypeErrorACK) {
-        if (messageArray.count == 3) {
-            NSAssert(messageArray.count == 3, @"响应数据必须含有事件,数据包和标识");
-            if ([messageArray[0] isKindOfClass:[NSString class]] == NO || [messageArray[1] isKindOfClass:[NSDictionary class]] == NO || [messageArray[2] isKindOfClass:[NSNumber class]] == NO) {
-                LRException *exception = [LRException raiseWithLRExceptionCode:LRExceptionInvalidClass];
-                [exception raise];
-            }
-            [self.timerArrayManager invaliTimerWithIdentity:messageArray[2]];
-            NSDictionary *messageErrorBody = messageArray[1];
-            NSArray *valus = [messageErrorBody allValues];
-            WebSocketRespondDataBlock block = [self.sendMessageBlockDic objectForKey:messageArray[2]];
-            if (valus.count == 1) { // 数据包 不一定含有 错误信息("msg")字段
-                block(nil, [LRErrorCode errorCreateWithCoustomDomain:@"WebSocketErorDomain" errorCode:[messageErrorBody[@"code"] unsignedIntegerValue] description:@"server don't have error info"]);
-            } else {
-                NSError *error = [NSError errorWithDomain:@"WebSocketErorDomain" code:[messageErrorBody[@"code"] unsignedIntegerValue] userInfo:messageErrorBody];
-                block(nil, error);
-            }
-            [self.sendMessageBlockDic removeObjectForKey:messageArray[2]];
-        }
+    @catch (NSException *exception) {
+        LRLog(@"%@", exception);
+        LRLog(@"did recevice error data is %@", messageArray);
     }
+    @finally {
+    }
+#else
+#endif
 }
 
 - (void)webSocket:(LRWebSocket *)webSocket didReceivePong:(NSData *)pongPayload {
