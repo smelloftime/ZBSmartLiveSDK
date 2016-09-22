@@ -78,13 +78,36 @@
     [ZBHttpRequestManager sendHttpRequestWithAPI:[ZBURLPath pathFromSendGift] arguments:dic header:nil successCallback:success failCallback:fail];
 }
 
-+ (NSArray *)giftConfigInfo {
-    NSArray *giftInfoArray = [ZBApplicationCenter defaultCenter].configInfoModel.giftList;
-    NSMutableArray *dic = [NSMutableArray array];
-    for (int i = 0; i < giftInfoArray.count; i ++) {
-        [dic addObject:[giftInfoArray[i] mj_keyValues]];
++ (void)getGiftConfigInfoSuccess:(void (^)(id))success fail:(void (^)(NSError *))fail {
+    [ZBTools transformDate:[NSDate date] intoLockedWord:^(NSString *hextime, NSString *lockedToken) {
+        NSString * encodingString = [@"gift_list" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSData *nsdata = [encodingString dataUsingEncoding:NSUTF8StringEncoding];
+        NSString *base64Encoded = [nsdata base64EncodedStringWithOptions:0];
+        
+        NSDictionary *dic = @{@"hextime": hextime, @"token": lockedToken, @"name": base64Encoded};
+        [ZBHttpRequestManager sendHttpRequestWithAPI:[ZBURLPath pathFromApplicationConfig] arguments:dic header:nil successCallback:success failCallback:fail];
+    }];
+}
+
++ (NSArray *)getFilterStringArray {
+    return [ZBApplicationCenter defaultCenter].filterArray;
+}
+
++ (NSString *)getFilterReplaceString {
+    return [ZBApplicationCenter defaultCenter].configInfoModel.filterReplaceWord;
+}
+
++ (NSArray *)getLiveFilterListConfig {
+    return [ZBApplicationCenter defaultCenter].configInfoModel.liveFilterList;
+}
+
++ (NSString *)getStreamNotice {
+    NSArray *tempArray = [ZBApplicationCenter defaultCenter].configInfoModel.streamNoticeList;
+    if (tempArray.count == 0) {
+        return nil;
+    } else {
+        return tempArray[0][@"text"];
     }
-    return dic;
 }
 
 @end

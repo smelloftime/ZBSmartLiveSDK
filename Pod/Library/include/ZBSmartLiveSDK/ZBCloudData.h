@@ -44,8 +44,33 @@
 /**
  *  获取智播云配置的礼物清单信息,该清单可以登录直播云后台进行修改
  *
- *  @return 如果返回 nil 表示后台删除了礼物清单或者应用验证未通过 registerWithAppID:appToken:completion:
+ *  @param success 请求正确的结果
+ *  @param fail    请求错误的结果
  */
-+ (NSArray *)giftConfigInfo;
++ (void)getGiftConfigInfoSuccess:(void(^)(id data))success fail:(void(^)(NSError *fail))fail;
+/**
+ *  获取智播云配置的直播间公告信息,该信息可以登录直播云后台进行修改
+ *
+ *  @return 直播间公告,如果返回空表示初始化失败
+ */
++ (NSString *)getStreamNotice;
+/**
+ *  获取智播云配置的敏感词信息,该信息可以登录直播云后台进行修改
+ *
+ *  @return 敏感词信息,如果返回空表示初始化失败
+ */
++ (NSArray *)getFilterStringArray;
+/**
+ *  获取智播云配置的敏感词替换字符,该信息可以登录直播云后台进行修改
+ *
+ *  @return 敏感词替换字符,如果返回空表示初始化失败
+ */
++ (NSString *)getFilterReplaceString;
+/**
+ *  获取智播云配置的直播筛选配置数组,该信息可以登录直播云后台进行修改
+ *
+ *  @return 直播筛选配置数组,如果返回空表示初始化失败
+ */
++ (NSArray *)getLiveFilterListConfig;
 
 @end
