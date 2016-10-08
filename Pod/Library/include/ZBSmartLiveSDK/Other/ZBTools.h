@@ -55,5 +55,13 @@
  *  @return 解压缩后的数据
  */
 + (NSData *)decompressZlibData:(NSData *)zlibData;
+/**
+ *  将字符串转为MD5加密后的字符串
+ *
+ *  @param string 待加密的字符串
+ *
+ *  @return 加密后的字符串
+ */
++ (NSString *)md5:(NSString *)string;
 
 @end

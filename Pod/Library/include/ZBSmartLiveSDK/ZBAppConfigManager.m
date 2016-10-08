@@ -16,7 +16,7 @@
 #pragma mark - init Application
 + (void)initializeApplicationCompletion:(void (^)(NSError *))error {
     if ([ZBApplicationCenter defaultCenter].baseURL == nil) {
-        [self initializeCompletion:error];
+            [self initializeCompletion:error];
     } else {
         [self contrastServerConfigVersionCompletion:error];
     }

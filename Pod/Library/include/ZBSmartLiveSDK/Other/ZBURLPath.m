@@ -29,4 +29,20 @@
     return @"ZBCloud_Give_Gift";
 }
 
++ (NSString *)pathFromCreatStream {
+    return @"ZBCloud_Create_Stream";
+}
+
++ (NSString *)pathFromCheckStream {
+    return @"ZBCloud_Check_Stream";
+}
+
++ (NSString *)pathFromStartStream {
+    return @"ZBCloud_Start_Stream";
+}
+
++ (NSString *)pathFromEndStream {
+    return @"ZBCloud_End_Stream";
+}
+
 @end

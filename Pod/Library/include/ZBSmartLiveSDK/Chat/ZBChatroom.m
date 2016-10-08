@@ -60,6 +60,19 @@
     }];
 }
 
+- (void)checkUser:(NSString *)userIdentity sendIMStatusCompletion:(void(^)(id respondData, NSError *error))completion {
+    if (userIdentity == nil) {
+        completion(nil, [ZBErrorCode errorCreateWithErrorCode:ZBErrorCodeStatusUnInitialize]);
+        return;
+    }
+    
+    [ZBCloudData getZBCloudDataWithApi:@"ZBCloud_Im_Stream_status" parameter:@{@"usid": userIdentity} success:^(id data) {
+        completion(data, nil);
+    } fail:^(NSError *fail) {
+        completion(nil, fail);
+    }];
+}
+
 - (void)disableChatroomUserIdentity:(NSString *)userIdentity sendMessageWithTime:(NSUInteger)disableTime completion:(void(^)(id respondData, NSError *error))completion {
     if (userIdentity == nil) {
         completion(nil, [ZBErrorCode errorCreateWithErrorCode:ZBErrorCodeStatusUnInitialize]);

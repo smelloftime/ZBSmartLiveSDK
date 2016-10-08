@@ -4,7 +4,7 @@
 //
 //  Created by lip on 16/8/20.
 //
-//
+//  暂未使用
 
 #import <Foundation/Foundation.h>
 

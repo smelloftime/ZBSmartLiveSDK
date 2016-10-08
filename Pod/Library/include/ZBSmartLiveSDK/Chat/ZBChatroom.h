@@ -19,6 +19,16 @@
 - (void)joinChatroom:(NSNumber *)chatroomID password:(NSString *)password completion:(void(^)(id respondData, NSError *error))completion;
 
 /**
+ *  主播查询用户禁言状态
+ *
+ *  @note 默认服务器会查询发起该请求的用户创建的直播间内,被查询用户的禁言状态
+ *
+ *  @param usid       被查询的用户的商务服务器ID
+ *  @param completion 响应结果,error 为空时,respondData 才会有数据,如果error有值则 respondData 为空
+ */
+- (void)checkUser:(NSString *)userIdentity sendIMStatusCompletion:(void(^)(id respondData, NSError *error))completion;
+
+/**
  *  禁言聊天室用户
  *
  *  @note 只有主播才能顺利使用该接口

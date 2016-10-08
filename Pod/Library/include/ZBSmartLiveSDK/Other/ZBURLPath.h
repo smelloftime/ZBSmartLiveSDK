@@ -45,4 +45,30 @@
  */
 + (NSString *)pathFromSendGift;
 
+#pragma mark - stream
+/**
+ *  创建推流的接口
+ *
+ *  @return 该接口的路径字符串
+ */
++ (NSString *)pathFromCreatStream;
+/**
+ *  校验推流的接口
+ *
+ *  @return 该接口的路径字符串
+ */
++ (NSString *)pathFromCheckStream;
+/**
+ *  开始推流的接口
+ *
+ *  @return 该接口的路径字符串
+ */
++ (NSString *)pathFromStartStream;
+/**
+ *  结束推流的接口
+ *
+ *  @return 该接口的路径字符串
+ */
++ (NSString *)pathFromEndStream;
+
 @end

@@ -159,7 +159,7 @@ LRTimerArrayLifecycleProtocol
             [self.timerArrayManager createTimerWithIdentity:messageIdentity];
             [self.sendMessageBlockDic setObject:completion forKey:messageIdentity];
             [self.webSocket send:[self addRequestHead:@[messageEvent, messageBody, messageIdentity]]];
-            LRLog(@"send message\n%d%@", (int)self.requestType, [self conversionStringFromArray:@[messageEvent, messageBody, messageIdentity]]);
+//            LRLog(@"send message\n%d%@", (int)self.requestType, [self conversionStringFromArray:@[messageEvent, messageBody, messageIdentity]]);
         } else { // 不验证是否超时
             [self.webSocket send:[self addRequestHead:@[messageEvent, messageBody]]];
             LRLog(@"send message\n%d%@", (int)self.requestType, [self conversionStringFromArray:@[messageEvent, messageBody]]);
@@ -237,8 +237,10 @@ LRTimerArrayLifecycleProtocol
                     [self.timerArrayManager invaliTimerWithIdentity:messageArray[2]];
                     [self.sendMessageBlockDic removeObjectForKey:messageArray[2]];
                 } else {
+#if DEBUG
                     LRException *exception = [LRException raiseWithLRExceptionCode:LRExceptionInvalidArgument];
                     [exception raise];
+#endif
                 }
             }
         }
@@ -262,8 +264,10 @@ LRTimerArrayLifecycleProtocol
                     }
                     [self.sendMessageBlockDic removeObjectForKey:messageArray[2]];
                 } else {
+#if DEBUG
                     LRException *exception = [LRException raiseWithLRExceptionCode:LRExceptionInvalidArgument];
                     [exception raise];
+#endif
                 }
             }
         }
