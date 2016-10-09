@@ -4,7 +4,7 @@
 //
 //  Created by lip on 16/7/23.
 //
-//
+//  负责和智播云通讯
 
 #import <Foundation/Foundation.h>
 

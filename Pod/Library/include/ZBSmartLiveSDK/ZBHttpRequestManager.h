@@ -4,7 +4,7 @@
 //
 //  Created by lip on 16/7/11.
 //  Copyright © 2016年 ZhiBo. All rights reserved.
-//
+//  负责网络请求管理
 
 #import <Foundation/Foundation.h>
 

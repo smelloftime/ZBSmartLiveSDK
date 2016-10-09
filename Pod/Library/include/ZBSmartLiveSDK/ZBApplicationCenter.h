@@ -4,7 +4,7 @@
 //
 //  Created by lip on 16/7/11.
 //  Copyright © 2016年 ZhiBo. All rights reserved.
-//
+//  应用中心,处理和应用相关的数据(持久化),单例
 
 #import <Foundation/Foundation.h>
 #import "ZBConfigInfoModel.h"

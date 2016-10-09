@@ -4,7 +4,7 @@
 //
 //  Created by lip on 16/10/8.
 //
-//
+//  推流相关的网络请求管理
 
 #import <Foundation/Foundation.h>
 

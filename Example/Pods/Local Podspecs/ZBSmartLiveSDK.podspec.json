@@ -40,6 +40,9 @@
     ],
     "SSZipArchive": [
       "~> 1.5"
+    ],
+    "PLMediaStreamingKit": [
+      "~> 2.1.1"
     ]
   },
   "libraries": [
