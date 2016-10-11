@@ -50,8 +50,8 @@ typedef enum LRStatusCode : NSInteger {
 
 @class LRWebSocket;
 
-extern NSString *const SRWebSocketErrorDomain;
-extern NSString *const SRHTTPResponseErrorKey;
+extern NSString *const LRWebSocketErrorDomain;
+extern NSString *const LRHTTPResponseErrorKey;
 
 #pragma mark - SRWebSocketDelegate
 

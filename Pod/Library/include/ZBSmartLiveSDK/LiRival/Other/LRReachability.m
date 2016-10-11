@@ -55,7 +55,7 @@
 #import "LRReachability.h"
 
 
-NSString *kReachabilityChangedNotification = @"kNetworkReachabilityChangedNotification";
+NSString *kLRReachabilityChangedNotification = @"kNetworkLRReachabilityChangedNotification";
 
 
 #pragma mark - Supporting functions
@@ -91,7 +91,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
     LRReachability* noteObject = (__bridge LRReachability *)info;
     // Post a notification to notify the client that the network reachability changed.
-    [[NSNotificationCenter defaultCenter] postNotificationName: kReachabilityChangedNotification object: noteObject];
+    [[NSNotificationCenter defaultCenter] postNotificationName: kLRReachabilityChangedNotification object: noteObject];
 }
 
 

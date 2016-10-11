@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZBSmartLiveSDK'
-  s.version          = '0.4.0'
+  s.version          = '0.4.1'
   s.summary          = 'ZBSmartLiveSDK for iOS,simple create live app.'
 
   s.homepage         = 'https://github.com/LipYoung/ZBSmartLiveSDK'
