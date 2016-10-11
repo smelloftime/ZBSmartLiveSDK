@@ -111,10 +111,7 @@ LRTimerArrayLifecycleProtocol
     self.connectionServerErrorBlock = [fail copy];
     self.connectionServerSuccessBlock = [success copy];
     [self fireTimer:self.connectionServerTimer];
-    
-    if ([self.delegate respondsToSelector:@selector(liRivalKit:connectionStateDidChange:)]) {
-        [self.delegate liRivalKit:self connectionStateDidChange:LiRivalKitStateConnection];
-    }
+    [self postChatStatueWithType:LiRivalKitStateConnection];
 }
 
 #pragma mark └ reconnection
@@ -126,10 +123,7 @@ LRTimerArrayLifecycleProtocol
     
     self.connectionServerErrorBlock = [fail copy];
     self.connectionServerSuccessBlock = [success copy];
-    
-    if ([self.delegate respondsToSelector:@selector(liRivalKit:connectionStateDidChange:)]) {
-        [self.delegate liRivalKit:self connectionStateDidChange:LiRivalKitStateConnection];
-    }
+    [self postChatStatueWithType:LiRivalKitStateConnection];
     [self.webSocket open];
     [self fireTimer:self.connectionServerTimer];
 }
@@ -184,7 +178,7 @@ LRTimerArrayLifecycleProtocol
         [self.webSocket sendPing:nil];
         [self fireTimer:self.sendPingRespondTimer];
     } else {
-        NSLog(@"发送心跳时, 链接已经被释放");
+        LRLog(@"发送心跳时, 链接已经被释放");
     }
 }
 
@@ -199,9 +193,7 @@ LRTimerArrayLifecycleProtocol
     if (self.connectionServerSuccessBlock) {
         self.connectionServerSuccessBlock(@"Login success.");
     }
-    if ([self.delegate respondsToSelector:@selector(liRivalKit:connectionStateDidChange:)]) {
-        [self.delegate liRivalKit:self connectionStateDidChange:LiRivalKitStateSuccess];
-    }
+    [self postChatStatueWithType:LiRivalKitStateSuccess];
 }
 
 - (void)webSocket:(LRWebSocket *)webSocket didReceiveRespondData:(id)respondData {
@@ -210,7 +202,7 @@ LRTimerArrayLifecycleProtocol
         return;
     }
     NSArray *messageArray = [self respondBodyFromReadRespondData:respondData];
-#if DEBUG
+#if DEBUG /** 调试模式下,会收集并且打印异常消息接收 */
     @try {
 #else
 #endif
@@ -219,10 +211,9 @@ LRTimerArrayLifecycleProtocol
             [exception raise];
         }
         NSString *messageEvent = messageArray[0];
-        if (respondType == LRRequestTypeData) { // 消息包 直接走代理
-            if ([self.delegate respondsToSelector:@selector(liRivalKit:didReceiveMessageEvent:messageBody:)]) {
-                [self.delegate liRivalKit:self didReceiveMessageEvent:messageEvent messageBody:messageArray[1]];
-            }
+        if (respondType == LRRequestTypeData) { // 消息包 直接发送通知
+            NSDictionary *userInfo = @{@"message":messageEvent, @"messageBody":messageArray[1]};
+            [[NSNotificationCenter defaultCenter] postNotificationName:NotificaitonForliRivalKitReceiveMessage object:nil userInfo:userInfo];
         }
         if (respondType == LRRequestTypeDataACK) {
             if (messageArray.count == 3) {
@@ -287,27 +278,21 @@ LRTimerArrayLifecycleProtocol
     if (_sendPingRespondTimer) {
         [self releaseTimer:_sendPingRespondTimer];
     }
-    if ([self.delegate respondsToSelector:@selector(liRivalKit:connectionStateDidChange:)]) {
-        [self.delegate liRivalKit:self connectionStateDidChange:LiRivalKitStateSuccess];
-    }
+    [self postChatStatueWithType:LiRivalKitStateSuccess];
 }
 
 #pragma mark └ error and close
 - (void)webSocket:(LRWebSocket *)webSocket didFailWithError:(NSError *)error {
     LRLog(@"LiRivalKit did fail with %@", [error debugDescription]);
     [self releaseWebSocket];
-    if ([self.delegate respondsToSelector:@selector(liRivalKit:connectionStateDidChange:)]) {
-        [self.delegate liRivalKit:self connectionStateDidChange:LiRivalKitStateFail];
-    }
+    [self postChatStatueWithType:LiRivalKitStateFail];
 }
 
 - (void)webSocket:(LRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
     NSString *errorInfo = [self errorCodeConvertToErrorString:code];
     LRLog(@"LiRivalKit did close with %@", errorInfo);
     [self releaseWebSocket];
-    if ([self.delegate respondsToSelector:@selector(liRivalKit:connectionStateDidChange:)]) {
-        [self.delegate liRivalKit:self connectionStateDidChange:LiRivalKitStateFail];
-    }
+    [self postChatStatueWithType:LiRivalKitStateFail];
 }
 
 #pragma mark - request/respond head
@@ -431,6 +416,12 @@ LRTimerArrayLifecycleProtocol
     return string;
 }
 
+#pragma mark - notification
+- (void)postChatStatueWithType:(LiRivalKitState)statue {
+    NSDictionary *userInfo = @{@"statue":@(statue)};
+    [[NSNotificationCenter defaultCenter] postNotificationName:NotificaitonForliRivalKitStatueChange object:nil userInfo:userInfo];
+}
+
 #pragma mark - timer
 #pragma mark └ timer lazy load
 - (NSTimer *)connectionServerTimer {
@@ -466,10 +457,8 @@ LRTimerArrayLifecycleProtocol
 
 - (void)sendPingRespondTimeOver {
     [self releaseTimer:_sendPingRespondTimer];
-    if ([self.delegate respondsToSelector:@selector(liRivalKit:connectionStateDidChange:)]) {
-        [self.delegate liRivalKit:self connectionStateDidChange:LiRivalKitStateFail];
-        LRLog(@"LiRivalKit did fail with Error Domain=LiRivalKitLinkError Code=0000 \"Operation timed out\"");
-    }
+    [self postChatStatueWithType:LiRivalKitStateFail];
+    LRLog(@"LiRivalKit did fail with Error Domain=LiRivalKitLinkError Code=0000 \"Operation timed out\"");
     [self releaseWebSocket];
 }
 

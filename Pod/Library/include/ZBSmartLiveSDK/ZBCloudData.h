@@ -73,4 +73,13 @@
  */
 + (NSArray *)getLiveFilterListConfig;
 
+/**
+ *  获取直播云登录用户的聊天室id，该信息在第一次成功初始化 ZBStreamingSession 推流类的实例后有值，在用户退出程序后清空。
+
+ *  @return 登录用户的聊天室id，如果返回为空，则表示 ZBStreamingSession 推流类初始化失败
+ */
++ (NSNumber *)getImCid;
+
+
+
 @end

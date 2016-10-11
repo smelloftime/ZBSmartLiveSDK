@@ -54,6 +54,12 @@
 /** 聊天室的唯一标识 */
 @property (strong, nonatomic) NSNumber *chatroomIdentity;
 
+/** 
+ *  主播聊天室 cid
+ *  登录用户在发起创建直播请求时，服务器才会给登录用户创建聊天室，聊天室创建成功后会返回 cid，此后该聊天室会一直存在，且 cid 不会改变
+ */
+@property (strong, nonatomic) NSNumber *imCid;
+
 + (instancetype)defaultCenter;
 
 /**

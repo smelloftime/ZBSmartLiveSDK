@@ -22,9 +22,7 @@
 #define kReconnectFinallyDistance 2.5
 #define kRepetitionMessageCount 100
 
-@interface ZBChat () <
-    LiRivalKitDelegate
->
+@interface ZBChat ()
 /** 聊天核心 */
 @property (strong, nonatomic) LiRivalKit *liRivalKit;
 /** 重连的状态 */
@@ -49,27 +47,24 @@
     return _messageIdentityArray;
 }
 
-#pragma mark - initialize
+#pragma mark - initialize lifecycle
 + (void)initialize {
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-}
-
-+ (instancetype)share {
-    static dispatch_once_t once;
-    static ZBChat *coreKit;
-    dispatch_once(&once, ^{
-        coreKit = [[self alloc] init];
-    });
-    return coreKit;
 }
 
 - (instancetype)init {
     if (self = [super init]) {
         self.liRivalKit = [LiRivalKit coreKit];
-        self.liRivalKit.delegate = self;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(liRivalKitConnectionStateDidChange:) name:NotificaitonForliRivalKitStatueChange object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(liRivalKitDidReceiveMessageEvent:) name:NotificaitonForliRivalKitReceiveMessage object:nil];
         self.isConnection = NO;
     }
     return self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NotificaitonForliRivalKitReceiveMessage object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NotificaitonForliRivalKitStatueChange object:nil];
 }
 
 #pragma mark - reconnect
@@ -206,8 +201,10 @@
     
 }
 
-#pragma mark └ delegate
-- (void)liRivalKit:(LiRivalKit *)liRivalKit connectionStateDidChange:(LiRivalKitState)connectionState {
+#pragma mark - notification
+- (void)liRivalKitConnectionStateDidChange:(NSNotification *)noti {
+    NSDictionary *userInfo = noti.userInfo;
+    LiRivalKitState connectionState = [userInfo[@"statue"] integerValue];
     AFNetworkReachabilityStatus networkStatys = [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
     if (connectionState == LiRivalKitStateFail && ((networkStatys == AFNetworkReachabilityStatusReachableViaWWAN) || (networkStatys == AFNetworkReachabilityStatusReachableViaWiFi))) {
         [self reconnectLiRivalKit];
@@ -222,9 +219,13 @@
             [self.delegate chat:self connectionStateDidChange:ZBChatStateNetworkFail];
         }
     }
+
 }
 
-- (void)liRivalKit:(LiRivalKit *)liRivalKit didReceiveMessageEvent:(NSString *)messageEvent messageBody:(id)messageBody {
+- (void)liRivalKitDidReceiveMessageEvent:(NSNotification *)noti {
+    NSDictionary *userInfo = noti.userInfo;
+    NSString *messageEvent = userInfo[@"message"];
+    id messageBody = userInfo[@"messageBody"];
     if ([messageEvent isEqualToString:ZBConversationEventMessage]) {
         ZBMessageModel *messageModel = [ZBMessageModel mj_objectWithKeyValues:messageBody];
         for (NSNumber *identity in self.messageIdentityArray) { // 最近100条的消息去重

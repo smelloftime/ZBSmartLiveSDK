@@ -11,9 +11,7 @@
 #import "ZBApplicationCenter.h"
 #import "LiRivalKit.h"
 
-@interface ZBSmartLiveSDK () <
-    LiRivalKitDelegate
->
+@interface ZBSmartLiveSDK ()
 /** 聊天核心 */
 @property (weak, nonatomic) LiRivalKit *liRivalKit;
 
@@ -24,7 +22,10 @@
 + (instancetype)shareSDK {
     static dispatch_once_t once;
     static ZBSmartLiveSDK *sdk;
-    dispatch_once(&once, ^{sdk = [[self alloc] init];sdk.liRivalKit = [LiRivalKit coreKit]; sdk.liRivalKit.delegate = sdk;});
+    dispatch_once(&once, ^{
+        sdk = [[self alloc] init];
+        sdk.liRivalKit = [LiRivalKit coreKit];
+    });
     return sdk;
 }
 

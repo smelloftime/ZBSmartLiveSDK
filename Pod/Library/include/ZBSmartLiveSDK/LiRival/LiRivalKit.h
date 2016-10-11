@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-#define TestServerAddress @"ws://218.244.149.144:9900" ///< 聊天服务器测试地址
-#define TestUserAToken @"LgKph-lloWJNAlNJtdQKzWQAAAA" ///< 聊天服务器测试用户 A
-#define TestUserBToken @"_06MWiNpzWuK8fu3kGyimGMAAAA" ///<  聊天服务器测试用户 B
+/** 通信核心接收到消息后,会发送通知 */
+#define NotificaitonForliRivalKitReceiveMessage @"NotificaitonForliRivalKitReceiveMessage"
+/** 通信核心和通信服务器连接状态发生改变时,会发送该通知 */
+#define NotificaitonForliRivalKitStatueChange @"NotificaitonForliRivalKitStatueChange"
 
 typedef NS_ENUM(NSInteger, LiRivalKitState) {
     LiRivalKitStateConnection = 0,  ///< 链接服务器
@@ -26,31 +27,6 @@ typedef NS_ENUM(NSInteger, LRRequestType) {
     LRRequestTypeErrorACK = 4 ///< 服务器响应错误信息
 };
 
-@class LiRivalKit;
-
-@protocol LiRivalKitDelegate <NSObject>
-
-@optional
-
-/**
- *  通讯核心接收到的消息
- *
- *  @param liRivalKit      通讯核心
- *  @param messageEvent    消息事件名
- *  @param messageBody     消息体
- */
-- (void)liRivalKit:(LiRivalKit *)liRivalKit didReceiveMessageEvent:(NSString *)messageEvent messageBody:(id)messageBody;
-
-/**
- *  通讯核心与服务器连接状态变化
- *
- *  @param liRivalKit      通讯核心
- *  @param connectionState 连接状态
- */
-- (void)liRivalKit:(LiRivalKit *)liRivalKit connectionStateDidChange:(LiRivalKitState)connectionState;
-
-@end
-
 @interface LiRivalKit : NSObject
 /** 心跳时间间隔设置 默认是240秒 */
 @property (assign, nonatomic) NSUInteger timeByHeart;
@@ -58,8 +34,6 @@ typedef NS_ENUM(NSInteger, LRRequestType) {
 //@property (assign, nonatomic) NSUInteger timeBySendData;
 /** 请求数据类型设置,默认是 LRRequestTypeData */
 @property (assign, nonatomic) LRRequestType requestType;
-/** 代理 */
-@property (weak, nonatomic) id<LiRivalKitDelegate> delegate;
 /** 自增长的数据 */
 @property (assign, nonatomic) NSUInteger sendMessageIdentity;
 

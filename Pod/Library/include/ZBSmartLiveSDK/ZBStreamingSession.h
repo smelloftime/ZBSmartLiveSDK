@@ -91,6 +91,7 @@ typedef NS_ENUM(NSUInteger, ZBStreamingFilterType) {
 
 /**
  *  初始化推流,并且实例化推流核心
+ *  @note 在调用本类的其他实例方法前，请一定保证 session 实例被成功的初始化了
  *
  *  @param handler 通过读取该参数的`status`来判断初始化推流状态,当初始化状态未禁播时,`message`返回解禁时间格式化后的字符串,`handler`在主线程调用,可以直接在`handler`中操作UI,
  *
@@ -103,10 +104,12 @@ typedef NS_ENUM(NSUInteger, ZBStreamingFilterType) {
  *
  *  @param title      直播间标题
  *  @param coverImage 直播间封面,会将图片转换为压缩后的二进制
+ *  @param thum       自定义生成的缩略图大小
  *  @param handler 通过读取该参数的`status`来判断初始化推流状态,当初始化状态未禁播时,`message`返回解禁时间格式化后的字符串,`handler`在主线程调用,可以直接在`handler`中操作UI
  *
  */
-- (void)startStreamingWithTitle:(NSString *_Nullable)title coverImage:(UIImage *_Nullable)coverImage callBack:(void(^ _Nullable)(ZBStreamingStartStatus status))handler;
+
+- (void)startStreamingWithTitle:(NSString *)title coverImage:(UIImage *)coverImage thum:(NSString *)thum callBack:(void(^ _Nullable)(ZBStreamingStartStatus status))handler;
 
 /** 关闭推流 */
 - (void)endStreaming;

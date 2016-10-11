@@ -110,4 +110,8 @@
     }
 }
 
++ (NSNumber *)getImCid {
+    return [ZBApplicationCenter defaultCenter].imCid;
+}
+
 @end
