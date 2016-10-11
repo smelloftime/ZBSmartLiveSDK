@@ -30,6 +30,12 @@
  */
 @property (copy, nonatomic) NSString *configVersion;
 /**
+ *  @brief api的版本号，该版本号是接口的版本号，用于获取 baseURL
+ *
+ *  @see set 方法会更新该数值和持久化
+ */
+@property (strong, nonatomic) NSString *apiVersion;
+/**
  *  @brief 智播云票据 兑换授权信息时使用
  *
  *  @see set 方法会更新该数值和持久化

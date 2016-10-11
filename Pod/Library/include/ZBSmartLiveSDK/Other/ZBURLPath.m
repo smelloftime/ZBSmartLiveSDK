@@ -13,6 +13,10 @@
     return @"ZBCloud_Get_Config";
 }
 
++ (NSString *)pathFromApiConfig {
+    return @"ZBCloud_Get_Api";
+}
+
 + (NSString *)pathFromApplicationConfigVersion {
     return @"ZBCloud_Get_Apiversion";
 }

@@ -10,6 +10,7 @@
 #import "ZBAppConfigManager.h"
 #import "ZBApplicationCenter.h"
 #import "LiRivalKit.h"
+#import "ZBErrorCode.h"
 
 @interface ZBSmartLiveSDK ()
 /** 聊天核心 */
@@ -30,14 +31,22 @@
 }
 
 #pragma mark └ instance means
-- (void)registerWithAppID:(NSString *)appID appToken:(NSString *)appToken completion:(void (^)(NSError *))completion {
-    ZBApplicationCenter *center = [ZBApplicationCenter defaultCenter];
-    if ([appID isEqualToString:center.appID] && [appToken isEqualToString:center.appToken]) {
-        [ZBAppConfigManager initializeApplicationCompletion:completion];
-    } else { // 直接获取全部的配置信息等
-        [ZBApplicationCenter defaultCenter].appID = appID;
-        [ZBApplicationCenter defaultCenter].appToken = appToken;
+- (void)registerWithApiVersion:(NSString *)apiVersion completion:(void (^)(NSError *))completion {
+    /** 更新的逻辑说明
+     如果修改了API 版本号,或者无API 版本号就直接更新所有的配置相关信息
+     如果未修改API 版本号,就调用应用初始化接口,判断是否还需要局部更新
+     */
+    if (apiVersion == nil || [apiVersion length] <= 0) {
+         if (completion) {
+             completion([ZBErrorCode errorCreateWithErrorCode:ZBErrorCodeStatusUnInitialize]);
+         }
+         return;
+     }
+    if ([apiVersion isEqualToString:[ZBApplicationCenter defaultCenter].apiVersion] == NO) {
+        [ZBApplicationCenter defaultCenter].apiVersion = apiVersion;
         [ZBAppConfigManager initializeCompletion:completion];
+    } else {
+        [ZBAppConfigManager initializeApplicationCompletion:completion];
     }
 }
 

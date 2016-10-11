@@ -23,8 +23,8 @@
 }
 
 + (void)contrastServerConfigVersionCompletion:(void (^)(NSError *))error {
-    NSString *apiVersion = [ZBApplicationCenter defaultCenter].configVersion;
-    if (apiVersion == nil) {
+    NSString *configVersion = [ZBApplicationCenter defaultCenter].configVersion;
+    if (configVersion == nil) {
         [self initializeCompletion:error];
         return;
     } else {
@@ -111,11 +111,17 @@
 
 #pragma mark - initialize'stream
 + (void)initializeCompletion:(void (^)(NSError *))error {
-    [ZBHttpRequestManager sendGetBaseURLRequestWithAPPID:[ZBApplicationCenter defaultCenter].appID appToken:[ZBApplicationCenter defaultCenter].appToken successCallback:^(NSString *baseURL) {
+    NSString *versionSring = [ZBApplicationCenter defaultCenter].apiVersion;
+    NSAssert([versionSring length] != 0, @"初始化时,api版本号为空");
+    // 获取 baseURL 
+    [ZBHttpRequestManager sendGetBaseURLRequestWithAPIVersion:versionSring successCallback:^(NSString *baseURL) {
+        // 保存 baseURL
+        NSAssert([baseURL isKindOfClass:[NSString class]] != NO, @"基础API地址类型错误");
         [ZBApplicationCenter defaultCenter].baseURL = baseURL;
-        
+        // 通过 baseURL 获取配置信息
         [ZBInitializeRequestManager sendGetConfigRequestSuccess:^(id data) {
             [[ZBApplicationCenter defaultCenter] saveConfigData:data];
+            // 保存配置版本号
             [ZBApplicationCenter defaultCenter].configVersion = data[@"api_config_version"];
             [ZBInitializeRequestManager downloadFilterWordRequestCompletion:^(NSError *fail) {
                 if (fail) {

@@ -14,6 +14,7 @@
 #define kBaseURLSaveKey         @"kBaseURLSaveKey"
 #define kConfigDataSaveKey      @"kConfigDataSaveKey"
 #define kConfigVersionSaveKey   @"kConfigVersionSaveKey"
+#define kApiVersionSaveKey      @"kApiVersionSaveKey"
 #define kUserAuthSaveKey        @"kUserAuthSaveKey"
 #define kTicketSaveKey          @"kTicketSaveKey"
 #define kFilterSaveKey          @"kFilterSaveKey"
@@ -31,6 +32,7 @@
 @synthesize baseURL = _baseURL;
 @synthesize configVersion = _configVersion;
 @synthesize ticket = _ticket;
+@synthesize apiVersion = _apiVersion;
 
 #pragma mark - property
 - (void)setAppID:(NSString *)appID {
@@ -80,6 +82,20 @@
 - (void)setConfigVersion:(NSString *)configVersion {
     _configVersion = configVersion;
     [[NSUserDefaults standardUserDefaults] setValue:configVersion forKey:kConfigVersionSaveKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)apiVersion {
+    if (_apiVersion == nil) {
+        _apiVersion = [[NSUserDefaults standardUserDefaults] valueForKey:kApiVersionSaveKey];
+    }
+    return _apiVersion;
+}
+
+- (void)setApiVersion:(NSString *)apiVersion {
+    _apiVersion = apiVersion;
+    [[NSUserDefaults standardUserDefaults] setValue:apiVersion forKey:kApiVersionSaveKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)setTicket:(NSString *)ticket {
@@ -126,7 +142,8 @@
 }
 
 - (NSString *)rootURL {
-    return @"http://test.zhibocloud.cn/api/getconfig/getApi";
+    // 注意! 应改为 plist 文件中获取
+    return @"http://cloud.zhibocloud.cn/api/getconfig/getApi";
 }
 
 #pragma mark - lifecycle

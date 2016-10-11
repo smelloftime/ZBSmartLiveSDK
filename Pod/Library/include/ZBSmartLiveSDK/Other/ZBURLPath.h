@@ -19,6 +19,12 @@
  */
 + (NSString *)pathFromApplicationConfig;
 /**
+ *  整个应用的 baseURL 获取接口
+ *
+ *  @return 该接口路径的字符串
+ */
++ (NSString *)pathFromApiConfig;
+/**
  *  应用配置的版本号获取接口
  *
  *  @return 该接口路径的字符串

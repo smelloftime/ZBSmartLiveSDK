@@ -23,11 +23,10 @@
  *  @waring 该方法必须在应用启动后尽快调用
  *  @waring 如果没有获取到配置信息的话,整个应用将无法正常使用,所以建议在没有获取到配置信息时,进入死循环无法进入页面
  *
- *  @param appID      智播云后台分配的 appID
- *  @param appToken   智播云后台分配的 appToken
- *  @param completion 获取结果的回调如果正常的话 error 就为 nil
+ * @param versionNumber 版本号
+ * @param completion    获取结果的回调如果正常的话 error 就为 nil
  */
-- (void)registerWithAppID:(NSString *)appID appToken:(NSString *)appToken completion:(void(^)(NSError *))completion;
+- (void)registerWithApiVersion:(NSString *)apiVersion completion:(void (^)(NSError *))completion;
 
 /**
  *  通过智播云返回的 ticket 登录

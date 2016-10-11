@@ -12,6 +12,7 @@
 #import "ZBErrorCode.h"
 #import "AFNetworking.h"
 #import "ZBPrefix.h"
+#import "ZBURLPath.h"
 
 typedef enum {
     HttpRequestStatusNormal     = 0,        ///< 正常状态
@@ -98,9 +99,8 @@ void(^processImageResponseData)(id,void(^)(id),void(^)(NSError *)) = ^(id data,v
     return httpSessionManager;
 }
 
-+ (void)sendGetBaseURLRequestWithAPPID:(NSString *)appID appToken:(NSString *)appToken successCallback:(void (^)(id data))success failCallback:(void (^)(NSError *error))fail {
-    NSParameterAssert(appID);
-    NSParameterAssert(appToken);
++ (void)sendGetBaseURLRequestWithAPIVersion:(NSString *)vesionString successCallback:(void (^)(id))success failCallback:(void (^)(NSError *))fail {
+    NSParameterAssert(vesionString);
     AFHTTPSessionManager *httpSessionManager = [[AFHTTPSessionManager alloc] init];
     
     AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];
@@ -111,11 +111,9 @@ void(^processImageResponseData)(id,void(^)(id),void(^)(NSError *)) = ^(id data,v
     httpSessionManager.requestSerializer = requestSerializer;
     httpSessionManager.responseSerializer = responseSerializer;
     
-    [ZBTools transformDate:[NSDate date] token:appToken intoLockedWord:^(NSString *hextime, NSString *lockedToken) {
-        [httpSessionManager.requestSerializer setValue:appID forHTTPHeaderField:@"Auth-Appid"];
-        [httpSessionManager.requestSerializer setValue:lockedToken forHTTPHeaderField:@"Auth-Token"];
-        [httpSessionManager.requestSerializer setValue:hextime forHTTPHeaderField:@"Auth-Basetime"];
-        [httpSessionManager POST:[ZBApplicationCenter defaultCenter].rootURL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [ZBTools transformDate:[NSDate date] intoLockedWord:^(NSString *hextime, NSString *lockedToken) {
+        NSDictionary *parameter = @{@"api_version":vesionString, @"api":[ZBURLPath pathFromApiConfig], @"hextime":hextime, @"token":lockedToken};
+        [httpSessionManager POST:[ZBApplicationCenter defaultCenter].rootURL parameters:parameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             processResponseData(responseObject, success, fail);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             if (fail) {
@@ -123,6 +121,7 @@ void(^processImageResponseData)(id,void(^)(id),void(^)(NSError *)) = ^(id data,v
             }
         }];
     }];
+
 }
 
 + (void)sendHttpRequestWithAPI:(NSString *)api arguments:(NSDictionary *)arguments header:(NSDictionary *)header successCallback:(void (^)(id))success failCallback:(void (^)(NSError *))fail {

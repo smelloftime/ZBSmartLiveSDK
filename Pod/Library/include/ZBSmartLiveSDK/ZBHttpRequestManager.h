@@ -10,7 +10,7 @@
 
 @interface ZBHttpRequestManager : NSObject
 
-+ (void)sendGetBaseURLRequestWithAPPID:(NSString *)appID appToken:(NSString *)appToken successCallback:(void(^)(id data))success failCallback:(void(^)(NSError *error))fail;
++ (void)sendGetBaseURLRequestWithAPIVersion:(NSString *)vesionString successCallback:(void(^)(id data))success failCallback:(void(^)(NSError *error))fail;
 
 + (void)sendHttpRequestWithAPI:(NSString *)api arguments:(NSDictionary *)arguments header:(NSDictionary *)header successCallback:(void(^)(id))success failCallback:(void(^)(NSError *error))fail;
 
