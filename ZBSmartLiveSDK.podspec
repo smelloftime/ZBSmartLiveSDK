@@ -19,9 +19,9 @@ Pod::Spec.new do |s|
 
   s.frameworks = ['UIKit', 'AVFoundation', 'CoreGraphics', 'CFNetwork', 'AudioToolbox', 'CoreMedia', 'VideoToolbox']
   s.dependency 'AFNetworking', '~> 3.0.4'
-  s.dependency 'MJExtension', '~> 3.0.11'
-  s.dependency 'SSZipArchive', '~> 1.5'
-  s.dependency 'PLMediaStreamingKit', '~> 2.1.1'
+  s.dependency 'MJExtension', '~> 3.0.13'
+  s.dependency 'SSZipArchive', '~> 1.6.2'
+  s.dependency 'PLMediaStreamingKit', '~> 2.1.3'
 
   s.libraries = 'z', 'c++', 'resolv', 'icucore', 'sqlite3'
 

@@ -15,7 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - HappyDNS (0.3.10)
-  - MJExtension (3.0.11)
+  - MJExtension (3.0.13)
   - pili-librtmp (1.0.5)
   - PLMediaStreamingKit (2.1.3):
     - HappyDNS (~> 0.3.0)
@@ -40,12 +40,12 @@ PODS:
   - PLMediaStreamingKit/PLStreamingKit (2.1.3):
     - HappyDNS (~> 0.3.0)
     - pili-librtmp (= 1.0.5)
-  - SSZipArchive (1.5)
-  - ZBSmartLiveSDK (0.3.6):
+  - SSZipArchive (1.6.2)
+  - ZBSmartLiveSDK (0.4.0):
     - AFNetworking (~> 3.0.4)
-    - MJExtension (~> 3.0.11)
-    - PLMediaStreamingKit (~> 2.1.1)
-    - SSZipArchive (~> 1.5)
+    - MJExtension (~> 3.0.13)
+    - PLMediaStreamingKit (~> 2.1.3)
+    - SSZipArchive (~> 1.6.2)
 
 DEPENDENCIES:
   - ZBSmartLiveSDK (from `../`)
@@ -57,11 +57,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   HappyDNS: 06a9fed2796663fd87626dbf02552933265bf059
-  MJExtension: f9ae6ddc0f1c482c3c9af750280ccebd14381958
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
   pili-librtmp: 65a6e10f7c314bd1f407ba24bd074c57cba79d0c
   PLMediaStreamingKit: 18730450543338ad7a8b0352ba5c893ab5ec5a18
-  SSZipArchive: 29daace2bccb90a47de2837744da397728ff9207
-  ZBSmartLiveSDK: 2edb86d86053c5df4cc6f03105f2ad3da5ca9b45
+  SSZipArchive: 428eb1ac8d37dd133404d30f422b23958c1f9acc
+  ZBSmartLiveSDK: ab17567e4428889e4a68257224285ea1396ec287
 
 PODFILE CHECKSUM: b32e3ffa718ababc2b9d262e7356c9b5e150b7b4
 

@@ -12,7 +12,7 @@
 #import <PLCameraStreamingKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface ZBStreamingSession ()<CLLocationManagerDelegate,PLCameraStreamingSessionDelegate, PLStreamingSendingBufferDelegate>
+@interface ZBStreamingSession ()<CLLocationManagerDelegate,PLCameraStreamingSessionDelegate>
 
 /** 位置信息管理 */
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -163,7 +163,6 @@
             [self.session setBeautify:0.5];
             self.session.delegate = self;
             self.session.captureDevicePosition = AVCaptureDevicePositionFront;
-            self.session.bufferDelegate = self;
             self.isCameraToScreen = YES;
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.liveView.autoresizingMask = UIViewAutoresizingFlexibleHeight| UIViewAutoresizingFlexibleWidth;
