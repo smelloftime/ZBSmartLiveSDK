@@ -26,7 +26,7 @@ typedef void(^webSocketSuccessBlock)(NSString *success);
 typedef void(^WebSocketRespondDataBlock)(NSArray *respondData,NSError *error);
 
 @interface LiRivalKit () <
-SRWebSocketDelegate,
+LRWebSocketDelegate,
 LRTimerArrayLifecycleProtocol
 >
 
@@ -148,7 +148,7 @@ LRTimerArrayLifecycleProtocol
         completion(nil, [LRErrorCode errorCreateWithErrorCode:LRErrorCodeStatusLostWebSocket]);
         return;
     }
-    if (self.webSocket.readyState == SR_OPEN) {
+    if (self.webSocket.readyState == LR_OPEN) {
         if (messageIdentity) { // 验证是否超时
             [self.timerArrayManager createTimerWithIdentity:messageIdentity];
             [self.sendMessageBlockDic setObject:completion forKey:messageIdentity];
@@ -174,7 +174,7 @@ LRTimerArrayLifecycleProtocol
 }
 
 - (void)sendPing {
-    if (self.webSocket.readyState == SR_OPEN) {
+    if (self.webSocket.readyState == LR_OPEN) {
         [self.webSocket sendPing:nil];
         [self fireTimer:self.sendPingRespondTimer];
     } else {
@@ -346,48 +346,48 @@ LRTimerArrayLifecycleProtocol
     switch (code) {
             // 0–999: Reserved and not used.
         case 1000:
-            return @"SRStatusCodeNormal";
+            return @"LRStatusCodeNormal";
             break;
         case 1001:
-            return @"SRStatusCodeGoingAway";
+            return @"LRStatusCodeGoingAway";
             break;
         case 1002:
-            return @"SRStatusCodeProtocolError";
+            return @"LRStatusCodeProtocolError";
             break;
         case 1003:
-            return @"SRStatusCodeUnhandledType";
+            return @"LRStatusCodeUnhandledType";
             break;
             // 1004 reserved.
         case 1005:
-            return @"SRStatusNoStatusReceived";
+            return @"LRStatusNoStatusReceived";
             break;
         case 1006:
-            return @"SRStatusCodeAbnormal";
+            return @"LRStatusCodeAbnormal";
             break;
         case 1007:
-            return @"SRStatusCodeInvalidUTF8";
+            return @"LRStatusCodeInvalidUTF8";
             break;
         case 1008:
-            return @"SRStatusCodePolicyViolated";
+            return @"LRStatusCodePolicyViolated";
             break;
         case 1009:
-            return @"SRStatusCodeMessageTooBig";
+            return @"LRStatusCodeMessageTooBig";
             break;
         case 1010:
-            return @"SRStatusCodeMissingExtension";
+            return @"LRStatusCodeMissingExtension";
             break;
         case 1011:
-            return @"SRStatusCodeInternalError";
+            return @"LRStatusCodeInternalError";
             break;
         case 1012:
-            return @"SRStatusCodeServiceRestart";
+            return @"LRStatusCodeServiceRestart";
             break;
         case 1013:
-            return @"SRStatusCodeTryAgainLater";
+            return @"LRStatusCodeTryAgainLater";
             break;
             // 1014: Reserved for future use by the WebSocket standard.
         case 1015:
-            return @"SRStatusCodeTLSHandshake";
+            return @"LRStatusCodeTLSHandshake";
             break;
             // 1016–1999: Reserved for future use by the WebSocket standard.
             // 2000–2999: Reserved for use by WebSocket extensions.

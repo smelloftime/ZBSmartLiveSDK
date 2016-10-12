@@ -17,53 +17,53 @@
 #import <Foundation/Foundation.h>
 #import <Security/SecCertificate.h>
 
-typedef NS_ENUM(NSInteger, SRReadyState) {
-    SR_CONNECTING   = 0,
-    SR_OPEN         = 1,
-    SR_CLOSING      = 2,
-    SR_CLOSED       = 3,
+typedef NS_ENUM(NSInteger, LRReadyState) {
+    LR_CONNECTING   = 0,
+    LR_OPEN         = 1,
+    LR_CLOSING      = 2,
+    LR_CLOSED       = 3,
 };
 
 typedef enum LRStatusCode : NSInteger {
     // 0–999: Reserved and not used.
-    SRStatusCodeNormal = 1000,
-    SRStatusCodeGoingAway = 1001,
-    SRStatusCodeProtocolError = 1002,
-    SRStatusCodeUnhandledType = 1003,
+    LRStatusCodeNormal = 1000,
+    LRStatusCodeGoingAway = 1001,
+    LRStatusCodeProtocolError = 1002,
+    LRStatusCodeUnhandledType = 1003,
     // 1004 reserved.
-    SRStatusNoStatusReceived = 1005,
-    SRStatusCodeAbnormal = 1006,
-    SRStatusCodeInvalidUTF8 = 1007,
-    SRStatusCodePolicyViolated = 1008,
-    SRStatusCodeMessageTooBig = 1009,
-    SRStatusCodeMissingExtension = 1010,
-    SRStatusCodeInternalError = 1011,
-    SRStatusCodeServiceRestart = 1012,
-    SRStatusCodeTryAgainLater = 1013,
+    LRStatusNoStatusReceived = 1005,
+    LRStatusCodeAbnormal = 1006,
+    LRStatusCodeInvalidUTF8 = 1007,
+    LRStatusCodePolicyViolated = 1008,
+    LRStatusCodeMessageTooBig = 1009,
+    LRStatusCodeMissingExtension = 1010,
+    LRStatusCodeInternalError = 1011,
+    LRStatusCodeServiceRestart = 1012,
+    LRStatusCodeTryAgainLater = 1013,
     // 1014: Reserved for future use by the WebSocket standard.
-    SRStatusCodeTLSHandshake = 1015,
+    LRStatusCodeTLSHandshake = 1015,
     // 1016–1999: Reserved for future use by the WebSocket standard.
     // 2000–2999: Reserved for use by WebSocket extensions.
     // 3000–3999: Available for use by libraries and frameworks. May not be used by applications. Available for registration at the IANA via first-come, first-serve.
     // 4000–4999: Available for use by applications.
-} SRStatusCode;
+} LRStatusCode;
 
 @class LRWebSocket;
 
 extern NSString *const LRWebSocketErrorDomain;
 extern NSString *const LRHTTPResponseErrorKey;
 
-#pragma mark - SRWebSocketDelegate
+#pragma mark - LRWebSocketDelegate
 
-@protocol SRWebSocketDelegate;
+@protocol LRWebSocketDelegate;
 
-#pragma mark - SRWebSocket
+#pragma mark - LRWebSocket
 
 @interface LRWebSocket : NSObject <NSStreamDelegate>
 
-@property (nonatomic, weak) id <SRWebSocketDelegate> delegate;
+@property (nonatomic, weak) id <LRWebSocketDelegate> delegate;
 
-@property (nonatomic, readonly) SRReadyState readyState;
+@property (nonatomic, readonly) LRReadyState readyState;
 @property (nonatomic, readonly, retain) NSURL *url;
 
 
@@ -109,9 +109,9 @@ extern NSString *const LRHTTPResponseErrorKey;
 
 @end
 
-#pragma mark - SRWebSocketDelegate
+#pragma mark - LRWebSocketDelegate
 
-@protocol SRWebSocketDelegate <NSObject>
+@protocol LRWebSocketDelegate <NSObject>
 
 // respondData will either be an NSString if the server is using text
 // or NSData if the server is using binary.

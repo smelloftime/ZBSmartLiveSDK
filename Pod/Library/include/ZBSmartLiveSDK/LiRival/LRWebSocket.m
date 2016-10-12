@@ -178,7 +178,7 @@ typedef void (^data_callback)(LRWebSocket *webSocket,  NSData *data);
 
 @interface LRWebSocket ()  <NSStreamDelegate>
 
-@property (nonatomic) SRReadyState readyState;
+@property (nonatomic) LRReadyState readyState;
 
 @property (nonatomic) NSOperationQueue *delegateOperationQueue;
 @property (nonatomic) dispatch_queue_t delegateDispatchQueue;
@@ -315,7 +315,7 @@ static __strong NSData *CRLFCRLF;
         _secure = YES;
     }
     
-    _readyState = SR_CONNECTING;
+    _readyState = LR_CONNECTING;
     _consumerStopped = YES;
     _webSocketVersion = 13;
     
@@ -374,7 +374,7 @@ static __strong NSData *CRLFCRLF;
 
 #ifndef NDEBUG
 
-- (void)setReadyState:(SRReadyState)aReadyState;
+- (void)setReadyState:(LRReadyState)aReadyState;
 {
     assert(aReadyState > _readyState);
     _readyState = aReadyState;
@@ -385,7 +385,7 @@ static __strong NSData *CRLFCRLF;
 - (void)open;
 {
     assert(_url);
-    NSAssert(_readyState == SR_CONNECTING, @"Cannot call -(void)open on LRWebSocket more than once");
+    NSAssert(_readyState == LR_CONNECTING, @"Cannot call -(void)open on LRWebSocket more than once");
 
     _selfRetain = self;
 
@@ -393,7 +393,7 @@ static __strong NSData *CRLFCRLF;
     {
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, _urlRequest.timeoutInterval * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            if (self.readyState == SR_CONNECTING)
+            if (self.readyState == LR_CONNECTING)
                 [self _failWithError:[NSError errorWithDomain:@"com.squareup.SocketRocket" code:504 userInfo:@{NSLocalizedDescriptionKey: @"Timeout Connecting to Server"}]];
         });
     }
@@ -465,7 +465,7 @@ static __strong NSData *CRLFCRLF;
         _protocol = negotiatedProtocol;
     }
     
-    self.readyState = SR_OPEN;
+    self.readyState = LR_OPEN;
     
     if (!_didFail) {
         [self _readFrameNew];
@@ -689,20 +689,20 @@ static __strong NSData *CRLFCRLF;
 
 - (void)close;
 {
-    [self closeWithCode:SRStatusCodeNormal reason:nil];
+    [self closeWithCode:LRStatusCodeNormal reason:nil];
 }
 
 - (void)closeWithCode:(NSInteger)code reason:(NSString *)reason;
 {
     assert(code);
     dispatch_async(_workQueue, ^{
-        if (self.readyState == SR_CLOSING || self.readyState == SR_CLOSED) {
+        if (self.readyState == LR_CLOSING || self.readyState == LR_CLOSED) {
             return;
         }
         
-        BOOL wasConnecting = self.readyState == SR_CONNECTING;
+        BOOL wasConnecting = self.readyState == LR_CONNECTING;
         
-        self.readyState = SR_CLOSING;
+        self.readyState = LR_CLOSING;
         
         SRFastLog(@"Closing with code %d reason %@", code, reason);
         
@@ -742,7 +742,7 @@ static __strong NSData *CRLFCRLF;
 {
     // Need to shunt this on the _callbackQueue first to see if they received any messages 
     [self _performDelegateBlock:^{
-        [self closeWithCode:SRStatusCodeProtocolError reason:message];
+        [self closeWithCode:LRStatusCodeProtocolError reason:message];
         dispatch_async(_workQueue, ^{
             [self closeConnection];
         });
@@ -752,7 +752,7 @@ static __strong NSData *CRLFCRLF;
 - (void)_failWithError:(NSError *)error;
 {
     dispatch_async(_workQueue, ^{
-        if (self.readyState != SR_CLOSED) {
+        if (self.readyState != LR_CLOSED) {
             _failed = YES;
             [self _performDelegateBlock:^{
                 if ([self.delegate respondsToSelector:@selector(webSocket:didFailWithError:)]) {
@@ -760,7 +760,7 @@ static __strong NSData *CRLFCRLF;
                 }
             }];
 
-            self.readyState = SR_CLOSED;
+            self.readyState = LR_CLOSED;
 
             SRFastLog(@"Failing with error %@", error.localizedDescription);
             
@@ -783,7 +783,7 @@ static __strong NSData *CRLFCRLF;
 
 - (void)send:(id)data;
 {
-    NSAssert(self.readyState != SR_CONNECTING, @"Invalid State: Cannot call send: until connection is open");
+    NSAssert(self.readyState != LR_CONNECTING, @"Invalid State: Cannot call send: until connection is open");
     // TODO: maybe not copy this for performance
     data = [data copy];
     dispatch_async(_workQueue, ^{
@@ -801,7 +801,7 @@ static __strong NSData *CRLFCRLF;
 
 - (void)sendPing:(NSData *)data;
 {
-    NSAssert(self.readyState == SR_OPEN, @"Invalid State: Cannot call send: until connection is open");
+    NSAssert(self.readyState == LR_OPEN, @"Invalid State: Cannot call send: until connection is open");
     // TODO: maybe not copy this for performance
     data = [data copy] ?: [NSData data]; // It's okay for a ping to be empty
     dispatch_async(_workQueue, ^{
@@ -898,12 +898,12 @@ static inline BOOL closeCodeIsValid(int closeCode) {
             }
         }
     } else {
-        _closeCode = SRStatusNoStatusReceived;
+        _closeCode = LRStatusNoStatusReceived;
     }
     
     [self assertOnWorkQueue];
     
-    if (self.readyState == SR_OPEN) {
+    if (self.readyState == LR_OPEN) {
         [self closeWithCode:1000 reason:nil];
     }
     dispatch_async(_workQueue, ^{
@@ -941,7 +941,7 @@ static inline BOOL closeCodeIsValid(int closeCode) {
             } else {
                 NSString *str = [[NSString alloc] initWithData:frameData encoding:NSUTF8StringEncoding];
                 if (str == nil && frameData) {
-                    [self closeWithCode:SRStatusCodeInvalidUTF8 reason:@"Text frames must be valid UTF-8"];
+                    [self closeWithCode:LRStatusCodeInvalidUTF8 reason:@"Text frames must be valid UTF-8"];
                     dispatch_async(_workQueue, ^{
                         [self closeConnection];
                     });
@@ -974,7 +974,7 @@ static inline BOOL closeCodeIsValid(int closeCode) {
 {
     assert(frame_header.opcode != 0);
     
-    if (self.readyState == SR_CLOSED) {
+    if (self.readyState == LR_CLOSED) {
         return;
     }
     
@@ -1296,7 +1296,7 @@ static const char CRLFCRLFBytes[] = {'\r', '\n', '\r', '\n'};
     
     BOOL didWork = NO;
     
-    if (self.readyState >= SR_CLOSED) {
+    if (self.readyState >= LR_CLOSED) {
         return didWork;
     }
     
@@ -1368,7 +1368,7 @@ static const char CRLFCRLFBytes[] = {'\r', '\n', '\r', '\n'};
                     int32_t valid_utf8_size = validate_dispatch_data_partial_string(scan_data);
                     
                     if (valid_utf8_size == -1) {
-                        [self closeWithCode:SRStatusCodeInvalidUTF8 reason:@"Text frames must be valid UTF-8"];
+                        [self closeWithCode:LRStatusCodeInvalidUTF8 reason:@"Text frames must be valid UTF-8"];
                         dispatch_async(_workQueue, ^{
                             [self closeConnection];
                         });
@@ -1433,7 +1433,7 @@ static const size_t SRFrameHeaderOverhead = 32;
         
     NSMutableData *frame = [[NSMutableData alloc] initWithLength:payloadLength + SRFrameHeaderOverhead];
     if (!frame) {
-        [self closeWithCode:SRStatusCodeMessageTooBig reason:@"Message too big"];
+        [self closeWithCode:LRStatusCodeMessageTooBig reason:@"Message too big"];
         return;
     }
     uint8_t *frame_buffer = (uint8_t *)[frame mutableBytes];
@@ -1548,14 +1548,14 @@ static const size_t SRFrameHeaderOverhead = 32;
         switch (eventCode) {
             case NSStreamEventOpenCompleted: {
                 SRFastLog(@"NSStreamEventOpenCompleted %@", aStream);
-                if (self.readyState >= SR_CLOSING) {
+                if (self.readyState >= LR_CLOSING) {
                     return;
                 }
                 assert(_readBuffer);
                 
                 // didConnect fires after certificate verification if we're using pinned certificates.
                 BOOL usingPinnedCerts = [[_urlRequest SR_SSLPinnedCertificates] count] > 0;
-                if ((!_secure || !usingPinnedCerts) && self.readyState == SR_CONNECTING && aStream == _inputStream) {
+                if ((!_secure || !usingPinnedCerts) && self.readyState == LR_CONNECTING && aStream == _inputStream) {
                     [self didConnect];
                 }
                 [self _pumpWriting];
@@ -1580,8 +1580,8 @@ static const size_t SRFrameHeaderOverhead = 32;
                     [self _failWithError:aStream.streamError];
                 } else {
                     dispatch_async(_workQueue, ^{
-                        if (self.readyState != SR_CLOSED) {
-                            self.readyState = SR_CLOSED;
+                        if (self.readyState != LR_CLOSED) {
+                            self.readyState = LR_CLOSED;
                             [self _scheduleCleanup];
                         }
                         
@@ -1590,7 +1590,7 @@ static const size_t SRFrameHeaderOverhead = 32;
                             // If we get closed in this state it's probably not clean because we should be sending this when we send messages
                             [self _performDelegateBlock:^{
                                 if ([self.delegate respondsToSelector:@selector(webSocket:didCloseWithCode:reason:wasClean:)]) {
-                                    [self.delegate webSocket:self didCloseWithCode:SRStatusCodeGoingAway reason:@"Stream end encountered" wasClean:NO];
+                                    [self.delegate webSocket:self didCloseWithCode:LRStatusCodeGoingAway reason:@"Stream end encountered" wasClean:NO];
                                 }
                             }];
                         }
