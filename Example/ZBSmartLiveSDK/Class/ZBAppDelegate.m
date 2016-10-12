@@ -16,13 +16,13 @@
 {
 #warning Note 初始化必须成功 才能正常使用 ZBSmartLiveSDK 相关的所有功能,以免出现其余异常 bug 建议:如果此处显示初始化失败的信息后,重新调用初始化方法
     
-    [[ZBSmartLiveSDK shareSDK] registerWithAppID:@"zb60225160269831" appToken:@"tlMvbTrQ6chiymlTROx2TL" completion:^(NSError *error) {
-        if (error == nil) {
-            NSLog(@"初始化成功");
-        } else {
-            NSLog(@"初始化失败的错误信息 %@", [error localizedDescription]);
-        }
-    }];
+//    [[ZBSmartLiveSDK shareSDK] registerWithAppID:@"zb60225160269831" appToken:@"tlMvbTrQ6chiymlTROx2TL" completion:^(NSError *error) {
+//        if (error == nil) {
+//            NSLog(@"初始化成功");
+//        } else {
+//            NSLog(@"初始化失败的错误信息 %@", [error localizedDescription]);
+//        }
+//    }];
     
     self.window = [[UIWindow alloc] init];
     ZBRootTableViewController *tableVC = [[ZBRootTableViewController alloc] initWithStyle:UITableViewStylePlain];

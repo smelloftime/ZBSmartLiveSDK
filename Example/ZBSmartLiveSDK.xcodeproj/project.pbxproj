@@ -54,6 +54,7 @@
 		364AC1A31D435A1900D66542 /* ZBRootTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRootTableViewController.m; sourceTree = "<group>"; };
 		364AC1A41D435A1900D66542 /* ZBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBAppDelegate.h; sourceTree = "<group>"; };
 		364AC1A51D435A1900D66542 /* ZBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBAppDelegate.m; sourceTree = "<group>"; };
+		367099AE1DAE06B300B30F75 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		3682A7F71D44B0DD005A500B /* ZBGetZBCloudDataDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBGetZBCloudDataDemo.h; sourceTree = "<group>"; };
 		3682A7F81D44B0DD005A500B /* ZBGetZBCloudDataDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBGetZBCloudDataDemo.m; sourceTree = "<group>"; };
 		369EE2891D44AEC100256B6A /* ZBGetZBCloudDataDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZBGetZBCloudDataDemo.storyboard; sourceTree = "<group>"; };
@@ -232,6 +233,7 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				367099AE1DAE06B300B30F75 /* libstdc++.tbd */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
