@@ -212,6 +212,9 @@
     if (self.isConnection == YES) { // 如果目前在重连中,就抛出成功的信息
         if (connectionState == LiRivalKitStateSuccess) {
             [self stopReconnectLiRivalKit];
+            if ([self.delegate respondsToSelector:@selector(chat:connectionStateDidChange:)]) {
+                [self.delegate chat:self connectionStateDidChange:ZBChatStateSuccess];
+            }
         }
     }
     if (connectionState == LiRivalKitStateFail && (networkStatys == AFNetworkReachabilityStatusNotReachable)) {

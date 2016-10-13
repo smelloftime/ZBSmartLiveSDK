@@ -622,7 +622,6 @@
 		DB1ACFF39E8AAEFEC0B97CDCD6CF5D16 /* ZBErrorCode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZBErrorCode.h; sourceTree = "<group>"; };
 		DB360D3ADEDAD7908E4848E561D46B27 /* QNNetworkInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNNetworkInfo.h; path = HappyDNS/Common/QNNetworkInfo.h; sourceTree = "<group>"; };
 		DD5B97FD7C5BB13572FB9E8F522317A0 /* MPMessagePackWriter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MPMessagePackWriter.h; sourceTree = "<group>"; };
-		DDC042BA1DAF676200F9C44B /* ZBSmartSDKConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ZBSmartSDKConfig.plist; sourceTree = "<group>"; };
 		DE29F846991FC1D478EA1B0D4E6B8BE5 /* MJExtension.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MJExtension.xcconfig; sourceTree = "<group>"; };
 		DE35CA3ADA0FD000580A1F4D4E59F81B /* QNIP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNIP.h; path = HappyDNS/Util/QNIP.h; sourceTree = "<group>"; };
 		DE8FB35F1EFB8356B34CA753C7036577 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -1155,7 +1154,6 @@
 		C0CF0ED6946EC209AACE8DF16649EA28 /* ZBSmartLiveSDK */ = {
 			isa = PBXGroup;
 			children = (
-				DDC042BA1DAF676200F9C44B /* ZBSmartSDKConfig.plist */,
 				FFF9064C451AAC7CB664F9E4A687D923 /* Pod */,
 				6F1416E295A67E6184EA0A19B6C4C4C9 /* Support Files */,
 			);
