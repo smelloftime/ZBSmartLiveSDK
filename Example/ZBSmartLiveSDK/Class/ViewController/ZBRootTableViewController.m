@@ -24,6 +24,7 @@
                           @"登录智播云",
                           @"获取直播数据",
                           @"收发直播间消息",
+                          @"获取接口配置",
 //                          @"直播功能(进入,开启,结束)",
 //                          @"观看直播",
 //                          @"回放直播",
@@ -38,6 +39,7 @@
                                     @"ZBLoginZBCloudDemoVC",
                                     @"ZBGetZBCloudDataDemo",
                                     @"ZBInstantMessageTabBarController",
+                                    @"ZBRegisterDemo",
                                     nil];
     }
     return _demoViewControllerArray;

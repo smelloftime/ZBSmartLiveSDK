@@ -30,6 +30,8 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		DDC042B71DAF5E2100F9C44B /* ZBRegisterDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC042B61DAF5E2100F9C44B /* ZBRegisterDemo.m */; };
+		DDC042B91DAF5E9A00F9C44B /* ZBRegisterDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDC042B81DAF5E9A00F9C44B /* ZBRegisterDemo.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,9 @@
 		B08324DAC11C9C0A39372F9D /* Pods-ZBSmartLiveSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZBSmartLiveSDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZBSmartLiveSDK_Example/Pods-ZBSmartLiveSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B437F8CC24DAFA085409C1D1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		DC6467283558A4A3B7E26BCC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		DDC042B51DAF5E2100F9C44B /* ZBRegisterDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRegisterDemo.h; sourceTree = "<group>"; };
+		DDC042B61DAF5E2100F9C44B /* ZBRegisterDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRegisterDemo.m; sourceTree = "<group>"; };
+		DDC042B81DAF5E9A00F9C44B /* ZBRegisterDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZBRegisterDemo.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +135,7 @@
 				36CF425B1D7566FA005CB85D /* ZBInstantMessageTabBarController.storyboard */,
 				369EE2891D44AEC100256B6A /* ZBGetZBCloudDataDemo.storyboard */,
 				364AC1981D435A1900D66542 /* ZBLoginZBCloudDemoVC.storyboard */,
+				DDC042B81DAF5E9A00F9C44B /* ZBRegisterDemo.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -137,6 +143,7 @@
 		364AC1991D435A1900D66542 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				DDC042B11DAF5DB300F9C44B /* RegisterDemo */,
 				3682A7F31D44B0C0005A500B /* GetZBCloudDataDemo */,
 				364AC19A1D435A1900D66542 /* InstantMessageDemo */,
 				364AC19B1D435A1900D66542 /* LiveDataRespond */,
@@ -303,6 +310,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DDC042B11DAF5DB300F9C44B /* RegisterDemo */ = {
+			isa = PBXGroup;
+			children = (
+				DDC042B51DAF5E2100F9C44B /* ZBRegisterDemo.h */,
+				DDC042B61DAF5E2100F9C44B /* ZBRegisterDemo.m */,
+			);
+			path = RegisterDemo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -354,6 +370,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = LipYoung;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 5QQ23A4NX6;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -389,6 +408,7 @@
 				364AC1A61D435A1900D66542 /* Launch Screen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				DDC042B91DAF5E9A00F9C44B /* ZBRegisterDemo.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +477,7 @@
 			files = (
 				36CF42591D7566E9005CB85D /* ZBReceiveIMVC.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				DDC042B71DAF5E2100F9C44B /* ZBRegisterDemo.m in Sources */,
 				36CF42581D7566E9005CB85D /* ZBInstantMessageTabBarController.m in Sources */,
 				364AC1A81D435A1900D66542 /* ZBLoginZBCloudDemoVC.m in Sources */,
 				36CF425A1D7566E9005CB85D /* ZBSendIMVC.m in Sources */,
@@ -583,6 +604,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 5QQ23A4NX6;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZBSmartLiveSDK/ZBSmartLiveSDK-Prefix.pch";
 				INFOPLIST_FILE = "ZBSmartLiveSDK/ZBSmartLiveSDK-Info.plist";
@@ -599,6 +621,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 5QQ23A4NX6;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ZBSmartLiveSDK/ZBSmartLiveSDK-Prefix.pch";
 				INFOPLIST_FILE = "ZBSmartLiveSDK/ZBSmartLiveSDK-Info.plist";
