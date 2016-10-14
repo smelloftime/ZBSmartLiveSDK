@@ -7,6 +7,7 @@
 //  负责和智播云通讯
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface ZBCloudData : NSObject
 /**
