@@ -33,6 +33,7 @@
 @synthesize configVersion = _configVersion;
 @synthesize ticket = _ticket;
 @synthesize apiVersion = _apiVersion;
+@synthesize rootURL = _rootURL;
 
 #pragma mark - property
 - (void)setAppID:(NSString *)appID {
@@ -141,11 +142,6 @@
     return _filterArray;
 }
 
-- (NSString *)rootURL {
-    // 注意! 应改为 plist 文件中获取
-    return @"http://cloud.zhibocloud.cn/api/getconfig/getApi";
-}
-
 #pragma mark - lifecycle
 
 #pragma mark - means
@@ -160,6 +156,11 @@
 }
 
 #pragma mark └ instance means
+- (void)saveRootServerAddress:(NSString *)rootServerAddress {
+    NSParameterAssert(rootServerAddress);
+    _rootURL = rootServerAddress;
+}
+
 - (void)saveConfigData:(NSData *)configData {
     NSParameterAssert(configData);
     _configInfoModel = [ZBConfigInfoModel mj_objectWithKeyValues:configData];

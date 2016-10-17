@@ -69,6 +69,13 @@
 + (instancetype)defaultCenter;
 
 /**
+ *  存储服务器根地址
+ *
+ *  @param rootServerAddress 服务其提供的根地址
+ */
+- (void)saveRootServerAddress:(NSString *)rootServerAddress;
+
+/**
  *  配置信息持久化,调用该方法会更新 _configInfoModel
  *
  *  @param configData 服务器返回的 json 格式配置化信息
