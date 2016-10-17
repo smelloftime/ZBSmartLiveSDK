@@ -81,6 +81,11 @@
  */
 + (NSNumber *)getImCid;
 
-
+/**
+ *  获取当前登录用户商户服务器提供的用户唯一标识,根据ticket 兑换, ticket 改变,登录用户改变
+ *
+ *  @return 用户唯一标识,如果返回为空, 则表示ZBSmartLiveSDK 获取数据失败
+ */
++ (NSString *)usid;
 
 @end

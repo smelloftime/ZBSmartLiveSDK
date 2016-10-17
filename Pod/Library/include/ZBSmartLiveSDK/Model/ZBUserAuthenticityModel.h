@@ -13,7 +13,11 @@
 @property (assign, nonatomic) NSInteger instantMessagingIdentity;
 /** 聊天服务器密码 */
 @property (copy, nonatomic) NSString *instantMessagingPassword;
-/** 商务服务器用户 ID */
+/** 商务服务器用户 ID
+ *
+ *  @note usid
+ *
+ */
 @property (copy, nonatomic) NSString *businessUserIdentity;
 /** 合法性钥匙串 */
 @property (copy, nonatomic) NSString *authenticAccessKey;

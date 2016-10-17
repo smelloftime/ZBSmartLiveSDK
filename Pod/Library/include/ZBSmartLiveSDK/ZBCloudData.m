@@ -114,4 +114,8 @@
     return [ZBApplicationCenter defaultCenter].imCid;
 }
 
++ (NSString *)usid {
+    return [ZBApplicationCenter defaultCenter].userAuthenticityModel.businessUserIdentity;
+}
+
 @end
