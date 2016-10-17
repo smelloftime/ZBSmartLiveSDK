@@ -126,10 +126,8 @@
         NSAssert([baseURL isKindOfClass:[NSString class]] != NO, @"基础API地址类型错误");
         [ZBApplicationCenter defaultCenter].baseURL = baseURL;
         // 通过 baseURL 获取配置信息
-        [ZBInitializeRequestManager sendGetConfigRequestSuccess:^(id data) {
-            [[ZBApplicationCenter defaultCenter] saveConfigData:data];
-            // 保存配置版本号
-            [ZBApplicationCenter defaultCenter].configVersion = data[@"api_config_version"];
+        [ZBInitializeRequestManager sendGetConfigRequestSuccess:^(id respondData) {
+            [[ZBApplicationCenter defaultCenter] saveConfigData:respondData];
             [ZBInitializeRequestManager downloadFilterWordRequestCompletion:^(NSError *fail) {
                 if (fail) {
                     if (error) {
@@ -156,6 +154,8 @@
                         if (error) {
                             error(nil);
                         }
+                        // 解压成功后表示配置获取成功,然后成功保存配置版本号
+                        [ZBApplicationCenter defaultCenter].configVersion = respondData[@"api_config_version"];
                     } else {
                         if (error) {
                             error([NSError errorWithDomain:@"unZipError" code:10089 userInfo:nil]);
