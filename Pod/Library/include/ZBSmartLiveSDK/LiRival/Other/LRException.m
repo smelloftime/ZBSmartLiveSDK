@@ -12,6 +12,7 @@
 
 NSString * const LRGenericException = @"LRGenericException";
 NSString * const LRInvalidArgumentException = @"LRInvalidArgumentException";
+NSString * const LRInvalidConversionError = @"LRInvalidConversionError";
 
 @implementation LRException
 
@@ -19,6 +20,7 @@ NSString * const LRInvalidArgumentException = @"LRInvalidArgumentException";
     NSDictionary *exceptionDic = @{
                                @(101): @[LRInvalidArgumentException, @"Unrecognized data Argument"],
                                @(102): @[LRInvalidArgumentException, @"Unrecognized data class"],
+                               @(103): @[LRInvalidArgumentException, @"Conversion error"],
                                };
     NSArray *exceptionArray = exceptionDic[@(exceptionCode)];
     NSParameterAssert(exceptionArray);
