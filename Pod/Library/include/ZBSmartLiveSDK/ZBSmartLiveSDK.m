@@ -68,6 +68,12 @@
 }
 
 - (void)loginWithZBTicket:(NSString *)ticket completion:(void (^)(NSError *))error {
+    /** 通过 Ticket 登陆的逻辑
+     1. 通过票据兑换智播云用户授权信息,并且持久化,如果票据一致,就直接使用持久化的用户授权信息
+     2. 通过票据兑换商务服务器用户授权信息,并且持久化,如果票据一直,就直接使用持久化的商务服务器授权信息
+     3. 获取用户授权信息后,登陆聊天服务器
+     4. 所有异常信息都会抛出,如果不能抛出正常,就不能视为正常登陆SDK
+     */
     [ZBAppConfigManager getUserAuthenticityWithZBTicket:ticket completion:^(NSError *fail) {
         if (fail == nil) {
             [self loginLiRivalkitCompletion:^(NSError *fail) {
