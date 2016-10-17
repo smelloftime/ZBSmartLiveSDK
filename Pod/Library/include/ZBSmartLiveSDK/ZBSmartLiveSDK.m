@@ -31,11 +31,23 @@
 }
 
 #pragma mark └ instance means
+- (void)configRootServerAddress:(NSString *)rootServerAddress {
+    NSParameterAssert(rootServerAddress);
+    [[ZBApplicationCenter defaultCenter] saveRootServerAddress:rootServerAddress];
+}
+
 - (void)registerWithApiVersion:(NSString *)apiVersion completion:(void (^)(NSError *))completion {
     /** 更新的逻辑说明
      如果修改了API 版本号,或者无API 版本号就直接更新所有的配置相关信息
      如果未修改API 版本号,就调用应用初始化接口,判断是否还需要局部更新
      */
+    NSString *rootURL = [ZBApplicationCenter defaultCenter].rootURL;
+    if (rootURL == nil || [rootURL length] <= 0) {
+        if (completion) {
+            completion([ZBErrorCode errorCreateWithErrorCode:ZBErrorCodeStatusUnInitialize]);
+        }
+        return;
+    }
     if (apiVersion == nil || [apiVersion length] <= 0) {
          if (completion) {
              completion([ZBErrorCode errorCreateWithErrorCode:ZBErrorCodeStatusUnInitialize]);

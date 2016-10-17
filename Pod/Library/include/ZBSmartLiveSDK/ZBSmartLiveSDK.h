@@ -18,6 +18,13 @@
 + (instancetype)shareSDK;
 
 /**
+ *  配置智播聊天服务器根地址
+ *
+ *  @param rootServerAddress 聊天服务器根地址,该地址由服务器提供
+ */
+- (void)configRootServerAddress:(NSString *)rootServerAddress;
+
+/**
  *  注册应用信息
  *
  *  @waring 该方法必须在应用启动后尽快调用
