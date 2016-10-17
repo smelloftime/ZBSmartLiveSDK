@@ -162,6 +162,44 @@ void(^processImageResponseData)(id,void(^)(id),void(^)(NSError *)) = ^(id data,v
     }];
 }
 
++ (void)sendBusinessHttpRequestWithAPI:(NSString *)api arguments:(NSDictionary *)arguments header:(NSDictionary *)header successCallback:(void (^)(id))success failCallback:(void (^)(NSError *))fail {
+    NSParameterAssert(api);
+    NSParameterAssert(arguments);
+    NSString *businessRootServerAddress = [ZBApplicationCenter defaultCenter].businessRootServerAddress;
+    if (businessRootServerAddress == nil) {
+        NSError *error = [ZBErrorCode errorCreateWithErrorCode:ZBErrorCodeStatusUnInitialize];
+        if (fail) {
+            fail(error);
+        }
+        return;
+    }
+    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:@{@"api": api}];
+    [dic addEntriesFromDictionary:arguments];
+    
+    AFHTTPSessionManager *httpSessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:businessRootServerAddress]];
+    
+    AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];
+    responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/plain",@"text/html", @"application/x-www-form-urlencoded", @"text/javascript", nil];
+    AFHTTPRequestSerializer *requestSerializer = [AFHTTPRequestSerializer serializer];
+    requestSerializer.timeoutInterval = 10;
+    
+    httpSessionManager.requestSerializer = requestSerializer;
+    httpSessionManager.responseSerializer = responseSerializer;
+    
+    ZBLog(@"\businessRootServerAddress:%@\nbusinessRootServerAddressArgumentsDictionary:%@\n", businessRootServerAddress, dic);
+    
+    [httpSessionManager POST:@"apis" parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        processResponseData(responseObject, success, fail);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (fail) {
+            fail(error);
+        } else {
+            ZBLog(@"%@", [error localizedDescription]);
+        }
+    }];
+}
+
 + (void)uploadImageRequestWithAPI:(NSString *)api arguments:(NSDictionary *)arguments imageName:(NSString *)imageName imageData:(NSData *)imageData header:(NSDictionary *)header sucessCallback:(void (^)(id))success failCallback:(void (^)(NSError *))fail {
     NSParameterAssert(api);
     NSParameterAssert(arguments);
