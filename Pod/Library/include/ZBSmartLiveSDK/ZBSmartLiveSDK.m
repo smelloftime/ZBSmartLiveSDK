@@ -36,6 +36,11 @@
     [[ZBApplicationCenter defaultCenter] saveRootServerAddress:rootServerAddress];
 }
 
+- (void)configBusinessServerAddress:(NSString *)businessServerAddress {
+    NSParameterAssert(businessServerAddress);
+    [[ZBApplicationCenter defaultCenter] saveBusinessRootServerAddress:businessServerAddress];
+}
+
 - (void)registerWithApiVersion:(NSString *)apiVersion completion:(void (^)(NSError *))completion {
     /** 更新的逻辑说明
      如果修改了API 版本号,或者无API 版本号就直接更新所有的配置相关信息
