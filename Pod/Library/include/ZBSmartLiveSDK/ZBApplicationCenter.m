@@ -8,6 +8,7 @@
 
 #import "ZBApplicationCenter.h"
 #import "MJExtension.h"
+#import "LRException.h"
 
 #define kAppKeySaveKey          @"kAppKeySaveKey"
 #define kAppTokenSaveKey        @"kAppTokenSaveKey"
@@ -18,11 +19,13 @@
 #define kUserAuthSaveKey        @"kUserAuthSaveKey"
 #define kTicketSaveKey          @"kTicketSaveKey"
 #define kFilterSaveKey          @"kFilterSaveKey"
+#define kBusinessAuthInfo       @"kBusinessAuthInfo"
 
 @interface ZBApplicationCenter ()
 @property (strong, nonatomic) ZBConfigInfoModel *configInfoModel;
 @property (strong, nonatomic) ZBUserAuthenticityModel *userAuthenticityModel;
 @property (strong, nonatomic) NSArray *filterArray;
+@property (strong, nonatomic) NSDictionary *businessAuthInfo;
 
 @end
 
@@ -33,7 +36,7 @@
 @synthesize configVersion = _configVersion;
 @synthesize ticket = _ticket;
 @synthesize apiVersion = _apiVersion;
-@synthesize rootURL = _rootURL;
+@synthesize businessAuthInfo = _businessAuthInfo;
 
 #pragma mark - property
 - (void)setAppID:(NSString *)appID {
@@ -135,6 +138,13 @@
     return _userAuthenticityModel;
 }
 
+- (NSDictionary *)businessAuthInfo {
+    if (_businessAuthInfo == nil) {
+        _businessAuthInfo = [[NSUserDefaults standardUserDefaults] dictionaryForKey:kBusinessAuthInfo];
+    }
+    return _businessAuthInfo;
+}
+
 - (NSArray *)filterArray {
     if (_filterArray == nil) {
         _filterArray = [[NSUserDefaults standardUserDefaults] objectForKey:kFilterSaveKey];
@@ -161,6 +171,11 @@
     _rootURL = rootServerAddress;
 }
 
+- (void)saveBusinessRootServerAddress:(NSString *)businessRootServerAddress {
+    NSParameterAssert(businessRootServerAddress);
+    _businessRootServerAddress = businessRootServerAddress;
+}
+
 - (void)saveConfigData:(NSData *)configData {
     NSParameterAssert(configData);
     _configInfoModel = [ZBConfigInfoModel mj_objectWithKeyValues:configData];
@@ -175,6 +190,17 @@
     
     NSData *configJsonData = [NSJSONSerialization dataWithJSONObject:authenticity options:NSJSONWritingPrettyPrinted error:nil];
     [[NSUserDefaults standardUserDefaults] setValue:configJsonData forKey:kUserAuthSaveKey];
+}
+
+- (void)updataBusinessAuthenticityData:(NSData *)businessAuthenticity {
+    NSParameterAssert(businessAuthenticity);
+    NSError *error = nil;
+    _businessAuthInfo = [NSJSONSerialization JSONObjectWithData:businessAuthenticity options:NSJSONReadingMutableLeaves error:&error];
+    if (error) {
+        NSException *exception = [LRException raiseWithLRExceptionCode:LRExceptionInvalidArgument];
+        [exception raise];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:_businessAuthInfo forKey:kBusinessAuthInfo];
 }
 
 - (void)updateFilterWord:(NSArray *)filterArray {

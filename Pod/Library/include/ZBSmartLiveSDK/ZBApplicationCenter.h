@@ -15,7 +15,11 @@
 @property (copy, nonatomic) NSString *appID;
 /** 应用口令 */
 @property (copy, nonatomic) NSString *appToken;
-/** 直播云根地址 */
+/** 直播云根地址
+ *
+ *  @see `- saveRootServerAddress:`更新地址
+ *
+ */
 @property (copy, nonatomic, readonly) NSString *rootURL;
 /**
  *  @brief 应用基础地址
@@ -23,6 +27,12 @@
  *  @see set 方法会更新该数值和持久化
  */
 @property (copy, nonatomic) NSString *baseURL;
+/** 商务服务器根地址
+ *
+ *  @see `- saveBusinessRootServerAddress:`更新地址
+ *
+ */
+@property (copy, nonatomic, readonly) NSString *businessRootServerAddress;
 /**
  *  @brief 配置的版本号
  *
@@ -53,6 +63,13 @@
  *  @see updataAuthenticityData
  */
 @property (strong, nonatomic, readonly) ZBUserAuthenticityModel *userAuthenticityModel;
+/** 商务服务器用户授权信息
+ *
+ *  @note 调用商务服务器的接口时,将该字典作为接口参数传入,证明调用接口的合法性
+ *
+ *  @see updataBusinessAuthenticityData 调用该方面可以更新用户授权信息
+ */
+@property (strong, nonatomic, readonly) NSDictionary *businessAuthInfo;
 /** 敏感词数据 */
 @property (strong, nonatomic,readonly) NSArray *filterArray;
 /** 是否安装了分享平台  未完成 */
@@ -68,12 +85,20 @@
 
 + (instancetype)defaultCenter;
 
+#pragma mark - save info
 /**
- *  存储服务器根地址
+ *  存储直播服务器根地址
  *
  *  @param rootServerAddress 服务其提供的根地址
  */
 - (void)saveRootServerAddress:(NSString *)rootServerAddress;
+
+/**
+ *  存储商务服务器根地址
+ *
+ *  @param businessRootServerAddress 服务其提供的根地址
+ */
+- (void)saveBusinessRootServerAddress:(NSString *)businessRootServerAddress;
 
 /**
  *  配置信息持久化,调用该方法会更新 _configInfoModel
@@ -82,12 +107,20 @@
  */
 - (void)saveConfigData:(NSData *)configData;
 
+#pragma mark - update info
 /**
  *  更新授权信息
  *
  *  @param authenticity 服务器返回的 json 格式的授权信息
  */
 - (void)updataAuthenticityData:(NSData *)authenticity;
+
+/**
+ *  更新商务服务器收钱信息
+ *
+ *  @param businessAuthenticity 服务器返回的 json 格式的授权信息
+ */
+- (void)updataBusinessAuthenticityData:(NSData *)businessAuthenticity;
 
 /**
  *  更新并且持久化敏感词库
