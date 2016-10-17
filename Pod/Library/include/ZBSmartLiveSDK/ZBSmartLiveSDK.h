@@ -18,11 +18,18 @@
 + (instancetype)shareSDK;
 
 /**
- *  配置智播聊天服务器根地址
+ *  配置智播服务器根地址
  *
  *  @param rootServerAddress 聊天服务器根地址,该地址由服务器提供
  */
 - (void)configRootServerAddress:(NSString *)rootServerAddress;
+
+/**
+ *  配置商务服务器根地址
+ *
+ *  @param businessServerAddress 商务服务器地址,该地址由商务服务器提供
+ */
+- (void)configBusinessServerAddress:(NSString *)businessServerAddress;
 
 /**
  *  注册应用信息
