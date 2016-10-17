@@ -92,14 +92,21 @@
     ZBApplicationCenter *center = [ZBApplicationCenter defaultCenter];
     if ([center.ticket isEqualToString:ticket] == NO || center.userAuthenticityModel == nil) {
         [ZBInitializeRequestManager sendGetAndUpdataUserAuthenticityRequestWithTicket:ticket success:^(id data) {
-            center.ticket = ticket;
             [center updataAuthenticityData:data];
-            if (error) {
-                error(nil);
-            }
+            [ZBInitializeRequestManager sendGetBusinessAuthenticityRequestWithTicket:ticket success:^(id data) {
+                center.ticket = ticket; // 全部逻辑成功后,将票据持久化
+                
+                if (error) {
+                    error(nil);
+                }
+            } fail:^(NSError *fail) {
+                if (error) {
+                    error(fail);
+                }
+            }];
         } fail:^(NSError *fail) {
             if (error) {
-                error(nil);
+                error(fail);
             }
         }];
     } else if ([center.ticket isEqualToString:ticket] == YES) {
