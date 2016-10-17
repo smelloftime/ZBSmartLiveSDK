@@ -28,8 +28,6 @@
     lockedWord(hexTimeString, lockString);
 }
 
-
-
 + (NSData *)httpBodyForParamsDictionary:(NSDictionary *)paramDictionary {
     NSMutableArray *parameterArray = [NSMutableArray array];
     
