@@ -19,6 +19,10 @@ typedef void(^RequestFailCallBack)(NSError *fail);
 
 + (void)sendGetAndUpdataUserAuthenticityRequestWithTicket:(NSString *)ticket success:(RequestSuccessCallBack)success fail:(RequestFailCallBack)fail;
 
+/// 发起获取商务服务器授权信息请求
++ (void)sendGetBusinessAuthenticityRequestWithTicket:(NSString *)ticket success:(RequestSuccessCallBack)success fail:(RequestFailCallBack)fail;
+
+/// 下载过滤敏感词词典请求
 + (void)downloadFilterWordRequestCompletion:(void (^)(NSError *))error;
 
 @end

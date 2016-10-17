@@ -32,6 +32,12 @@
     [ZBHttpRequestManager sendHttpRequestWithAPI:[ZBURLPath pathFromUserAuthenticity] arguments:arguments header:nil successCallback:success failCallback:fail];
 }
 
++ (void)sendGetBusinessAuthenticityRequestWithTicket:(NSString *)ticket success:(RequestSuccessCallBack)success fail:(RequestFailCallBack)fail {
+    NSParameterAssert(ticket);
+    NSDictionary *arguments = @{@"ticket": ticket};
+    [ZBHttpRequestManager sendBusinessHttpRequestWithAPI:[ZBURLPath pathFromBusinessAuth] arguments:arguments header:nil successCallback:success failCallback:fail];
+}
+
 + (void)downloadFilterWordRequestCompletion:(void (^)(NSError *))error {
     [ZBTools transformDate:[NSDate date] intoLockedWord:^(NSString *hextime, NSString *lockedToken) {
         NSString * encodingString = [@"filter_word_list" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
