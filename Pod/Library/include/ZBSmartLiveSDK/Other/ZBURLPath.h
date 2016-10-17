@@ -77,4 +77,30 @@
  */
 + (NSString *)pathFromEndStream;
 
+#pragma mark - busness path
+/**
+ *  获取商务服务器授权地址
+ *
+ *  @return 该接口的路径字符串
+ */
++ (NSString *)pathFromBusinessAuth;
+/**
+ *  获取商务服务器的用户关注列表
+ *
+ *  @return 该接口的路径字符串
+ */
++ (NSString *)pathFromBusinessFollowList;
+/**
+ *  发起商务服务器的关注操作
+ *
+ *  @return 该接口的路径字符串
+ */
++ (NSString *)pathFromBusinessFollowAction;
+/**
+ *  获取商务服务器用户信息
+ *
+ *  @return 该接口的路径字符串
+ */
++ (NSString *)pathFromBusinessUserInfo;
+
 @end

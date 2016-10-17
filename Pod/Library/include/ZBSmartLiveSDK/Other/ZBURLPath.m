@@ -49,4 +49,20 @@
     return @"ZBCloud_End_Stream";
 }
 
++ (NSString *)pathFromBusinessAuth {
+    return @"ZB_User_Get_AuthByTicket";
+}
+
++ (NSString *)pathFromBusinessFollowList {
+    return @"ZB_User_Get_List";
+}
+
++ (NSString *)pathFromBusinessFollowAction {
+    return @"ZB_User_Follow";
+}
+
++ (NSString *)pathFromBusinessUserInfo {
+    return @"ZB_User_Get_Info";
+}
+
 @end
