@@ -20,7 +20,6 @@
 		0850D995837DBD9852734997A15D6CC5 /* QNGetAddrInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9785255DF9241FCBDB2BD2EBC9B803 /* QNGetAddrInfo.m */; };
 		093DF1EC9C8DA5EE6C467C6C05FB5CB7 /* LRErrorCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A4FEC98310F0A80EFFC467F7F68193 /* LRErrorCode.m */; };
 		0A08FC71C4E3B8E0F8734BCDA7CCA7CB /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B1A63801370323B715F2A466A75CBB /* AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0B60FBB7E52BDE35C499C3743DB2A31C /* commendExchangeModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 808BFB315021B150D5742299F9A13D99 /* commendExchangeModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C34CCFDC2FD30C4B992340CDCFB2CA2 /* ZBStreamingRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EEFFBDCC996A9749C3D747F6F500D6B /* ZBStreamingRequestManager.m */; };
 		0CDE2CA955C8125A61CE7E33912C77AC /* QNDnspodFree.h in Headers */ = {isa = PBXBuildFile; fileRef = 123C2BBE65756410A9C3BD458A89EBA5 /* QNDnspodFree.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0F7EC02E944F8719A5EBDC9D29F9E99F /* MJExtensionConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 9261B3AF2B4CA4CF8C46ABBAD1D8F356 /* MJExtensionConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,6 +64,8 @@
 		34B323520CA4E83E6CC02198532C2270 /* GHODictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BD31BAA4B916D2B6B884738B79031D6 /* GHODictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3511AE7ADBB71D05565854F0E70B7D08 /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4063F4D583821E70AB84FB65B0887FAA /* AFURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3546D91536B1ADE82FCAC83CAD2BACBE /* ZBAppConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 805470B071B36C425A4202BC3A304357 /* ZBAppConfigManager.m */; };
+		361BB0ED1DB4818600473608 /* ZBBusinessCloudData.h in Headers */ = {isa = PBXBuildFile; fileRef = 361BB0EB1DB4818600473608 /* ZBBusinessCloudData.h */; };
+		361BB0EE1DB4818600473608 /* ZBBusinessCloudData.m in Sources */ = {isa = PBXBuildFile; fileRef = 361BB0EC1DB4818600473608 /* ZBBusinessCloudData.m */; };
 		366A613AE07EAA35B5789F6123FB48AF /* MJPropertyKey.h in Headers */ = {isa = PBXBuildFile; fileRef = F7BF22CF0AF5144A0A437756EAA3EACD /* MJPropertyKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		36BE6B459C958A5D48DD1E2AD32E2D36 /* Pods-ZBSmartLiveSDK_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EA7CB2D7DEBDD31370AA4A631B04203 /* Pods-ZBSmartLiveSDK_Example-dummy.m */; };
 		3733EE72340B8940EEEE109FB7149EB3 /* ZBURLPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 652BFE59E34F5665BB2C86CEC1A41EFA /* ZBURLPath.m */; };
@@ -120,7 +121,6 @@
 		76B292528308DFD4679D06DBB2AB8430 /* LRConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = AF39E3FE8BE373ADAAA34DC23E6E4A83 /* LRConversation.m */; };
 		779B90029A33A64332052A0C377FFB9A /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CFA2E27C599C40FBE840668B04B5F22 /* crypt.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		77E9CD2FA52DE7DFEAE11224F7785849 /* MPRPCProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D03107E98167E80000789E512D2F18 /* MPRPCProtocol.m */; };
-		77F7BBD02D0F0FD15C915D84FB11F081 /* commendExchangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DAF58FD355AB9707C22CB305E2A854 /* commendExchangeModel.m */; };
 		78940A6980F359C4304C695EF6E67C5D /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3EECAC449412262D1D4B2FB315CE4 /* UIButton+AFNetworking.m */; };
 		7AF011E5E48071516BFF3605BE512219 /* ZBErrorCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 82496F6E31B804D3921473CBEC786427 /* ZBErrorCode.m */; };
 		7D2DF3F4EAAD0FF1BFB1DD80E50D2931 /* LRException.h in Headers */ = {isa = PBXBuildFile; fileRef = 31301AF2B30CFFF23CA84A489A1545CD /* LRException.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -415,6 +415,8 @@
 		33693E5947FC700C7B7DF9E8B76729B4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		359BE57F8797C08854134CB32589CB38 /* ZBChatroom.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ZBChatroom.h; sourceTree = "<group>"; };
 		35A9240ED711F6F20DDF36318E7E2DD4 /* SSZipArchive.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SSZipArchive.m; path = SSZipArchive/SSZipArchive.m; sourceTree = "<group>"; };
+		361BB0EB1DB4818600473608 /* ZBBusinessCloudData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBBusinessCloudData.h; sourceTree = "<group>"; };
+		361BB0EC1DB4818600473608 /* ZBBusinessCloudData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBBusinessCloudData.m; sourceTree = "<group>"; };
 		37844B31FE9CB206548742FD622446FC /* NSDictionary+MPMessagePack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MPMessagePack.h"; sourceTree = "<group>"; };
 		389679964D185586CD448CCE30384BB5 /* PLStreamingSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLStreamingSession.h; path = Pod/Library/include/PLStreamingKit/PLStreamingSession.h; sourceTree = "<group>"; };
 		39C7D76DB645E90541B781CFA795109F /* aeskey.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = aeskey.c; path = SSZipArchive/aes/aeskey.c; sourceTree = "<group>"; };
@@ -506,7 +508,6 @@
 		7E81F4D9145CC185431728338B90988C /* ZBChatroom.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ZBChatroom.m; sourceTree = "<group>"; };
 		7ED8FBF5399D2FF9B7A194F8EAA84A0D /* PLMediaStreamingKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLMediaStreamingKit.h; path = Pod/Library/include/PLMediaStreamingKit/PLMediaStreamingKit.h; sourceTree = "<group>"; };
 		805470B071B36C425A4202BC3A304357 /* ZBAppConfigManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ZBAppConfigManager.m; sourceTree = "<group>"; };
-		808BFB315021B150D5742299F9A13D99 /* commendExchangeModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = commendExchangeModel.h; sourceTree = "<group>"; };
 		814487A6618F0C2A01848BA603804656 /* GHODict.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GHODict.h; sourceTree = "<group>"; };
 		814C4B11478FA7028E3F3F63539357C8 /* HappyDNS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HappyDNS.xcconfig; sourceTree = "<group>"; };
 		82496F6E31B804D3921473CBEC786427 /* ZBErrorCode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ZBErrorCode.m; sourceTree = "<group>"; };
@@ -634,7 +635,6 @@
 		E2780143CB594D569D0C303239AA3A81 /* QNIpModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNIpModel.h; path = HappyDNS/Assessment/QNIpModel.h; sourceTree = "<group>"; };
 		E3E1CEA665394B41427E65A4763BD708 /* NSArray+MPMessagePack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSArray+MPMessagePack.h"; sourceTree = "<group>"; };
 		E50B30D0936FFC2F2B0EE4D1EB654CF2 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+AFNetworking.h"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
-		E5DAF58FD355AB9707C22CB305E2A854 /* commendExchangeModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = commendExchangeModel.m; sourceTree = "<group>"; };
 		E7D03107E98167E80000789E512D2F18 /* MPRPCProtocol.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MPRPCProtocol.m; sourceTree = "<group>"; };
 		E8AE1CC4FA8CE37EB736E5613F69AEDC /* ZBWebSocketServerModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ZBWebSocketServerModel.m; sourceTree = "<group>"; };
 		E8F986189C78D910B0F4726E788ACBE9 /* PLVideoStreamingConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLVideoStreamingConfiguration.h; path = Pod/Library/include/Common/PLVideoStreamingConfiguration.h; sourceTree = "<group>"; };
@@ -961,6 +961,8 @@
 				F20E877B58CC173A73039F596C6BD110 /* ZBApplicationCenter.m */,
 				14EF1BB9893E5250A67A7C45B57FA2A8 /* ZBCloudData.h */,
 				5E0494F7F7838D0ACADDE9D545B0409B /* ZBCloudData.m */,
+				361BB0EB1DB4818600473608 /* ZBBusinessCloudData.h */,
+				361BB0EC1DB4818600473608 /* ZBBusinessCloudData.m */,
 				887BAC552BE8E21DD5EDD4C61CF34764 /* ZBHttpRequestManager.h */,
 				4E974370B0E1555B55BC3AB885989602 /* ZBHttpRequestManager.m */,
 				B2F6B7E69D1631C49C2F0108C97F076F /* ZBInitializeRequestManager.h */,
@@ -1085,8 +1087,6 @@
 		9A5ABF91BFA0C3EC29B3C3A844466848 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				808BFB315021B150D5742299F9A13D99 /* commendExchangeModel.h */,
-				E5DAF58FD355AB9707C22CB305E2A854 /* commendExchangeModel.m */,
 				5A35D3FA99B68A9BFBCAD741F5F4A44F /* FilterModel.h */,
 				B4FF5476597E4A33C3CD57655DCECC9F /* FilterModel.m */,
 				CE8AC8446C4F3CBD90B427E342BA9178 /* GiftModel.h */,
@@ -1463,7 +1463,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7014CFD88BE299D0A5A5EACB0BCB870 /* cmp.h in Headers */,
-				0B60FBB7E52BDE35C499C3743DB2A31C /* commendExchangeModel.h in Headers */,
 				D73C453C20681062E046A303DA381E60 /* FilterModel.h in Headers */,
 				AD34E4C62D632DAA4FB6E9C661920294 /* GHODict.h in Headers */,
 				34B323520CA4E83E6CC02198532C2270 /* GHODictionary.h in Headers */,
@@ -1487,6 +1486,7 @@
 				853B65EE8263C65C37E8C92DD2E8502F /* MPMessagePackServer.h in Headers */,
 				6922E7B011C3833F16B4FCF0798E4FB4 /* MPMessagePackWriter.h in Headers */,
 				C722BFFE334AC9F62D3EF5A7FB654CF2 /* MPRequest.h in Headers */,
+				361BB0ED1DB4818600473608 /* ZBBusinessCloudData.h in Headers */,
 				A86C627E87E62091481B6F96106E8825 /* MPRPCProtocol.h in Headers */,
 				DEE2319F6EADF390BAA7C86FDDCA41FD /* NSArray+MPMessagePack.h in Headers */,
 				01DF3CFD9F5D5E203A7E5A8B87EC62C2 /* NSData+MPMessagePack.h in Headers */,
@@ -1754,7 +1754,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				07D10B82D3DB940F071685F044D3EA62 /* cmp.c in Sources */,
-				77F7BBD02D0F0FD15C915D84FB11F081 /* commendExchangeModel.m in Sources */,
 				9FC869853427F8680A9D1C476E8148B9 /* FilterModel.m in Sources */,
 				401ADF458883B1860B6365E4BDDA046F /* GHODict.m in Sources */,
 				AA2B8E3F57F708B0D9133155E3D54BE8 /* GiftModel.m in Sources */,
@@ -1779,6 +1778,7 @@
 				B8123FD567D8B31B574558A21BB96FB5 /* NSData+MPMessagePack.m in Sources */,
 				27EF050D593AD0DEC9F111E994D30F12 /* NSDictionary+MPMessagePack.m in Sources */,
 				FCCDC4783102FF2EDB3CCB204B3A2CC5 /* NSTimer+lifecycle.m in Sources */,
+				361BB0EE1DB4818600473608 /* ZBBusinessCloudData.m in Sources */,
 				3546D91536B1ADE82FCAC83CAD2BACBE /* ZBAppConfigManager.m in Sources */,
 				2A491EC80964038D6B0C04BEE0C046F7 /* ZBApplicationCenter.m in Sources */,
 				8A71F7ED2E0CEF9A07760EA7150BC5E1 /* ZBChat.m in Sources */,
