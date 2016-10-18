@@ -74,6 +74,12 @@
      3. 获取用户授权信息后,登陆聊天服务器
      4. 所有异常信息都会抛出,如果不能抛出正常,就不能视为正常登陆SDK
      */
+    if (ticket == nil || [ticket length] <= 0) {
+         if (error) {
+             error([ZBErrorCode errorCreateWithErrorCode:ZBErrorCodeStatusEmptyParameter]);
+         }
+         return;
+     }
     [ZBAppConfigManager getUserAuthenticityWithZBTicket:ticket completion:^(NSError *fail) {
         if (fail == nil) {
             [self loginLiRivalkitCompletion:^(NSError *fail) {
