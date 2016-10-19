@@ -120,7 +120,7 @@
  *
  *  @param businessAuthenticity 服务器返回的 json 格式的授权信息
  */
-- (void)updataBusinessAuthenticityData:(NSData *)businessAuthenticity;
+- (void)updataBusinessAuthenticityData:(id)businessAuthenticity;
 
 /**
  *  更新并且持久化敏感词库

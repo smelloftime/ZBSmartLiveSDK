@@ -192,16 +192,15 @@
     [[NSUserDefaults standardUserDefaults] setValue:configJsonData forKey:kUserAuthSaveKey];
 }
 
-- (void)updataBusinessAuthenticityData:(NSData *)businessAuthenticity {
+- (void)updataBusinessAuthenticityData:(id)businessAuthenticity {
     NSParameterAssert(businessAuthenticity);
-    NSError *error = nil;
-    _businessAuthInfo = [NSJSONSerialization JSONObjectWithData:businessAuthenticity options:NSJSONReadingMutableLeaves error:&error];
-    if (error) {
-        NSException *exception = [LRException raiseWithLRExceptionCode:LRExceptionInvalidArgument];
-        [exception raise];
+    NSArray *tempArray = (NSArray *)businessAuthenticity;
+    NSMutableDictionary *tempDic = [NSMutableDictionary dictionary];
+    for (NSDictionary *dic in tempArray) {
+        [tempDic setValue:dic[@"auth_value"] forKey:dic[@"auth_key"]];
     }
-    [[NSUserDefaults standardUserDefaults] setObject:_businessAuthInfo forKey:kBusinessAuthInfo];
-}
+    _businessAuthInfo = tempDic;
+    [[NSUserDefaults standardUserDefaults] setObject:_businessAuthInfo forKey:kBusinessAuthInfo];}
 
 - (void)updateFilterWord:(NSArray *)filterArray {
     NSParameterAssert(filterArray);

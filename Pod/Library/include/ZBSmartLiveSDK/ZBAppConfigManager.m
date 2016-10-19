@@ -95,7 +95,7 @@
             [center updataAuthenticityData:data];
             [ZBInitializeRequestManager sendGetBusinessAuthenticityRequestWithTicket:ticket success:^(id data) {
                 center.ticket = ticket; // 全部逻辑成功后,将票据持久化
-                
+                [center updataBusinessAuthenticityData:data];
                 if (error) {
                     error(nil);
                 }
