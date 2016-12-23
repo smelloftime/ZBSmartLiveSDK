@@ -82,9 +82,9 @@
      }
     [ZBAppConfigManager getUserAuthenticityWithZBTicket:ticket completion:^(NSError *fail) {
         if (fail == nil) {
-            [self loginLiRivalkitCompletion:^(NSError *fail) {
-                error(fail);
-            }];
+            error(fail);
+            // 如果自动登陆失败,不需要抛错到外面,告诉外面登陆是成功的
+            [self loginLiRivalkitCompletion:nil];
         } else {
             error(fail);
         }
@@ -99,9 +99,13 @@
     NSParameterAssert(serverModel.extranet);
     NSParameterAssert(center.userAuthenticityModel.instantMessagingPassword);
     [self.liRivalKit initializeWithAddress:serverModel.extranet token:center.userAuthenticityModel.instantMessagingPassword success:^(NSString *successInfo) {
-        completion(nil);
+        if (completion) {
+            completion(nil);
+        }
     } fail:^(NSError *error) {
-        completion(error);
+        if (completion) {
+            completion(error);
+        }
     }];
 }
 

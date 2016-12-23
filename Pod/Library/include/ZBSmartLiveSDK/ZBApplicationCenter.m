@@ -200,7 +200,8 @@
         [tempDic setValue:dic[@"auth_value"] forKey:dic[@"auth_key"]];
     }
     _businessAuthInfo = tempDic;
-    [[NSUserDefaults standardUserDefaults] setObject:_businessAuthInfo forKey:kBusinessAuthInfo];}
+    [[NSUserDefaults standardUserDefaults] setObject:_businessAuthInfo forKey:kBusinessAuthInfo];
+}
 
 - (void)updateFilterWord:(NSArray *)filterArray {
     NSParameterAssert(filterArray);

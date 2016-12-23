@@ -20,7 +20,7 @@ typedef enum {
     HttpRequestStatusRecreate   = 70401     ///< 重复创建交易口令
 } HttpRequestStatus;
 
-const NSString *kStatusMsgKey = @"message";
+const NSString *kZBStatusMsgKey = @"message";
 
 @implementation ZBHttpRequestManager
 
@@ -48,7 +48,7 @@ void(^processResponseData)(id,void(^)(id),void(^)(NSError *)) = ^(id data,void(^
                 break;
             default:
                 if (fail) {
-                    fail([ZBErrorCode errorCreateWithCoustomDomain:@"ZBURLErrorDomain" errorCode:[data[@"code"] integerValue] description:data[kStatusMsgKey]]);
+                    fail([ZBErrorCode errorCreateWithCoustomDomain:@"ZBURLErrorDomain" errorCode:[data[@"code"] integerValue] description:data[kZBStatusMsgKey]]);
                 }
                 break;
         }
@@ -78,7 +78,7 @@ void(^processImageResponseData)(id,void(^)(id),void(^)(NSError *)) = ^(id data,v
                 break;
             default:
                 if (fail) {
-                    fail([ZBErrorCode errorCreateWithCoustomDomain:@"ZBURLErrorDomain" errorCode:[data[@"code"] integerValue] description:data[kStatusMsgKey]]);
+                    fail([ZBErrorCode errorCreateWithCoustomDomain:@"ZBURLErrorDomain" errorCode:[data[@"code"] integerValue] description:data[kZBStatusMsgKey]]);
                 }
                 break;
         }
@@ -189,7 +189,7 @@ void(^processImageResponseData)(id,void(^)(id),void(^)(NSError *)) = ^(id data,v
     
     ZBLog(@"\businessRootServerAddress:%@\nbusinessRootServerAddressArgumentsDictionary:%@\n", businessRootServerAddress, dic);
     
-    [httpSessionManager POST:@"apis" parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [httpSessionManager POST:@"live.php" parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         processResponseData(responseObject, success, fail);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (fail) {

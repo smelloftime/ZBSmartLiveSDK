@@ -17,12 +17,13 @@ static NSString *ZBWebSockertErrorDomain = @"ZBWebSockertErrorDomain";
 + (NSError *)errorCreateWithErrorCode:(ZBErrorCodeStatus)errorCode {
     NSDictionary *errorDic = @{
                                @(1080): @[ZBNormalErrorDomain, @"未能正常初始化"],
-                               @(1090): @[ZBNormalErrorDomain, @"空的参数"],
-                               @(3010): @[ZBWebSockertErrorDomain, @"失去了和聊天服务器的链接"],
-                               @(3020): @[ZBWebSockertErrorDomain, @"发送消息时响应超时"],
-                               @(10000): @[ZBURLErrorDomain, @"失去网络链接"],
-                               @(10401): @[ZBURLErrorDomain, @"无法识别的服务器数据"],
-                               @(10500): @[ZBURLErrorDomain, @"未授权的用户发起非法请求"]
+                               @(ZBErrorCodeStatusEmptyParameter): @[ZBNormalErrorDomain, @"空的参数"],
+                               @(ZBErrorCodeStatusLostWebSocket): @[ZBWebSockertErrorDomain, @"失去了和聊天服务器的链接"],
+                               @(ZBErrorCodeStatusSendIMTimeout): @[ZBWebSockertErrorDomain, @"发送消息时响应超时"],
+                               @(ZBErrorCodeStatusUnInitialize): @[ZBNormalErrorDomain, @"ZBSDK 未能成功初始化"],
+                               @(ZBErrorCodeStatusLostNetWork): @[ZBURLErrorDomain, @"失去网络链接"],
+                               @(ZBErrorCodeStatusUndistinguishJson): @[ZBURLErrorDomain, @"无法识别的服务器数据"],
+                               @(ZBErrorCodeStatusBreakIn): @[ZBURLErrorDomain, @"未授权的用户发起非法请求"]
                                };
     NSArray *errorArray = errorDic[@(errorCode)];
     NSParameterAssert(errorArray);
