@@ -53,6 +53,8 @@ static const int packetSize[] = {12, 8, 4, 1};
 
 int PILI_RTMP_ctrlC;
 static char reqid[30];
+static char remoteip[48];
+
 
 const char PILI_RTMPProtocolStrings[][7] = {
     "RTMP",
@@ -301,7 +303,7 @@ void PILI_RTMP_UpdateBufferMS(PILI_RTMP *r, RTMPError *error) {
 #endif
 #define DEF_VERSTR OSS " 10,0,32,18"
 static const char DEFAULT_FLASH_VER[] = DEF_VERSTR;
-const PILI_AVal RTMP_DefaultFlashVer =
+const PILI_AVal PILI_RTMP_DefaultFlashVer =
     {(char *)DEFAULT_FLASH_VER, sizeof(DEFAULT_FLASH_VER) - 1};
 
 void PILI_RTMP_SetupStream(PILI_RTMP *r,
@@ -393,7 +395,7 @@ void PILI_RTMP_SetupStream(PILI_RTMP *r,
     if (flashVer && flashVer->av_len)
         r->Link.flashVer = *flashVer;
     else
-        r->Link.flashVer = RTMP_DefaultFlashVer;
+        r->Link.flashVer = PILI_RTMP_DefaultFlashVer;
     if (subscribepath && subscribepath->av_len)
         r->Link.subscribepath = *subscribepath;
     r->Link.seekTime = dStart;
@@ -756,6 +758,25 @@ static int PILI_add_addr_info(PILI_RTMP *r, struct addrinfo *hints, struct addri
         strcpy(error->message, msg);
         PILI_RTMP_Log(PILI_RTMP_LOGERROR, "Problem accessing the DNS. %d (addr: %s) (port: %s)", addrret, hostname, portstr);
         ret = FALSE;
+    }else{
+        memset(remoteip,0, strlen(remoteip));
+
+        if(((struct addrinfo *)*ai)->ai_family == AF_INET6){
+            struct sockaddr_in6 * addrIn6;
+            addrIn6 = (struct sockaddr_in6 *)((struct addrinfo *)*ai)->ai_addr;
+            char ipbuf[48];
+            const char * remote_ip = inet_ntop(AF_INET6,&addrIn6->sin6_addr, ipbuf, sizeof(ipbuf));
+            strncat(remoteip,remote_ip , strlen(remote_ip));
+
+        }else{
+            struct sockaddr_in *addr;
+            addr = (struct sockaddr_in *)((struct addrinfo *)*ai)->ai_addr;
+            char ipbuf[16];
+            const char * remote_ip = inet_ntop(AF_INET,&addr->sin_addr, ipbuf, sizeof(ipbuf));
+            strncat(remoteip, remote_ip, strlen(remote_ip));
+            
+        }
+
     }
 
     if (hostname != host->av_val) {
@@ -1688,6 +1709,11 @@ static int
         if (!enc)
             return FALSE;
     }
+    if (r->Link.pageUrl.av_len) {
+        enc = PILI_AMF_EncodeNamedString(enc, pend, &av_pageUrl, &r->Link.pageUrl);
+        if (!enc)
+            return FALSE;
+    }
     if (!(r->Link.protocol & RTMP_FEATURE_WRITE)) {
         enc = PILI_AMF_EncodeNamedBoolean(enc, pend, &av_fpad, FALSE);
         if (!enc)
@@ -1704,11 +1730,6 @@ static int
         enc = PILI_AMF_EncodeNamedNumber(enc, pend, &av_videoFunction, 1.0);
         if (!enc)
             return FALSE;
-        if (r->Link.pageUrl.av_len) {
-            enc = PILI_AMF_EncodeNamedString(enc, pend, &av_pageUrl, &r->Link.pageUrl);
-            if (!enc)
-                return FALSE;
-        }
     }
     if (r->m_fEncoding != 0.0 || r->m_bSendEncoding) { /* AMF0, AMF3 not fully supported yet */
         enc = PILI_AMF_EncodeNamedNumber(enc, pend, &av_objectEncoding, r->m_fEncoding);
@@ -3413,12 +3434,20 @@ int PILI_RTMP_SendPacket(PILI_RTMP *r, PILI_RTMPPacket *packet, int queue, RTMPE
                 header -= cSize;
                 hSize += cSize;
             }
+            if (t >= 0xffffff) {
+                header -= 4;
+                hSize += 4;
+            }
             *header = (0xc0 | c);
             if (cSize) {
                 int tmp = packet->m_nChannel - 64;
                 header[1] = tmp & 0xff;
                 if (cSize == 2)
                     header[2] = tmp >> 8;
+            }
+            if (t >= 0xffffff) {
+                hptr = header + hSize - 4;
+                hptr = PILI_AMF_EncodeInt32(hptr, hptr + 4, t);
             }
         }
     }
@@ -4013,11 +4042,11 @@ static int
             }
 
             /* we have to ignore the 0ms frames since these are the first
-	   * keyframes; we've got these so don't mess around with multiple
-	   * copies sent by the server to us! (if the keyframe is found at a
-	   * later position there is only one copy and it will be ignored by
-	   * the preceding if clause)
-	   */
+    	     * keyframes; we've got these so don't mess around with multiple
+    	     * copies sent by the server to us! (if the keyframe is found at a
+    	     * later position there is only one copy and it will be ignored by
+    	     * the preceding if clause)
+    	     */
             if (!(r->m_read.flags & RTMP_READ_NO_IGNORE) &&
                 packet.m_packetType != 0x16) { /* exclude type 0x16 (FLV) since it can
 				 * contain several FLV packets */
@@ -4339,4 +4368,8 @@ int PILI_RTMP_Version() {
 
 const char * PILI_RTMP_GetReqId(){
     return reqid;
+}
+
+const char * PILI_RTMP_GetRemoteIp(){
+    return remoteip;
 }

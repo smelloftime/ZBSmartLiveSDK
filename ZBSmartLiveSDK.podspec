@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.dependency 'AFNetworking', '~> 3.0.4'
   s.dependency 'MJExtension', '~> 3.0.13'
   s.dependency 'SSZipArchive', '~> 1.6.2'
-  s.dependency 'PLMediaStreamingKit', '~> 2.1.3'
+  s.dependency 'PLMediaStreamingKit', '2.2.3'
 
   s.libraries = 'z', 'c++', 'resolv', 'icucore', 'sqlite3'
 

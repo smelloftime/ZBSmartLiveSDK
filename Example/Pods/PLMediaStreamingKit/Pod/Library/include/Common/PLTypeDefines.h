@@ -12,6 +12,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
+
 #pragma mark - Stream State
 
 
@@ -195,7 +196,8 @@ typedef enum {
     PLRTCStreamingErrorConnectRoomFailed = -3009,
     PLRTCStreamingErrorSetVideoBitrateFailed = -3010,
     PLRTCStreamingErrorSystemVersionNotSupported = -3011,
-    PLRTCStreamingErrorRTCLibraryNotFound = -3012
+    PLRTCStreamingErrorRTCLibraryNotFound = -3012,
+    PLRTCStreamingErrorUnsubscribeFailed = -3013
 } PLStreamError;
 
 #pragma mark - Video Streaming Quality
@@ -331,6 +333,37 @@ extern NSString *PLCameraDidStartRunningNotificaiton;
 extern NSString *PLMicrophoneDidStartRunningNotificaiton;
 extern NSString *PLAudioComponentFailedToCreateNotification;
 
+/*!
+ @typedef    PLH264EncoderType
+ @abstract   H.264 编码器类型
+ 
+ @constant   PLH264EncoderType_AVFoundation  采用 AVFoundation 进行编码
+ @constant   PLH264EncoderType_VideoToolbox  采用 VideoToolbox 进行编码，只在 iOS 8 及以上支持，iOS 8 以下系统版本会自动回退为 PLH264EncoderType_AVFoundation 编码器
+ */
+typedef NS_ENUM(NSUInteger, PLH264EncoderType) {
+    PLH264EncoderType_AVFoundation,    // AVFoundation 编码器
+    PLH264EncoderType_VideoToolbox     // iOS 8 及以上系统版本可用 VideoToolbox 编码器，编码效率更优
+};
+
+/**
+ @brief 音频编码模式
+ */
+typedef NS_ENUM(NSUInteger, PLAACEncoderType) {
+    /**
+     @brief iOS AAC（硬编）
+     */
+    PLAACEncoderType_iOS_AAC,
+    /**
+     @brief fdk-aac AAC
+     */
+    PLAACEncoderType_fdk_AAC_LC,
+    /**
+     @brief fdk-aac HE-AAC
+     */
+    PLAACEncoderType_fdk_AAC__HE_BSR
+    
+};
+
 #pragma mark - Audio SampleRate
 
 /*!
@@ -369,6 +402,46 @@ typedef enum {
     PLStreamingAudioBitRate_128Kbps = 128000,
 } PLStreamingAudioBitRate;
 
+/*!
+ @typedef    PLAudioStreamEndian
+ @abstract   PLAudioStreamEndian 音频流如何处理大小端。
+ @since      @v1.2.5
+ */
+typedef NS_ENUM(NSUInteger, PLAudioStreamEndian) {
+    /// PLAudioStreamEndian_Auto 根据 CMSampleBufferRef 的描述决定该以大端还是小端来处理
+    PLAudioStreamEndian_Auto = 0,
+    /// PLAudioStreamEndian_BigEndian 显式声明音频流为大端
+    PLAudioStreamEndian_BigEndian = 1,
+    /// PLAudioStreamEndian_LittleEndian 显式声明音频流为小端
+    PLAudioStreamEndian_LittleEndian = 2
+};
+
+#pragma mark - Audio Channel
+
+/*!
+ @constant   kPLAudioChannelDefault
+ @abstract   默认音频输入流
+ 
+ @since      v1.2.5
+ */
+extern const NSString *kPLAudioChannelDefault;
+
+/*!
+ @constant   kPLAudioChannelApp
+ @abstract   来自ReplayKit Live的Audio App音频流
+ 
+ @since      v1.2.5
+ */
+extern const NSString *kPLAudioChannelApp;
+
+/*!
+ @constant   kPLAudioChannelMic
+ @abstract   来自ReplayKit Live的Audio Mic音频流
+ 
+ @since      v1.2.5
+ */
+extern const NSString *kPLAudioChannelMic;
+
 #pragma mark - RTC Video Size
 
 /*!
@@ -385,7 +458,21 @@ typedef NS_ENUM(NSUInteger, PLRTCVideoSizePreset) {
     PLRTCVideoSizePreset544x720,        //4:3
     PLRTCVideoSizePreset544x960,        //16:9
     PLRTCVideoSizePreset720x960,        //4:3
-    PLRTCVideoSizePreset720x1280        //16:9
+    PLRTCVideoSizePreset720x1280,       //16:9
+    PLRTCVideoSizePreset144x192         //4:3
+};
+
+///连麦类型
+typedef NS_OPTIONS(NSUInteger, PLRTCConferenceType) {
+    PLRTCConferenceTypeAudio = 0,
+    PLRTCConferenceTypeVideo,
+    PLRTCConferenceTypeAudioAndVideo
+};
+
+///连麦视频格式
+typedef NS_OPTIONS(NSUInteger, PLRTCVideoFormat) {
+    PLRTCVideoFormatNV12 = 0,
+    PLRTCVideoFormatI420 = 1
 };
 
 /// 断线后是否自动重新加入房间，默认为 YES
@@ -466,6 +553,11 @@ typedef void (^PLAudioEffectCustomConfigurationBlock)(void *inRefCon,
                                                       UInt32 inBusNumber,
                                                       UInt32 inNumberFrames,
                                                       AudioBufferList *ioData);
+
+
+typedef void (^PLAudioSessionDidBeginInterruptionCallback)();
+
+typedef void (^PLAudioSessionDidEndInterruptionCallback)();
 
 /**
  @brief 对截图数据进行处理的回调
