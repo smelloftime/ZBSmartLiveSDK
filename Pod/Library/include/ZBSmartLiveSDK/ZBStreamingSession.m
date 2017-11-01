@@ -11,15 +11,17 @@
 
 #import "PLCameraStreamingKit.h"
 #import <CoreLocation/CoreLocation.h>
+#import <PLMediaStreamingKit/PLMediaStreamingKit.h>
 
-@interface ZBStreamingSession ()<CLLocationManagerDelegate,PLCameraStreamingSessionDelegate>
+
+@interface ZBStreamingSession ()<CLLocationManagerDelegate,PLMediaStreamingSessionDelegate>
 
 /** 位置信息管理 */
 @property (strong, nonatomic) CLLocationManager *locationManager;
 /** 位置信息 */
 @property (strong, nonatomic) CLLocation *location;
 /** 推流核心 */
-@property (nonatomic, strong) PLCameraStreamingSession  *session;
+@property (nonatomic, strong) PLMediaStreamingSession  *session;
 @property (nonatomic, strong) dispatch_queue_t sessionQueue;
 /** 推流 ID */
 @property (nonatomic, copy) NSString *streamID;
@@ -91,7 +93,7 @@
                 // 上传配置成功 ，切换直播界面 开始推流
                 dispatch_async(weakSelf.sessionQueue, ^{
                     // 在开始直播之前请确保已经从业务服务器获取到了 streamURL，streamURL 的格式为 "rtmp://"
-                    [weakSelf.session startWithFeedback:^(PLStreamStartStateFeedback feedback) {
+                    [weakSelf.session startStreamingWithFeedback:^(PLStreamStartStateFeedback feedback) {
                         if (handler) {
                             handler((ZBStreamingStartStatus)feedback);
                         }
@@ -118,7 +120,7 @@
             // 上传配置成功 ，切换直播界面 开始推流
             dispatch_async(self.sessionQueue, ^{
                 // 在开始直播之前请确保已经从业务服务器获取到了 streamURL，streamURL 的格式为 "rtmp://"
-                [weakSelf.session startWithFeedback:^(PLStreamStartStateFeedback feedback) {
+                [weakSelf.session startStreamingWithFeedback:^(PLStreamStartStateFeedback feedback) {
                     if (handler) {
                         handler((ZBStreamingStartStatus)feedback);
                     }
@@ -143,11 +145,13 @@
     // 预先设定几组编码质量，之后可以切换
     CGSize videoSize = CGSizeMake(720 , 1280);
     PLStream *stream = [PLStream streamWithJSON:[self dictionaryWithJsonString:json]];
-    self.videoStreamingConfigurations = @[
-                                          [[PLVideoStreamingConfiguration alloc] initWithVideoSize:videoSize expectedSourceVideoFrameRate:30 videoMaxKeyframeInterval:90 averageVideoBitRate:1200 * 1000 videoProfileLevel:AVVideoProfileLevelH264Baseline31]
-                                          ];
+    PLVideoStreamingConfiguration* config = [[PLVideoStreamingConfiguration alloc] initWithVideoSize:videoSize expectedSourceVideoFrameRate:30 videoMaxKeyframeInterval:90 averageVideoBitRate:1200*1000 videoProfileLevel:AVVideoProfileLevelH264Baseline31 videoEncoderType:PLH264EncoderType_VideoToolbox];
+    self.videoStreamingConfigurations = @[config];
+    
     void (^permissionBlock)(void) = ^{
-        dispatch_async(self.sessionQueue, ^{
+        // 必须在主线程中初始化PLMediaStreamingSession 否者在iOS11系统下会有直播预览图要等很久才能加载出来或者直接加载失败
+        // 同时更新PLMediaStreamingKit至2.2.4才行
+        dispatch_async(dispatch_get_main_queue(), ^{
             // 视频采集配置
             PLVideoCaptureConfiguration *videoCaptureConfiguration = [PLVideoCaptureConfiguration defaultConfiguration];
             videoCaptureConfiguration.sessionPreset = AVCaptureSessionPreset1280x720;
@@ -157,20 +161,18 @@
             PLVideoStreamingConfiguration *videoStreamingConfiguration = [self.videoStreamingConfigurations lastObject];
             // 音频编码配置
             PLAudioStreamingConfiguration *audioStreamingConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
-            self.session = [[PLCameraStreamingSession alloc] initWithVideoCaptureConfiguration:videoCaptureConfiguration audioCaptureConfiguration:audioCaptureConfiguration videoStreamingConfiguration:videoStreamingConfiguration audioStreamingConfiguration:audioStreamingConfiguration stream:stream];
+            self.session = [[PLMediaStreamingSession alloc] initWithVideoCaptureConfiguration:videoCaptureConfiguration audioCaptureConfiguration:audioCaptureConfiguration videoStreamingConfiguration:videoStreamingConfiguration audioStreamingConfiguration:audioStreamingConfiguration stream:stream];
             // 美颜
             [self.session setBeautifyModeOn:YES];
             [self.session setBeautify:0.5];
             self.session.delegate = self;
             self.session.captureDevicePosition = AVCaptureDevicePositionFront;
             self.isCameraToScreen = YES;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.liveView.autoresizingMask = UIViewAutoresizingFlexibleHeight| UIViewAutoresizingFlexibleWidth;
-                viewBlock();
-                if (self.sessionQueue == nil) {
-                    return ;
-                }
-            });
+            self.liveView.autoresizingMask = UIViewAutoresizingFlexibleHeight| UIViewAutoresizingFlexibleWidth;
+            viewBlock();
+            if (self.sessionQueue == nil) {
+                return ;
+            }
         });
     };
     void (^noAccessBlock)(void) = ^{
@@ -181,12 +183,12 @@
                                                   otherButtonTitles:nil];
         [alertView show];
     };
-    switch ([PLCameraStreamingSession cameraAuthorizationStatus]) {
+    switch ([PLMediaStreamingSession cameraAuthorizationStatus]) {
         case PLAuthorizationStatusAuthorized:
             permissionBlock();
             break;
         case PLAuthorizationStatusNotDetermined: {
-            [PLCameraStreamingSession requestCameraAccessWithCompletionHandler:^(BOOL granted) {
+            [PLMediaStreamingSession requestCameraAccessWithCompletionHandler:^(BOOL granted) {
                 granted ? permissionBlock() : noAccessBlock();
             }];
         }
@@ -274,7 +276,7 @@
 
 #pragma mark └ PLCameraStreamingSession delegate 推流代理
 // 流状态已变更的回调
-- (void)cameraStreamingSession:(PLCameraStreamingSession *)session streamStateDidChange:(PLStreamState)state {
+- (void)mediaStreamingSession:(PLMediaStreamingSession *)session streamStateDidChange:(PLStreamState)state{
     // 这个回调会确保在主线程，所以可以直接对 UI 做操作
     if (state == PLStreamStateConnected) {
         [self.reconnectionTimer invalidate];
@@ -282,28 +284,24 @@
         self.reconnectionKeyTime = nil;
     }
 }
-
 // 因产生了某个 error 而断开时的回调
-- (void)cameraStreamingSession:(PLCameraStreamingSession *)session didDisconnectWithError:(NSError *)error {
+- (void)mediaStreamingSession:(PLMediaStreamingSession *)session didDisconnectWithError:(NSError *)error{
     [self reconnectStatusChangedWithType:ZBStreamingStatusStartReconnect];
     [self.reconnectionTimer fire];
 }
-
 // 当开始推流时，会每间隔 3s 调用该回调方法来反馈该 3s 内的流状态，包括视频帧率、音频帧率、音视频总码率
-- (void)cameraStreamingSession:(PLCameraStreamingSession *)session streamStatusDidUpdate:(PLStreamStatus *)status {
+- (void)mediaStreamingSession:(PLMediaStreamingSession *)session streamStatusDidUpdate:(PLStreamStatus *)status{
     if (_delegate && [_delegate respondsToSelector:@selector(streamingSession:streamStatusDidUpdate:)]) {
         [_delegate streamingSession:self streamingStateDidUpload:(ZBStreamingStatus)status];
     }
     NSLog(@"videoFPS %f", status.videoFPS);
 }
-
-- (CVPixelBufferRef)cameraStreamingSession:(PLCameraStreamingSession *)session cameraSourceDidGetPixelBuffer:(CVPixelBufferRef)pixelBuffer {
+- (CVPixelBufferRef)mediaStreamingSession:(PLMediaStreamingSession *)session cameraSourceDidGetPixelBuffer:(CVPixelBufferRef)pixelBuffer{
     // 滤镜
     CIImage *outImage = [self addfilterViewWithIndex:self.filterType pixelBufferRef:pixelBuffer];
     [self.context render:outImage toCVPixelBuffer:pixelBuffer];
     return pixelBuffer;
 }
-
 
 #pragma mark - filter 滤镜
 // 添加滤镜
@@ -354,7 +352,7 @@
     }
     int timeAway = -[self.reconnectionKeyTime timeIntervalSinceDate:[NSDate date]];
     if (timeAway == 1.5 || timeAway == 4 || timeAway == 7.5) {
-        [self.session restartWithFeedback:^(PLStreamStartStateFeedback feedback) {
+        [self.session restartStreamingWithFeedback:^(PLStreamStartStateFeedback feedback) {
             if (feedback == PLStreamStartStateSuccess) {
                 [self.reconnectionTimer invalidate];
                 self.reconnectionTimer = nil;
@@ -367,7 +365,7 @@
             }
         }];
     } else if (timeAway > 10.0f) {
-        [self.session stop];
+        [self.session stopStreaming];
         [self reconnectStatusChangedWithType:ZBStreamingStatusReconnectFaild];
         [self endStreaming];
     }
